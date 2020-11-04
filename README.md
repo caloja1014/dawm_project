@@ -22,9 +22,9 @@ El emprendimiento realiza diferentes tipos de artículos como cajas de regalo, c
 
 Prototipo:
 
-<a href="./Prototipo/prototipo.fig">Enlace a prototipo .fig</a>
+<a href="https://github.com/caloja1014/dawm_project/blob/main/Prototipo/Prototipo.fig">Enlace a prototipo .fig</a>
 
-<a href="./Prototipo/prototipo.pdf">Enlace a prototipo .pdf</a>
+<a href="https://github.com/caloja1014/dawm_project/blob/main/Prototipo/Prototipo.pdf">Enlace a prototipo .pdf</a>
 
 ## Enlace plantilla de Bootstrap
 * https://startbootstrap.com/themes/creative/ 
