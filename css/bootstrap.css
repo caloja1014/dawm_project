@@ -10054,20 +10054,20 @@ hr.light {
   #mainNav .navbar-nav .nav-item:last-child .nav-link {
     padding-right: 0;
   }
-  #mainNav.navbar-scrolled {
+  #mainNav {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     background-color: #fff;
   }
-  #mainNav.navbar-scrolled .navbar-brand {
+  #mainNav .navbar-brand {
     color: #212529;
   }
-  #mainNav.navbar-scrolled .navbar-brand:hover {
+  #mainNav .navbar-brand:hover {
     color: #f4623a;
   }
-  #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link {
+  #mainNav .navbar-nav .nav-item .nav-link {
     color: #212529;
   }
-  #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link:hover {
+  #mainNav .navbar-nav .nav-item .nav-link:hover {
     color: #f4623a;
   }
 }
