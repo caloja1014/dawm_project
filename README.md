@@ -22,9 +22,11 @@ El emprendimiento realiza diferentes tipos de artículos como cajas de regalo, c
 
 Prototipo:
 
-<a href="https://github.com/caloja1014/dawm_project/blob/main/Prototipo/Prototipo.fig">Enlace a prototipo .fig</a>
+* <a href="https://github.com/caloja1014/dawm_project/blob/main/Prototipo/Prototipo.fig">Enlace a prototipo .fig</a>
 
-<a href="https://github.com/caloja1014/dawm_project/blob/main/Prototipo/Prototipo.pdf">Enlace a prototipo .pdf</a>
+* <a href="https://github.com/caloja1014/dawm_project/blob/main/Prototipo/Prototipo.pdf">Enlace a prototipo .pdf</a>
+
+* https://www.figma.com/file/5srsbUg0yGbIw7Cb5sDXRd/Figma-Wireframe-Kit-(Free)-(Community)?node-id=0%3A1
 
 ## Enlace plantilla de Bootstrap
 * https://startbootstrap.com/themes/creative/ 
