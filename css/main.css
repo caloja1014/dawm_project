@@ -10,19 +10,42 @@ body {
 #gradient::before{
   content:'';
 	position: absolute;
-        top: 0;
+  top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	background: linear-gradient(0deg, rgba(0,0,0,0.6), transparent 60%);
 }
 
-/*.carousel-shadow{
-  height: 50vw;
-  width: 100vw;
-  background: ;
-  position: absolute;
-  bottom: 5.5vw;
-  display: inline-block;
+.expand-on-hover{
+  transition: all ease-out 0.2s;
 }
-*/
+.expand-on-hover:hover{
+  transform: scale(1.05);
+}
+
+#about, #productos{
+  padding-bottom: 0px;
+}
+#separator-about, #separator-products{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.content{
+  width: 150%;
+  height: 150px;
+  margin-left: -25%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+#separator-about .content{
+  background-color: #f4623a;
+}
+
+#separator-products .content{
+  background-color: #343a40;
+}
