@@ -14,7 +14,7 @@ body {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: linear-gradient(0deg, rgba(0,0,0,0.6), transparent 60%);
+	background: linear-gradient(0deg, rgba(125, 61, 33, 0.7), transparent 60%);
 }
 
 .expand-on-hover{
@@ -40,12 +40,4 @@ body {
   margin-left: -25%;
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
-}
-
-#separator-about .content{
-  background-color: #f4623a;
-}
-
-#separator-products .content{
-  background-color: #343a40;
 }
