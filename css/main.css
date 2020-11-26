@@ -8,10 +8,6 @@ body {
 }
 
 div.gradient{
-  height: 50vh;
-  width: 100vw;
-  background: linear-gradient(0deg, rgba(0,0,0,0.6), transparent 60%);
-  position: absolute;
-  bottom: 11vh;
-  display: inline-block
+  border-radius: 20px;
+  box-shadow: inset 100px 100px 15px 10px black;
 }
