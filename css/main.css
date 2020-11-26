@@ -7,7 +7,38 @@ body {
   padding-top: 56px;
 }
 
-div.gradient{
-  border-radius: 20px;
-  box-shadow: inset 100px 100px 15px 10px black;
+
+#gradient::before{
+  content:'';
+	position: absolute;
+  top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: linear-gradient(0deg, rgba(125, 61, 33, 0.7), transparent 60%);
+}
+
+.expand-on-hover{
+  transition: all ease-out 0.2s;
+}
+.expand-on-hover:hover{
+  transform: scale(1.05);
+}
+
+#about, #productos{
+  padding-bottom: 0px;
+}
+#separator-about, #separator-products{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: -5;
+}
+
+.content{
+  width: 150%;
+  height: 150px;
+  margin-left: -25%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
