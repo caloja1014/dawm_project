@@ -8,6 +8,7 @@ body {
 }
 
 #mainNav{
+  color: #3A2A11 !important;
   border-bottom: 1.5px rgba(125, 61, 33, 0.7) solid;
 }
 
@@ -51,4 +52,16 @@ body {
   margin-left: -25%;
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
+}
+
+.categorias, #services h2, #services h3, #contact h2{
+  color: #3A2A11;
+}
+
+.bg-gray{
+  background-color: gray;
+}
+
+.nav-item{
+  align-self: center;
 }
