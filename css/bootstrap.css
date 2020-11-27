@@ -3954,7 +3954,7 @@ input[type=button].btn-block {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 0rem 1rem;
 }
 .navbar .container,
 .navbar .container-fluid,
@@ -10011,7 +10011,7 @@ hr.light {
 }
 
 #mainNav {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
   background-color: #fff;
   transition: background-color 0.2s ease;
 }

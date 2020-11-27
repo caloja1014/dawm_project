@@ -7,6 +7,9 @@ body {
   padding-top: 56px;
 }
 
+#mainNav{
+  border-bottom: 1.5px rgba(125, 61, 33, 0.7) solid;
+}
 
 #gradient::before{
   content:'';
@@ -16,6 +19,10 @@ body {
 	left: 0;
 	right: 0;
 	background: linear-gradient(0deg, rgba(125, 61, 33, 0.7), transparent 60%);
+}
+
+.meraki-icon{
+  padding: 0px;
 }
 
 .expand-on-hover{
@@ -29,6 +36,8 @@ body {
   padding-bottom: 0px;
 }
 #separator-about, #separator-products{
+  display: relative;
+  top: -5px;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -36,6 +45,7 @@ body {
 }
 
 .content{
+  
   width: 150%;
   height: 150px;
   margin-left: -25%;
