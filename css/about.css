@@ -48,17 +48,28 @@
     justify-content: center;
     border-spacing: 10px;
     grid-gap: 20px;
+    background-color: #fee696;
     
+}
+.content{
+    width: 150%;
+    height: 80px !important;
+    margin-left: -25%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%
+}
+.bg-primary{
+    background-color: #fee696 !important;
 }
 .row{
     margin-bottom: 40px;
 }
 #vision_container div:nth-child(1){
     text-align: center;
-    color: #3a2a11;
-    margin: 40px 5px 25px 5px;
+    color: #fff;
+    margin: 70px 5px 25px 5px;
     font-size:xx-large;
-    background-color: #f9c49a;
+    background-color: #ec823a;
     border-radius: 10px;
 
 }
@@ -74,10 +85,10 @@
 
 #mision_container div:nth-child(1){
     text-align: center;
-    color: #3a2a11;
-    margin: 40px 5px 25px 5px;
+    color: #fff;
+    margin: 70px 5px 25px 5px;
     font-size:xx-large;
-    background-color: #f9c49a;
+    background-color: #ec823a;
     border-radius: 10px;
     
 
@@ -110,6 +121,10 @@
     justify-content: center;
     margin-top: 60px;
     margin-bottom: 60px;
+}
+#dev_button a{
+    color: white;
+    text-decoration: none;
 }
 *{
     box-sizing: border-box;
