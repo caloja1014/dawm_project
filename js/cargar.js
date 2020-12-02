@@ -80,3 +80,32 @@ document.addEventListener('DOMContentLoaded', ()=> {
     console.log("Holaa");
     cargarJSON();
 });
+
+
+function onclicks(){
+    for(let item of json){
+        
+        let a = document.getElementById(item.categoria);
+        
+        a.onclick = ()=>{
+            let carousel = document.getElementById("carousel-products");
+            carousel.innerHTML = "";
+            for(let imgCarousel of item.header.imagenes){
+                carousel.innerHTML+=
+                    '<div class="carousel-item active">'+
+                        '<img class="d-block img-fluid" src="'+imgCarousel+'" alt="First slide">'+
+                    '</div>';
+            }
+            categString = item.categoria;
+            let products = document.getElementById("productos");
+            for(let item2 of json){
+                let divcateg = document.getElementById("div"+item2.categoria);
+                if(item2.categoria!=categString){
+                    divcateg.style.display = "none";
+                }else{
+                    divcateg.style.display = "";
+                }
+            }
+        };
+    }
+}
