@@ -1,9 +1,11 @@
 [
     {
-        "categoria":"navidad",
+        "categoria":"Navidad",
         "header":{
             "imagenes":[
-                ""
+                "http://placehold.it/900x350",
+                "http://placehold.it/900x350",
+                "http://placehold.it/900x350"
             ]
         },
         "productos":[
@@ -59,10 +61,12 @@
     },
 
     {
-        "categoria":"camisetas",
+        "categoria":"Camisetas",
         "header":{
             "imagenes":[
-                ""
+                "http://placehold.it/900x350",
+                "http://placehold.it/900x350",
+                "http://placehold.it/900x350"
             ]
         },
         "productos":[
@@ -91,12 +95,12 @@
                 "nombre":"Camiseta Rey Leon",
                 "descripcion":" Camiseta de simba, pumba y timón",
                 "precio":20,
-                "img": "lionking1.jpg"
+                "img": "lionking.jpg"
             },{
                 "nombre":"Camiseta Simba Rey Leon",
                 "descripcion":"Camiseta de Simba pequeño con frases creativas",
                 "precio":20,
-                "img": "lionkin2.jpg"
+                "img": "lionking2.jpg"
             },{
                 "nombre":"Camiseta Bob Esponka",
                 "descripcion":"Camiseta con cara de bob esponja de fondo",
@@ -124,10 +128,12 @@
 
 
     {
-        "categoria":"regalos",
+        "categoria":"Regalos",
         "header":{
             "imagenes":[
-                ""
+                "http://placehold.it/900x350",
+                "http://placehold.it/900x350",
+                "http://placehold.it/900x350"
             ]
         },
         "productos":[
@@ -194,77 +200,13 @@
         ]
     },
 
-
     {
-        "categoria":"otros",
+        "categoria":"Jarros",
         "header":{
             "imagenes":[
-                ""
-            ]
-        },
-        "productos":[
-            {
-                "nombre":"Alcancia de madera",
-                "descripcion":"Alcancias de madera, para que guardes tus ahorros, personalízalas como desees",
-                "precio":10000,
-                "img": "alcanciaMadera.jpg"
-            },
-            {
-                "nombre":"Angelito de la guardia",
-                "descripcion":"Angelito de la guardia, personalizado con el nombre de tu bebé",
-                "precio":10000,
-                "img": "angelitoDeLaGuardia.jpg"
-            },
-            {
-                "nombre":"Tomatodos personalizados",
-                "descripcion":"Tomatodos personalizados, elige el color y el mensaje que desees",
-                "precio":10000,
-                "img": "tomatodos.jpg"
-            },
-            {
-                "nombre":"Gallinas tejidas",
-                "descripcion":"Lleva este adorno para tu sala, gallinas tejidas a mano, elije el color que desees",
-                "precio":10000,
-                "img": "gallinasTejidas.jpg"
-            },
-            {
-                "nombre":"Gorras",
-                "descripcion":"Lleva estas gorras para protegerte del sol",
-                "precio":10000,
-                "img": "gorras.jpg"
-            },
-            {
-                "nombre":"Portavelas",
-                "descripcion":"Porta velas de madera más tres velitas led a pilas, incluye cajita de regalo. Lindo detalle",
-                "precio":10000,
-                "img": "portavelas.jpg"
-            },
-            {
-                "nombre":"Tapetes navieños",
-                "descripcion":"Tapetes navideños tejidos a mano",
-                "precio":10000,
-                "img": "tapetesNavidenos.jpg"
-            },
-            {
-                "nombre":"Gorros con visores",
-                "descripcion":"Hermosos gorros con visores protectores, prácticos y seguros para niñas y niños",
-                "precio":10000,
-                "img": "visores.jpg"
-            },
-            {
-                "nombre":"Colgante de cumpleaños",
-                "descripcion":"Ahora será fácil recordar los cumpleaños de tu familia con este lindo colgante. Incluye caja",
-                "precio":10000,
-                "img": "colganteCumpleanos.jpg"
-            }
-        ]
-    },
-
-    {
-        "categoria":"jarros",
-        "header":{
-            "imagenes":[
-                ""
+                "http://placehold.it/900x350",
+                "http://placehold.it/900x350",
+                "http://placehold.it/900x350"
             ]
         },
         "productos":[
@@ -320,7 +262,7 @@
                 "nombre":"Taza con fondo de color",
                 "descripcion":"Taza con color por dentro. Disponible varios colores",
                 "precio":10000,
-                "img": "tazacolores.jpg"
+                "img": "tazascolores.jpg"
             },
             {
                 "nombre":"Taza Mazinger",
@@ -338,10 +280,12 @@
     },
 
     {
-        "categoria":"sueters",
+        "categoria":"Sueters",
         "header":{
             "imagenes":[
-                ""
+                "http://placehold.it/900x350",
+                "http://placehold.it/900x350",
+                "http://placehold.it/900x350"
             ]
         },
         "productos":[
@@ -416,6 +360,72 @@
                 "descripcion":"Lleva tu suéter luciendo tu gusto a la cerveza Duff",
                 "precio":10000,
                 "img":"sueterDuff.jpg"
+            }
+        ]
+    },
+    {
+        "categoria":"Otros",
+        "header":{
+            "imagenes":[
+                "http://placehold.it/900x350",
+                "http://placehold.it/900x350",
+                "http://placehold.it/900x350"
+            ]
+        },
+        "productos":[
+            {
+                "nombre":"Alcancia de madera",
+                "descripcion":"Alcancias de madera, para que guardes tus ahorros, personalízalas como desees",
+                "precio":10000,
+                "img": "alcanciaMadera.jpg"
+            },
+            {
+                "nombre":"Angelito de la guardia",
+                "descripcion":"Angelito de la guardia, personalizado con el nombre de tu bebé",
+                "precio":10000,
+                "img": "angelitoDeLaGuardia.jpg"
+            },
+            {
+                "nombre":"Tomatodos personalizados",
+                "descripcion":"Tomatodos personalizados, elige el color y el mensaje que desees",
+                "precio":10000,
+                "img": "tomatodos.jpg"
+            },
+            {
+                "nombre":"Gallinas tejidas",
+                "descripcion":"Lleva este adorno para tu sala, gallinas tejidas a mano, elije el color que desees",
+                "precio":10000,
+                "img": "gallinasTejidas.jpg"
+            },
+            {
+                "nombre":"Gorras",
+                "descripcion":"Lleva estas gorras para protegerte del sol",
+                "precio":10000,
+                "img": "gorras.jpg"
+            },
+            {
+                "nombre":"Portavelas",
+                "descripcion":"Porta velas de madera más tres velitas led a pilas, incluye cajita de regalo. Lindo detalle",
+                "precio":10000,
+                "img": "portavelas.jpg"
+            },
+            {
+                "nombre":"Tapetes navieños",
+                "descripcion":"Tapetes navideños tejidos a mano",
+                "precio":10000,
+                "img": "tapetesNavidenos.jpg"
+            },
+            {
+                "nombre":"Gorros con visores",
+                "descripcion":"Hermosos gorros con visores protectores, prácticos y seguros para niñas y niños",
+                "precio":10000,
+                "img": "visores.jpg"
+            },
+            {
+                "nombre":"Colgante de cumpleaños",
+                "descripcion":"Ahora será fácil recordar los cumpleaños de tu familia con este lindo colgante. Incluye caja",
+                "precio":10000,
+                "img": "colganteCumpleanos.jpg"
             }
         ]
     }
