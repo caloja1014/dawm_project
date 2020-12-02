@@ -13,7 +13,7 @@ let cargarJSON = () =>{
             let active = contimg++==0? "active":"";
                 carousel.innerHTML+=
                     '<div class="carousel-item '+active+'">'+
-                        '<img class="d-block img-fluid" src="'+imgCarousel+'" alt="First slide">'+
+                        '<img class="d-block img-fluid" src="./assets/productos/'+firstCateg.categoria+'/'+imgCarousel+'" alt="First slide">'+
                     '</div>';
         }
 
@@ -98,7 +98,7 @@ function onclicks(){
                 let active = cont++==0? "active":"";
                 carousel.innerHTML+=
                     '<div class="carousel-item '+active+'">'+
-                        '<img class="d-block img-fluid" src="'+imgCarousel+'" alt="First slide">'+
+                        '<img class="d-block img-fluid" src="./assets/productos/'+item.categoria+'/'+imgCarousel+'" alt="First slide">'+
                     '</div>';
             }
             categString = item.categoria;

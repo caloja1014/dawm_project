@@ -6,7 +6,7 @@ let cargarNoticias = function(){
     fetch('data/noticias.json')
     .then(response => response.json())
     .then(data =>{
-        newsContainer = document.getElementById("newsContainer");
+        let newsContainer = document.getElementById("newsContainer");
         for(let noticia of data.noticias){
             console.log("hey")
             let img = noticia['imagen'];
@@ -80,6 +80,27 @@ let crearBoton = (redireccion) => {
 let crearCardFoot=(fecha)=>{
     cardFoot = document.createElement("div");
     cardFoot.setAttribute("class","card-footer text-muted"),
-    cardFoot.textContent = "Posted: "+fecha;
+    cardFoot.textContent = "Publicado: "+fecha;
     return cardFoot;
+}
+
+
+
+let buscador = document.getElementById("inputNoticia")
+
+buscador.oninput =()  =>{
+    let input = buscador.value.toLowerCase();
+    console.log(document.getElementById("inputNoticia").value)
+
+    let cards = document.getElementsByClassName("card mb-4");
+    let title = document.getElementsByClassName("card-title");
+    for (let i = 0; i<cards.length; i++){
+        cards[i].style.display = "";
+        titulo = title[i].textContent.toLowerCase();
+        console.log(titulo)
+        if(!titulo.includes(input)){
+            console.log(cards[i].textContent)
+            cards[i].style.display = "none";
+        }
+    }
 }
