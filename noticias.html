@@ -14,11 +14,14 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap" rel="stylesheet">
         <!-- Third party plugin CSS-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/bootstrap.css" rel="stylesheet" />
         <link href="css/main.css" rel="stylesheet" />
+        <link href="css/noticias.css" rel="stylesheet"/>
     </head>
 
     <body id="page-top">
@@ -35,8 +38,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./about.html">¿Que hacemos?</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./noticias.html">Noticias</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./contactanos.html">Contáctanos</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./buscador.html">Buscar 🔍️</a></li>
-                        <li class="nav-item nav-button"><a href="shop.html"><button type="button" class="btn btn-primary ml-3 px-4 py-2">Comprar</button></a></li>
+                        <li class="nav-item nav-button"><a href="shop.html" class="button ml-3 ">Comprar</a></li>
                     </ul>
                 </div>
             </div>
@@ -50,50 +52,10 @@
                 <div class="col-md-8" >
 
             
-                    <h1 class="my-4"> NOTICIAS Y EVENTOS
-                    </h1>
+                    <h1 class="my-4"> NOTICIAS Y NOVEDADES </h1>
                     
                     <div id="newsContainer">
-                        <!-- Blog Post -->
-                        <div class="card mb-4">
-                            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                            <div class="card-body">
-                                <h2 class="card-title">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                                <a href="#" class="btn btn-primary">Read More &rarr;</a>
-                            </div>
-                            <div class="card-footer text-muted">
-                                Posted on January 1, 2020 by
-                                <a href="#">Start Bootstrap</a>
-                            </div>
-                        </div>
-                
-                        <!-- Blog Post -->
-                        <div class="card mb-4">
-                            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                            <div class="card-body">
-                                <h2 class="card-title">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                                <a href="#" class="btn btn-primary">Read More &rarr;</a>
-                            </div>
-                            <div class="card-footer text-muted">
-                                Posted on January 1, 2020 by
-                                <a href="#">Start Bootstrap</a>
-                            </div>
-                        </div>
-                        <!-- Blog Post -->
-                        <div class="card mb-4">
-                            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                            <div class="card-body">
-                                <h2 class="card-title">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                                <a href="#" class="btn btn-primary">Read More &rarr;</a>
-                            </div>
-                            <div class="card-footer text-muted">
-                                Posted on January 1, 2020 by
-                                <a href="#">Start Bootstrap</a>
-                            </div>
-                        </div>    
+                         
                     </div>
                     
                     <!-- Pagination -->
@@ -113,19 +75,19 @@
             
                     <!-- Search Widget -->
                     <div class="card my-4">
-                    <h5 class="card-header">Search</h5>
+                    <h5 class="card-header">Búsqueda</h5>
                     <div class="card-body">
                         <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
+                        <input type="text" id="inputNoticia" class="form-control" placeholder="Busca la noticia...">
                         <span class="input-group-append">
-                            <button class="btn btn-secondary" type="button">Go!</button>
+                            <button class="btn btn-secondary" id="searchButton" type="button">Go!</button>
                         </span>
                         </div>
                     </div>
                     </div>
             
                     <!-- Categories Widget -->
-                    <div class="card my-4">
+                    <!--<div class="card my-4">
                         <h5 class="card-header">Categories</h5>
                         <div class="card-body">
                             <div class="row">
@@ -157,13 +119,15 @@
                             </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
             
                     <!-- Side Widget -->
                     <div class="card my-4">
-                        <h5 class="card-header">Side Widget</h5>
+                        <h5 class="card-header">¡Infórmate!</h5>
                         <div class="card-body">
-                            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+                            Entérate de todo lo nuevo y de calidad que traemos par  a tí! </br>
+                            Podrás encontrar estreno de productos, categorías y las novedades según la
+                            temporada para que puedas llevarte lo que más te guste.  
                         </div>
                     </div>
             
