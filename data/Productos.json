@@ -3,9 +3,9 @@
         "categoria":"Navidad",
         "header":{
             "imagenes":[
-                "http://placehold.it/900x450",
-                "http://placehold.it/900x450",
-                "http://placehold.it/900x450"
+                "headerNavidad.jpg",
+                "headerNavidad.jpg",
+                "headerNavidad.jpg"
             ]
         },
         "productos":[
@@ -64,9 +64,7 @@
         "categoria":"Camisetas",
         "header":{
             "imagenes":[
-                "http://placehold.it/900x350",
-                "http://placehold.it/900x350",
-                "http://placehold.it/900x350"
+                "headerCamisetas.png"
             ]
         },
         "productos":[
@@ -204,9 +202,8 @@
         "categoria":"Jarros",
         "header":{
             "imagenes":[
-                "http://placehold.it/900x350",
-                "http://placehold.it/900x350",
-                "http://placehold.it/900x350"
+                "headerTazas.jpg",
+                "headerTazas_2.gif"
             ]
         },
         "productos":[
