@@ -1,0 +1,36 @@
+{
+    "noticias":
+    [
+        
+        {
+            "imagen":"https://img.bekianavidad.com/articulos/75000/75556/2.jpg",
+            "Titulo":"LLEGÓ LA NAVIDAD!",
+            "Descripcion":"Ha llegado la Navidad y MERAKI GIFTS te ofrece los mejores adornos y productos navideños. ",
+            "Redireccion":"",
+            "Fecha":"1/12/2020"
+        },
+        {
+            "imagen":"https://i.insider.com/5fa2cdb21df1d50018218cf3?width=750&format=jpeg&auto=webp",
+            "Titulo":"OFERTAS VIERNES NEGRO",
+            "Descripcion":"Échale un vistazo a las grandiosas ofertas que tenemos por este viernes negro. Podrás encontrar productos de calidad y a menor precio.",
+            "Redireccion":"",
+            "Fecha":"23/11/2020"
+        },
+        {
+            "imagen":"https://www.coffeespout.co.uk/wp-content/uploads/2018/08/gift-banner-850x300-750x300.jpg",
+            "Titulo":"REGALOS PARA TU PAREJA Y MUCHO MAS",
+            "Descripcion":"¿Cumples aniversario con tu pareja y no sabes que darle? ¿Tienes algun cumpleaños y no consigues regalo? Visita nuestra sección de regalos y encontraras lo que necesitas y más!",
+            "Redireccion":"",
+            "Fecha":"8/09/2020"
+        },
+        
+        {
+            "imagen":"https://www.hostgator.mx/blog/wp-content/uploads/2020/06/07-junho-padres.png",
+            "Titulo":"REGALOS PARA TU VIEJO",
+            "Descripcion":"No dejes a tu querido viejo sin regalo en su día. Aprovecha las ofertas del día del padre y escoge de nuestra colección de productos por el DIA DEL PADRE!",
+            "Redireccion":"",
+            "Fecha":"15/06/2020"
+        }
+        
+    ]
+}
