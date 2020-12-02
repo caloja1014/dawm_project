@@ -1,22 +1,20 @@
 var json;
 let cargarJSON = () =>{
-    console.log("Hola111111111");
-    fetch("../data/Productos.json")
+    fetch("../data/productos.json")
     .then((data) => {
         return data.json()
     })
     .then((productos)=>{
-        console.log("Hola");
         json = productos;
         let carousel = document.getElementById("carousel-products");
         let firstCateg = productos[0];
+        let contimg = 0;
         for(let imgCarousel of firstCateg.header.imagenes){
-            console.log("memeti");
-            carousel.innerHTML+=
-            '<div class="carousel-item active">'+
-                '<img class="d-block img-fluid" src="'+imgCarousel+'" alt="First slide">'+
-            '</div>';   
-            console.log(carousel.innerHTML);           
+            let active = contimg++==0? "active":"";
+                carousel.innerHTML+=
+                    '<div class="carousel-item '+active+'">'+
+                        '<img class="d-block img-fluid" src="'+imgCarousel+'" alt="First slide">'+
+                    '</div>';
         }
 
         
@@ -24,8 +22,8 @@ let cargarJSON = () =>{
         let divproductos = document.getElementById("productos");
         let cont = 0;
         for (let elemento of productos){
-            cont++;
-            categorias.innerHTML+= '<a href="#" id="'+elemento.categoria+'" class="list-group-item">'+ elemento.categoria +'</a>'
+            let seleccionado = cont++==0?"categ-seleccionada":"";
+            categorias.innerHTML+= '<a href="#" id="'+elemento.categoria+'" class="list-group-item '+seleccionado+'">'+ elemento.categoria +'</a>'
             let divCategoria = document.createElement("div");
             divCategoria.id = "div"+elemento.categoria;
             if(cont>1){
@@ -54,6 +52,11 @@ let cargarJSON = () =>{
     }).then(()=>{
         onclicks();
     })
+    .catch((e)=>{
+        console.log("Error");
+        let divproductos = document.getElementById("page-top");
+        divproductos.innerHTML = "<h1 class='py-5'>Woops ha ocurrido un error, por favor vuelva más tarde."
+    })
 }
 
 /*
@@ -77,7 +80,6 @@ let cargarJSON = () =>{
 */
 
 document.addEventListener('DOMContentLoaded', ()=> {
-    console.log("Holaa");
     cargarJSON();
 });
 
@@ -89,10 +91,13 @@ function onclicks(){
         
         a.onclick = ()=>{
             let carousel = document.getElementById("carousel-products");
+            
             carousel.innerHTML = "";
+            let cont = 0
             for(let imgCarousel of item.header.imagenes){
+                let active = cont++==0? "active":"";
                 carousel.innerHTML+=
-                    '<div class="carousel-item active">'+
+                    '<div class="carousel-item '+active+'">'+
                         '<img class="d-block img-fluid" src="'+imgCarousel+'" alt="First slide">'+
                     '</div>';
             }
@@ -100,10 +105,13 @@ function onclicks(){
             let products = document.getElementById("productos");
             for(let item2 of json){
                 let divcateg = document.getElementById("div"+item2.categoria);
+                let itemCateg = document.getElementById(item2.categoria);
                 if(item2.categoria!=categString){
                     divcateg.style.display = "none";
+                    itemCateg.classList.remove("categ-seleccionada")
                 }else{
                     divcateg.style.display = "";
+                    itemCateg.classList.add("categ-seleccionada")
                 }
             }
         };

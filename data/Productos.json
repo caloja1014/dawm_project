@@ -3,9 +3,9 @@
         "categoria":"Navidad",
         "header":{
             "imagenes":[
-                "http://placehold.it/900x350",
-                "http://placehold.it/900x350",
-                "http://placehold.it/900x350"
+                "http://placehold.it/900x450",
+                "http://placehold.it/900x450",
+                "http://placehold.it/900x450"
             ]
         },
         "productos":[
@@ -41,7 +41,7 @@
             },
             {
                 "nombre":"Esfera navideña personalizada",
-                "descripcion":"Esfera navideña con nombres personalizados. Disponible en rojo, azul, dorado y verde. Disponible tambien en docenas",
+                "descripcion":"Esfera navideña con nombres personalizados. Disponible en rojo, azul, dorado y verde. Llevelas también por docenas",
                 "precio":2,
                 "img": "esferas.jpg"
             },
@@ -49,7 +49,7 @@
                 "nombre":"Arbol decorativo vacío",
                 "descripcion":"Arbol para colocar tus esferas. Disponible en rojo y verde.",
                 "precio":13,
-                "img": "arbolvacio.jpg"
+                "img": "arbolvacio.png"
             },
             {
                 "nombre":"Jarros navideños",
