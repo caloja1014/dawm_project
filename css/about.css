@@ -1,0 +1,130 @@
+#container_img {
+    background-image: url("/assets/img/about/cover2.jpg");
+
+    height: 50%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#about_text {
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.4); 
+    font-weight: bold;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+}
+#history_title div>h1{
+    text-align: center;
+    color: #3a2a11;
+    margin: 40px 5px 25px 5px;
+    font-size:xx-large;
+}
+#container_h{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#history_container{
+    display: inline-block;
+    columns: 2;
+    width: 60%;
+    font-size: small;
+    margin-bottom: 40px;
+    color: #3a2a11;
+}
+
+
+#container_v_m{
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: center;
+    border-spacing: 10px;
+    grid-gap: 20px;
+    
+}
+.row{
+    margin-bottom: 40px;
+}
+#vision_container div:nth-child(1){
+    text-align: center;
+    color: #3a2a11;
+    margin: 40px 5px 25px 5px;
+    font-size:xx-large;
+    background-color: #f9c49a;
+    border-radius: 10px;
+
+}
+#vision_container div:nth-child(2){
+    font-size: small;
+    margin-bottom: 40px;
+    color: #3a2a11;
+    border-radius: 10px;
+    padding: 25px;
+    background-color:#fee696 ;
+
+}
+
+#mision_container div:nth-child(1){
+    text-align: center;
+    color: #3a2a11;
+    margin: 40px 5px 25px 5px;
+    font-size:xx-large;
+    background-color: #f9c49a;
+    border-radius: 10px;
+    
+
+}
+#mision_container div:nth-child(2){
+    font-size: small;
+    margin-bottom: 40px;
+    color: #3a2a11;
+    border-radius: 10px;
+    padding: 25px;
+    background-color:#fee696 ;
+    
+}
+
+
+.dev{
+
+}
+.dev::before{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    content: "";
+    background: url("/assets/icons/web-development.png");
+    background-size: 100%;
+}
+#dev_button{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+*{
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 680px){
+    #history_container{
+        columns: 1;
+        text-align:justify ;
+        width: 75%;
+
+    }
+    #container_v_m{
+        grid-template-columns: 80%;
+        
+    } 
+
+}
