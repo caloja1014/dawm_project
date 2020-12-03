@@ -1,0 +1,60 @@
+
+:root{
+    --pie1: #9D1515;
+    --pie2: #D40A18;
+    --pie3: #F1441C;
+    --pie4: #FE761E;
+    --pie5: #3A778A;
+    --pie6: #192D36;  
+}
+.pie1 {
+    color: var(--pie1) !important;
+}
+.pie2 {
+color: var(--pie2) !important;
+}
+.pie3 {
+color: var(--pie3) !important;
+}
+.pie4 {
+color: var(--pie4) !important;
+}
+.pie5 {
+color: var(--pie5) !important;
+}
+.pie6 {
+color: var(--pie6) !important;
+}
+.sidebar-logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-content: space-around;
+}
+
+.sidebar-logo:hover{
+    text-decoration: none !important;
+    color: white;
+}
+
+.sidebar.toggled .sidebar-logo .sidebar-brand-text {
+    display: none;
+}
+
+
+#titAdmin {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width:600px) {
+#titAdmin {
+    font-size: 20px;
+}
+}
