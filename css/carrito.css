@@ -4,6 +4,11 @@
     margin-left: 30px;
 }
 
+#divproductos img{
+    height: 200px;
+    width: auto;
+}
+
 a#productos{
     padding:24px;
 }

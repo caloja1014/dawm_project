@@ -43,11 +43,11 @@ function cargarcomprados(){
         let section = document.getElementById("divproductos");
         for (let producto of productos){
             section.innerHTML += 
-            '<div class="col-lg-4 col-md-6 mb-4">'+
-                '<div class="card h-100">'+
-                    '<a href="#"><img class="card-img-top" src=./assets/productos/'+producto.categoria+'/'+producto.img +' alt=""></a>'+
-                    '<div class="card-body">'+
-                        '<div class="card-top">'+
+            '<div class="card mb-3 m-3" style="max-width: 500px;">'+
+                '<div class="row no-gutters">'+
+                    '<div class="col-md-4"><img class="card-img" src=./assets/productos/'+producto.categoria+'/'+producto.img +' alt=""></div>'+
+                    '<div class="col-md-8">'+
+                        '<div class="card-body">'+
                             '<h4 class="card-title">'+
                                 '<a href="#">'+producto.nombre+'</a>'+
                             '</h4>'+
