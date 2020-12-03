@@ -3,3 +3,24 @@
     height: 40px;
     margin-left: 30px;
 }
+
+a#productos{
+    padding:24px;
+}
+
+.primary-color, ul.stepper li.active a .circle, ul.stepper li.completed a .circle {
+    background-color: #ec823a !important;
+}
+
+.primary-color, ul.stepper a .circle, ul.stepper li a .circle {
+    background-color: #9b918b !important;
+}
+
+.primary-color, ul.stepper{
+    background-color: transparent;
+}
+
+.seccioninactiva{
+    display: none;
+}
+
