@@ -30,13 +30,13 @@
             {
                 "nombre":"Adorno escritorio 1",
                 "descripcion":"Adorno navideño de escritorio. Disponibles en colores verde, amarillo y rojo.",
-                "precio":10000,
+                "precio":6.50,
                 "img": "adorno1.jpg"
             },
             {
                 "nombre":"Adorno escritorio 2",
                 "descripcion":"Adorno navideño de escritorio con foto familiar de medida 19x13 cm. Disponibles en colores verde, amarillo y rojo.",
-                "precio":10000,
+                "precio":6.5,
                 "img": "adorno2.jpg"
             },
             {
@@ -138,61 +138,61 @@
             {
                 "nombre":"Regalo vino y copa",
                 "descripcion":"Regalale a tu media naranja este obsequio y demuéstrale lo mucho que la amas",
-                "precio":10000,
+                "precio":10,
                 "img": "miMejorCasualidad.jpg"
             },
             {
                 "nombre":"Caja de regalo de San Valentin",
                 "descripcion":"Arma tu detalle y personalízalo como desees",
-                "precio":10000,
+                "precio":8,
                 "img": "cajaRegaloSanValentin.jpg"
             },
             {
                 "nombre":"Caja de regalo tu y yo",
                 "descripcion":"Arma tu detalle y personalízalo como desees",
-                "precio":10000,
+                "precio":4,
                 "img": "cajaRegaloTuYYo.jpg"
             },
             {
                 "nombre":"Regalo para esa persona especial",
                 "descripcion":"Para esa persona especial, personalízalo con el mensaje que desees 😍",
-                "precio":10000,
+                "precio":20,
                 "img": "regaloParaPareja.jpg"
             },
             {
                 "nombre":"Regalo con todo mi amor",
                 "descripcion":"Para esa persona especial, personalízalo con el mensaje que desees 😍",
-                "precio":10000,
+                "precio":12,
                 "img": "regaloConTodoMiAmor.jpg"
             },
             {
                 "nombre":"Regalo de Feliz Dia",
                 "descripcion":"Para esa persona especial, personalízalo con el mensaje que desees 😍",
-                "precio":10000,
+                "precio":12,
                 "img": "regaloConTodoMiAmor.jpg"
             },
             {
                 "nombre":"Caja navideña roja",
                 "descripcion":"Caja navideña de 14x14x12 cm para dar tus regalos de navidad mas bonitos",
-                "precio":10000,
+                "precio":5,
                 "img": "regaloCajaNavidena.jpg"
             },
             {
                 "nombre":"Caja navideña con imagenes",
                 "descripcion":"Caja navideña 33x25x14 cm para dar tus regalos de navidad mas bonitos",
-                "precio":10000,
+                "precio":7,
                 "img": "regaloCajaNavidenaCeleste.jpg"
             },
             {
                 "nombre":"Caja de regalo para vino",
                 "descripcion":"Caja de regalo para botella de vino",
-                "precio":10000,
+                "precio":10,
                 "img": "cajaRegaloParaVino.jpg"
             },
             {
                 "nombre":"Cajas de regalo con pompa",
                 "descripcion":"Personalízala, elige el color que desees",
-                "precio":10000,
+                "precio":4,
                 "img": "cajaRegaloCafe.png"
             }
         ]
@@ -210,61 +210,61 @@
             {
                 "nombre":"Jarros navideños",
                 "descripcion":"Jarros de adornos navideños con sorbete",
-                "precio":10000,
+                "precio":5,
                 "img": "jarronavidad.jpg"
             },
             {
                 "nombre":"Taza Hulk",
                 "descripcion":"Taza de tu avenger favorito: Hulk",
-                "precio":10000,
+                "precio":9,
                 "img": "jarroHulk.jpg"
             },
             {
                 "nombre":"Taza Capitan América",
                 "descripcion":"Taza de tu avenger favorito: Capitan América",
-                "precio":10000,
+                "precio":9,
                 "img": "jarroCap.jpg"
             },            
             {
                 "nombre":"Taza Iron man",
                 "descripcion":"Taza de tu avenger favorito: Iron man",
-                "precio":10000,
+                "precio":9,
                 "img": "tazaironman.jpg"
             },
             {
                 "nombre":"Taza Spider-man",
                 "descripcion":"Taza de tu avenger favorito: Spider-man ",
-                "precio":10000,
+                "precio":9,
                 "img": "tazaspiderman.jpg"
             },
             {
                 "nombre":"Taza Harry Potter",
                 "descripcion":"Taza con temática de Harry Potter",
-                "precio":10000,
+                "precio":9,
                 "img": "tazaharrypotter.jpg"
             },
             {
                 "nombre":"Taza para parejas",
                 "descripcion":"Taza para parejas. Disponible versión para mujer y hombre",
-                "precio":10000,
+                "precio":9,
                 "img": "tazapareja.jpg"
             },
             {
                 "nombre":"Taza blanca decorada",
                 "descripcion":"Taza blanca con diseño moderno",
-                "precio":10000,
+                "precio":9,
                 "img": "tazablanca.jpg"
             },
             {
                 "nombre":"Taza con fondo de color",
                 "descripcion":"Taza con color por dentro. Disponible varios colores",
-                "precio":10000,
+                "precio":9,
                 "img": "tazascolores.jpg"
             },
             {
                 "nombre":"Taza Mazinger",
                 "descripcion":"Taza de temática de Mazinger",
-                "precio":10000,
+                "precio":9,
                 "img": "tazamazinger.jpg"
             },
             {
@@ -289,43 +289,43 @@
             {
                 "nombre":"Suéter de Harry Potter",
                 "descripcion":"Lindo regalo para los fans de Harry Potter",
-                "precio":10000,
+                "precio":35,
                 "img":"sueterHarryPotter.jpg"
             },
             {
                 "nombre":"Suéter de Hulk",
                 "descripcion":"Lindo suéter de Hulk para amantes de Marvel 😁",
-                "precio":10000,
+                "precio":35,
                 "img":"sueterHulk.jpg"
             },
             {
                 "nombre":"Suéter de Batman",
                 "descripcion":"Lindo suéter de Batman para amantes de DC 😎",
-                "precio":10000,
+                "precio":30,
                 "img":"sueterBatman.jpg"
             },
             {
                 "nombre":"Suéters de ESPOL",
                 "descripcion":"Lleva tu suéter de tu facultad de ESPOl, para que te veas cool en tus clases 🤓, lleva el color que desees",
-                "precio":10000,
+                "precio":30,
                 "img":"sueterEspol.jpg"
             },
             {
                 "nombre":"Suéter oscuro de Batman",
                 "descripcion":"Fantástico suéter oscuro de Batman",
-                "precio":10000,
+                "precio":30,
                 "img":"sueterBatman2.jpg"
             },
             {
                 "nombre":"Suéter de Breaking Bad",
                 "descripcion":"Lleva tu hermosa breaking bad",
-                "precio":10000,
+                "precio":35,
                 "img":"sueterBreakingBad.jpg"
             },
             {
                 "nombre":"Suéter de Deadpool",
                 "descripcion":"Maravilloso sueter rojo de deadpool",
-                "precio":10000,
+                "precio":35,
                 "img":"sueterDeadpool.jpg"
             },
             {
@@ -337,25 +337,25 @@
             {
                 "nombre":"Suéter de Dragon Ball Z",
                 "descripcion":"Hermosas chompas de Dragon Ball z para que concentres tu ki 💪",
-                "precio":10000,
+                "precio":35,
                 "img":"sueterDBZ.jpg"
             },
             {
                 "nombre":"Suéter de Archie",
                 "descripcion":"Luce como Archie con este suéter 😎",
-                "precio":10000,
+                "precio":35,
                 "img":"sueterArchie.jpg"
             },
             {
                 "nombre":"Suéter cute",
                 "descripcion":"Luce cute con este suéter con orejitas y ojitos ",
-                "precio":10000,
+                "precio":35,
                 "img":"sueterCute.jpg"
             },
             {
                 "nombre":"Suéter Duff",
                 "descripcion":"Lleva tu suéter luciendo tu gusto a la cerveza Duff",
-                "precio":10000,
+                "precio":30,
                 "img":"sueterDuff.jpg"
             }
         ]
@@ -373,55 +373,49 @@
             {
                 "nombre":"Alcancia de madera",
                 "descripcion":"Alcancias de madera, para que guardes tus ahorros, personalízalas como desees",
-                "precio":10000,
+                "precio":16,
                 "img": "alcanciaMadera.jpg"
             },
             {
                 "nombre":"Angelito de la guardia",
                 "descripcion":"Angelito de la guardia, personalizado con el nombre de tu bebé",
-                "precio":10000,
+                "precio":4,
                 "img": "angelitoDeLaGuardia.jpg"
             },
             {
                 "nombre":"Tomatodos personalizados",
                 "descripcion":"Tomatodos personalizados, elige el color y el mensaje que desees",
-                "precio":10000,
+                "precio":7,
                 "img": "tomatodos.jpg"
             },
             {
                 "nombre":"Gallinas tejidas",
                 "descripcion":"Lleva este adorno para tu sala, gallinas tejidas a mano, elije el color que desees",
-                "precio":10000,
+                "precio":10,
                 "img": "gallinasTejidas.jpg"
             },
             {
                 "nombre":"Gorras",
                 "descripcion":"Lleva estas gorras para protegerte del sol",
-                "precio":10000,
+                "precio":10,
                 "img": "gorras.jpg"
             },
             {
                 "nombre":"Portavelas",
                 "descripcion":"Porta velas de madera más tres velitas led a pilas, incluye cajita de regalo. Lindo detalle",
-                "precio":10000,
+                "precio":4,
                 "img": "portavelas.jpg"
             },
             {
                 "nombre":"Tapetes navieños",
                 "descripcion":"Tapetes navideños tejidos a mano",
-                "precio":10000,
+                "precio":5,
                 "img": "tapetesNavidenos.jpg"
-            },
-            {
-                "nombre":"Gorros con visores",
-                "descripcion":"Hermosos gorros con visores protectores, prácticos y seguros para niñas y niños",
-                "precio":10000,
-                "img": "visores.jpg"
             },
             {
                 "nombre":"Colgante de cumpleaños",
                 "descripcion":"Ahora será fácil recordar los cumpleaños de tu familia con este lindo colgante. Incluye caja",
-                "precio":10000,
+                "precio":10,
                 "img": "colganteCumpleanos.jpg"
             }
         ]
