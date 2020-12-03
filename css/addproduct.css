@@ -6,14 +6,16 @@
     background-color: #9b918b !important;
 }
 
+ul.stepper{
+  width:1000px;
+}
 
 
-  
-  .contact-form .form-field {
+.contact-form .form-field {
     position: relative;
     margin: 32px 0;
   }
-  .contact-form .input-text {
+ .contact-form .input-text {
     display: block;
     width: 100%;
     height: 36px;
@@ -38,7 +40,7 @@
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
-    color: #ec823a;
+    color: #9b918b;
     cursor: text;
     transition: -webkit-transform .2s ease-in-out;
     transition: transform .2s ease-in-out;
@@ -48,7 +50,7 @@
   .contact-form .submit-btn {
     display: inline-block;
     background-color: #000;
-     background-image: linear-gradient(125deg,#f5a844,#f3f053);
+     background-image: linear-gradient(125deg,#e7901f,#f5bb84);
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -62,7 +64,11 @@
 
 #formularioregistro{
     width: 500px;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
-    align-items: center;
+    align-items: center;    
+}
+
+body{
+    padding-top: 0px;
 }
