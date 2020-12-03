@@ -22,7 +22,14 @@ function seleccionar(){
             }
             if(indice== 0  || indice!=0 && arrayUl[indice-1].classList.contains("active")){
                 if(indice==1){
-                    //Condiciones para llegar aqui
+                    let nombre =  document.getElementById("pnombre").value;
+                    let categoria = document.getElementById("sel1").value;
+                    let precio = document.getElementById("company").value;
+                    let descripcion = document.getElementById("Textarea1").value;
+                    if(nombre==""||categoria==""||precio==""||descripcion==""){
+                        alert("Por favor llene los campos del formulario");
+                        return -1;
+                    }
                 }
                 if(indice==2){
                     //Condiciones para llegar aqui
@@ -38,10 +45,16 @@ function seleccionar(){
                 }
             }
         }
-        
     }
-    
-
 }
 
 seleccionar();
+
+/*function submitForm(){
+    let submit = document.getElementById("submit");
+    submit.onclick = ()=>{
+        let ul = document.getElementById("steepers-addproduct");
+        let arrayUl = Array.from(ul.children);
+
+    }
+}*/

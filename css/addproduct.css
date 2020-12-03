@@ -19,11 +19,12 @@ ul.stepper{
     display: block;
     width: 100%;
     height: 36px;
-    border-width: 0 0 2px 0;
+    border-width: 0px 0px 2px 0px !important;
     border-color: #ec823a;
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
+    border-radius: 0px;
   }
   .contact-form .input-text:focus {
     outline: none;
@@ -50,7 +51,7 @@ ul.stepper{
   .contact-form .submit-btn {
     display: inline-block;
     background-color: #000;
-     background-image: linear-gradient(125deg,#e7901f,#f5bb84);
+    background-image: linear-gradient(125deg,#e7901f,#f5bb84);
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -75,4 +76,45 @@ ul.stepper{
 
 body{
     padding-top: 0px;
+}
+
+#confirmacion> h2{
+  color:  #7c3c21;
+  text-align: center;
+}
+
+#confirmacion{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#confirmacion >img {
+  width: 500px;
+  height: auto;
+}
+
+#Textarea1{
+  border-color: #ec823a;
+  border-width: 2px;
+}
+
+
+label{
+  bottom: 18px!important;
+}
+
+#agregarImagen h4{
+  color:  #7c3c21;
+}
+#contenido h2{
+  color:  #7c3c21;  
+  padding-top: 40px;
+  padding-bottom: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+ul.stepper{
+  padding-top: 0px;
 }
