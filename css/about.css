@@ -140,6 +140,8 @@
         grid-template-columns: 80%;
         
     } 
-
+    #about_text h1{
+        font-size: 30px;
+    }
 }
 

@@ -70,3 +70,33 @@ background-color: #e8e4e1;
 .imagen_dev {
     width: 60%;
 }
+@media screen and (max-width:  800px){
+    .contenedor_devs {
+        flex-direction: column;
+    }
+    .box_information {
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        
+    
+    }
+    #dev_text *{
+        color:#3a2a11 ;
+        margin:10px;
+        text-align: center;
+    }
+    #dev_text h1{
+        font-size: 30px;
+        
+    }
+    #dev_text {
+        height: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #e8e4e1;
+        }
+}
