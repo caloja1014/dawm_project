@@ -83,3 +83,17 @@ a.button:hover{
   background-color: #f24516;
   border-color: #ee3e0d;
 }
+
+@media (max-width:576px){
+  #header-carousel{
+    display: none;
+  }
+
+  #carouselExampleIndicators{
+    display: none;
+  }
+
+  #productos{
+    padding:10px;
+  }
+}
