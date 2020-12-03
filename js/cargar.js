@@ -9,12 +9,17 @@ let cargarJSON = () =>{
         let carousel = document.getElementById("carousel-products");
         let firstCateg = productos[0];
         let contimg = 0;
+        let carouselIndicators = document.getElementsByClassName("carousel-indicators")[0];
+        console.log(carouselIndicators)
+        carouselIndicators.innerHTML = "";
         for(let imgCarousel of firstCateg.header.imagenes){
             let active = contimg++==0? "active":"";
-                carousel.innerHTML+=
-                    '<div class="carousel-item '+active+'">'+
-                        '<img class="d-block img-fluid" src="./assets/productos/'+firstCateg.categoria+'/'+imgCarousel+'" alt="First slide">'+
-                    '</div>';
+            carouselIndicators+=
+            '<li data-target="#carouselExampleIndicators" data-slide-to="'+contimg-1+'" class="'+active+'"></li>';
+            carousel.innerHTML+=
+                '<div class="carousel-item '+active+'">'+
+                    '<img class="d-block img-fluid" src="./assets/productos/'+firstCateg.categoria+'/'+imgCarousel+'" alt="First slide">'+
+                '</div>';
         }
 
         
@@ -53,31 +58,11 @@ let cargarJSON = () =>{
         onclicks();
     })
     .catch((e)=>{
-        console.log("Error");
+        console.log(e);
         let divproductos = document.getElementById("page-top");
-        divproductos.innerHTML = "<h1 class='py-5'>Woops ha ocurrido un error, por favor vuelva más tarde."
+        divproductos.innerHTML = "<h1 class='py-5'>Woops ha ocurrido un error, por favor vuelva más tarde.";
     })
 }
-
-/*
-<div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="../../JSONs/imgs/arbol1.jpg" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item One</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-
-*/
 
 document.addEventListener('DOMContentLoaded', ()=> {
     cargarJSON();
@@ -92,10 +77,15 @@ function onclicks(){
         a.onclick = ()=>{
             let carousel = document.getElementById("carousel-products");
             
+            let carouselIndicators = document.getElementsByClassName("carousel-indicators")[0];
+            carouselIndicators.innerHTML = "";
             carousel.innerHTML = "";
             let cont = 0
             for(let imgCarousel of item.header.imagenes){
                 let active = cont++==0? "active":"";
+                carouselIndicators+=
+                '<li data-target="#carouselExampleIndicators" data-slide-to="'+cont-1+'" class="'+active+'"></li>';
+
                 carousel.innerHTML+=
                     '<div class="carousel-item '+active+'">'+
                         '<img class="d-block img-fluid" src="./assets/productos/'+item.categoria+'/'+imgCarousel+'" alt="First slide">'+
