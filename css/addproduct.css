@@ -99,6 +99,15 @@ body{
   border-width: 2px;
 }
 
+.contact-form .labelDesc{    
+  left: 20px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #9b918b;
+  cursor: text;
+  
+}
 
 label{
   bottom: 18px!important;

@@ -15,5 +15,5 @@ verestadisticas.onclick = ()=>{
 
 let addcateg = document.getElementById("addcateg");
 addcateg.onclick = ()=>{
-    window.location.replace("../charts.html");
+    window.location.replace("../agregarcateg.html");
 }
