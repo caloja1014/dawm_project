@@ -4,8 +4,8 @@ function someFunction21() {
     }, 2000);
 }
 
-function seleccionar(){   
-    let ul = document.getElementById("steepers-comprar");
+function seleccionar(){
+    let ul = document.getElementById("steepers-addproduct");
     let arrayUl = Array.from(ul.children);
     
     for (let li of arrayUl){
@@ -20,24 +20,20 @@ function seleccionar(){
             if(indice==0){
                 arrayUl[2].classList.remove("active");
             }
-            
             if(indice== 0  || indice!=0 && arrayUl[indice-1].classList.contains("active")){
-                if(indice==2){
-                    let secdatos = arraySecciones[1];
-                    let opciones1 = secdatos.children[1];
-                    let opciones = opciones1.children;
-                    if(!opciones[0].classList.contains("elegido") && !opciones[1].classList.contains("elegido")){
-                        alert("Escoge un metodo de pago.");
-                        return 0;
-                    }
+                if(indice==1){
+                    //Condiciones para llegar aqui
                 }
-                for (let sec of arraySecciones){
-                    if(sec.id == "seccion"+a.id){
-                        sec.style.display = " " ;
+                if(indice==2){
+                    //Condiciones para llegar aqui
+                }
+                for (let i = 0; i<arraySecciones.length;i++){
+                    if(i==indice){
+                        arraySecciones[i].style.display = "" ;
                         li.classList.add("active");
-                        sec.classList.remove("seccioninactiva")
+                        arraySecciones[i].classList.remove("seccioninactiva")
                     }else{
-                        sec.classList.add("seccioninactiva");
+                        arraySecciones[i].classList.add("seccioninactiva");
                     }
                 }
             }
@@ -48,4 +44,4 @@ function seleccionar(){
 
 }
 
-seleccionar();*/
+seleccionar();

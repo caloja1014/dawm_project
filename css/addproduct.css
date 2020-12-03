@@ -15,7 +15,7 @@ ul.stepper{
     position: relative;
     margin: 32px 0;
   }
- .contact-form .input-text {
+.contact-form .input-text {
     display: block;
     width: 100%;
     height: 36px;
@@ -64,9 +64,13 @@ ul.stepper{
 
 #formularioregistro{
     width: 500px;
-    display: flex !important;
+    display: flex;
     flex-direction: column;
     align-items: center;    
+}
+
+.seccioninactiva{
+  display: none !important;
 }
 
 body{

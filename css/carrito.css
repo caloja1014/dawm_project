@@ -21,10 +21,7 @@ a#productos{
     background-color: #9b918b !important;
 }
 
-
-
-
-.card-body{
+#divproductos .card-body{
     width: 330px;
 }
 #metodos{
@@ -73,12 +70,12 @@ a#productos{
     #divproductos{
         justify-content: center;
     }
-    .card-body{
+    #divproductos .card-body{
         display: block;
         width: 200px;
     }
 
-    .div-card-img{
+    #divproductos .div-card-img{
         width: 100%;
         text-align: center;
         padding-top: 15px;
