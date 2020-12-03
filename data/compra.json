@@ -19,5 +19,12 @@
         "descripcion":" Camiseta con diseño de avengers animados",
         "precio":20,
         "img": "avengers.jpg"
+    },
+    {
+        "categoria":"Jarros",
+        "nombre":"Jarros navideños",
+        "descripcion":"Jarros de adornos navideños con sorbete",
+        "precio":5,
+        "img": "jarronavidad.jpg"
     }
 ]

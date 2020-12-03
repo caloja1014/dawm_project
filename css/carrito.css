@@ -29,3 +29,26 @@ a#productos{
     display: none;
 }
 
+.card-body{
+    width: 330px;
+}
+
+
+
+@media (max-width:576px){
+    #divproductos{
+        justify-content: center;
+    }
+    .card-body{
+        display: block;
+        width: 200px;
+    }
+
+    .div-card-img{
+        width: 100%;
+        text-align: center;
+        padding-top: 15px;
+    }
+
+    
+}
