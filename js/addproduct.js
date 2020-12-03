@@ -36,7 +36,6 @@ function seleccionar(){
                 }
                 for (let i = 0; i<arraySecciones.length;i++){
                     if(i==indice){
-                        arraySecciones[i].style.display = "" ;
                         li.classList.add("active");
                         arraySecciones[i].classList.remove("seccioninactiva")
                     }else{
@@ -50,11 +49,27 @@ function seleccionar(){
 
 seleccionar();
 
-/*function submitForm(){
+function submitForm(){
     let submit = document.getElementById("submit");
     submit.onclick = ()=>{
         let ul = document.getElementById("steepers-addproduct");
         let arrayUl = Array.from(ul.children);
+        arrayUl[1].classList.add("active");
 
+        let nombre =  document.getElementById("pnombre").value;
+        let categoria = document.getElementById("sel1").value;
+        let precio = document.getElementById("company").value;
+        let descripcion = document.getElementById("Textarea1").value;
+        if(nombre==""||categoria==""||precio==""||descripcion==""){
+            alert("Por favor llene los campos del formulario");
+            return -1;
+        }
+
+        let secciones = document.getElementById("secciones");
+        let arraySecciones  = Array.from(secciones.children);
+        arraySecciones[0].classList.add("seccioninactiva");
+        arraySecciones[1].classList.remove("seccioninactiva");
     }
-}*/
+}
+
+submitForm();

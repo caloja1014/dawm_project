@@ -23,6 +23,24 @@
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <link href="css/admin.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+        <!-- Bootstrap core CSS -->
+        <!-- Material Design Bootstrap -->
+        <link rel="stylesheet" href="css/mdb.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!--admin-->
+        <!-- Custom fonts for this template-->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin-2.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/addproduct.css">
+
 </head>
 
 <body id="page-top">
@@ -167,9 +185,91 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
-
+                <div id ="contenido" class="container-fluid mx-5">
+                    <h2>Agregar un nuevo producto</h2>
+                <div id="steppers" class="row">
+                    <div class="col-md-12">
+                        <!-- Stepers Wrapper -->
+                        <ul id="steepers-addproduct" class="stepper stepper-horizontal col-lg-10">
                     
+                        <!-- First Step -->
+                        <li class="active">
+                            <a id="formulario" href="#">
+                            <span class="circle">1</span>
+                            <span class="label">Completa el formulario</span>
+                            </a>
+                        </li>
+                        <!-- Second Step -->
+                        <li class="">
+                            <a id="imagen" href="#">
+                            <span class="circle">2</span>
+                            <span class="label">Agrega Imagen</span>
+                            </a>
+                        </li>
+                    
+                        <!-- Third Step -->
+                        <li class="">
+                            <a id="agregar" href="#">
+                            <span class="circle">3</span>
+                            <span class="label">Confirmación</span>
+                            </a>
+                        </li>
+                    
+                        </ul>
+                        <!-- /.Stepers Wrapper -->
+                    </div>
+                </div>
+            
+                
+                <div id="secciones" class="mb-5">
+                    <div id="formularioregistro">
+                        <form class="contact-form row">
+                            <div class="form-field col-lg-6">
+                            <input id="pnombre" class="input-text js-input" type="text" required>
+                            <label class="label" for="name">Nombre del Producto</label>
+                            </div>                            
+                            <div class="form-field input-group col-lg-6">
+                                <select class="form-control form-categorias input-text js-input" id="sel1" required>
+                                    <option selected="true" disabled="disabled"></option>
+                                    <option>Navidad</option>
+                                    <option>Jarros</option>
+                                    <option>Sueters</option>
+                                    <option>Camisetas</option>
+                                    <option>Regalos</option>
+                                    <option>Otros</option>
+
+
+                                </select>
+                                <label class="label" for="name">Elija una categoría</label>
+                            </div>
+                            <div class="form-field col-lg-6 ">
+                            <input id="company" class="input-text js-input" type="text" required>
+                            <label class="label" for="company">Precio del producto</label>
+                            </div>                        
+                            <div class="form-field col-lg-12">
+                                <label  for="Textarea1">Descripción del producto</label>
+                                <textarea class="form-control" id="Textarea1" rows="3"></textarea>
+                            </div>
+                            <div class="form-field col-lg-12">
+                            <input id="submit" class="submit-btn" type="submit" value="Aceptar">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="agregarImagen" class="seccioninactiva">
+                        <form>
+                            <div class="form-group">
+                              <label for="ControlFile1"><h4>Agregar la imagen de su producto</h4></label>
+                              <input type="file" class="form-control-file" id="ControlFile1">
+                            </div>
+                          </form>                        
+                    </div>
+                    <div id="confirmacion" class="seccioninactiva">
+                        <h2>Producto agregado</h2>
+                        <img src="./assets/icons/productoagregado.gif" alt="">
+                        
+                    </div>
+                </div>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -231,6 +331,9 @@
     <script src="js/chart-area-demo.js"></script>
     <script src="js/chart-pie-demo.js"></script>
     <script src="js/chart-bar-demo.js"></script>
+
+    <script src="js/addproduct.js"></script>
+
 
 </body>
 

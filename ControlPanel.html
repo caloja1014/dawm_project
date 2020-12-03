@@ -22,6 +22,7 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <link href="css/admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/panelcontrol.css">
 
 </head>
 
@@ -168,7 +169,34 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                    <h2 id="title-pc">OPCIONES</h2>
+                    <div id="servicios" class="row">                        
+                        <div id="nuevoProduct"class="card col-4 mx-4" style="width: 18rem;">
+                            <img class="card-img-top" src="./assets/icons/addproduct.png" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">Agrega un nuevo producto a la página</p>
+                            </div>
+                        </div>
+                        <div id="addnoticias" class="card col-4 mx-4" style="width: 18rem;">
+                            <img class="card-img-top" src="./assets/icons/addnew.png" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">Agrega nuevas noticias a la página</p>
+                            </div>
+                        </div>
+                    <div id="verestadisticas" class="card col-4 mx-4" style="width: 18rem;">
+                        <img class="card-img-top" src="/assets/icons/estadisticas.png" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Ver estadísitcas de las compras en la página web.</p>
+                        </div>
+                    </div>
+                    <div id="addcateg" class="card col-4 mx-4" style="width: 18rem;">
+                        <img class="card-img-top" src="/assets/icons/categorias.png" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Agrega nuevas categorias a la pagina.</p>
+                        </div>
+                    </div>
+                    </div>
+                
                     
                 </div>
                 <!-- /.container-fluid -->
@@ -231,7 +259,7 @@
     <script src="js/chart-area-demo.js"></script>
     <script src="js/chart-pie-demo.js"></script>
     <script src="js/chart-bar-demo.js"></script>
-
+    <script src="js/panelcontrol.js"></script>
 </body>
 
 </html>

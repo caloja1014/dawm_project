@@ -6,10 +6,9 @@
     background-color: #9b918b !important;
 }
 
-ul.stepper{
+.stepper{
   width:1000px;
 }
-
 
 .contact-form .form-field {
     position: relative;
@@ -25,6 +24,7 @@ ul.stepper{
     line-height: 26px;
     font-weight: 400;
     border-radius: 0px;
+    background-color: transparent;
   }
   .contact-form .input-text:focus {
     outline: none;
@@ -117,4 +117,10 @@ label{
 
 ul.stepper{
   padding-top: 0px;
+}
+
+@media (max-width:992px){
+  ul.stepper{
+    width:500px;
+  }
 }
