@@ -63,3 +63,31 @@ document.addEventListener('DOMContentLoaded', ()=> {
     cargarcomprados();
 });
 
+
+function metodopago(){
+    let metodos = document.getElementById("metodos")
+    for(let met of metodos.children){
+        met.onclick = ()=>{        
+            console.log(met) ; 
+            if(met.classList.contains("elegido")){
+                met.classList.remove("elegido");
+            }
+            else{
+                if(met.id == "metodo1"){
+                    let met2 = document.getElementById("metodo2");
+                    met2.classList.remove("elegido")
+                }
+                else{
+                    let met1 = document.getElementById("metodo1");
+                    met1.classList.remove("elegido")                                     
+                }            
+                met.classList.add("elegido");                  
+
+            }
+            
+        }
+    }
+}
+
+
+metodopago();

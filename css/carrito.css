@@ -21,9 +21,7 @@ a#productos{
     background-color: #9b918b !important;
 }
 
-.primary-color, ul.stepper{
-    background-color: transparent;
-}
+
 
 .seccioninactiva{
     display: none;
@@ -31,6 +29,41 @@ a#productos{
 
 .card-body{
     width: 330px;
+}
+#metodos{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 20px;
+}
+
+#metodo1, #metodo2{
+    transition: all ease-out 0.2s;
+}
+#metodo1:hover, #metodo2:hover{
+    transform: scale(1.05);
+}
+
+.elegido{
+    box-shadow: 0 0 10px #7c3c21;
+    background-color: #ec823a;
+}
+
+#seccionconfirmacion> h2{
+    color:  #7c3c21;
+    text-align: center;
+  
+}
+
+#seccionconfirmacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#seccionconfirmacion >img {
+    width: 500px;
+    height: auto;
 }
 
 
