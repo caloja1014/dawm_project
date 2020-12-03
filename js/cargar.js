@@ -10,7 +10,6 @@ let cargarJSON = () =>{
         let firstCateg = productos[0];
         let contimg = 0;
         let carouselIndicators = document.getElementsByClassName("carousel-indicators")[0];
-        console.log(carouselIndicators)
         carouselIndicators.innerHTML = "";
         for(let imgCarousel of firstCateg.header.imagenes){
             let active = contimg++==0? "active":"";
@@ -42,11 +41,14 @@ let cargarJSON = () =>{
                         '<div class="card h-100">'+
                             '<a href="#"><img class="card-img-top" src=./assets/productos/'+elemento.categoria+'/'+producto.img +' alt=""></a>'+
                             '<div class="card-body">'+
-                                '<h4 class="card-title">'+
-                                    '<a href="#">'+producto.nombre+'</a>'+
-                                '</h4>'+
-                                '<h5>$'+producto.precio+'</h5>'+
-                                '<p class="card-text">'+producto.descripcion+'</p>'+
+                                '<div class="card-top">'+
+                                    '<h4 class="card-title">'+
+                                        '<a href="#">'+producto.nombre+'</a>'+
+                                    '</h4>'+
+                                    '<h5>$'+producto.precio+'</h5>'+
+                                    '<p class="card-text">'+producto.descripcion+'</p>'+
+                                '</div>'+
+                                '<a class="button btn-comprar">Comprar</a>'
                             '</div>'+
                         '</div>'+
                     '</div>'                   
@@ -56,6 +58,7 @@ let cargarJSON = () =>{
         
     }).then(()=>{
         onclicks();
+        comprar();
     })
     .catch((e)=>{
         console.log(e);
@@ -68,6 +71,25 @@ document.addEventListener('DOMContentLoaded', ()=> {
     cargarJSON();
 });
 
+function comprar(){
+    for(let item of json){
+        let categ = item.categoia;
+        let divcateg = document.getElementById("div"+item.categoria);
+        let productos = divcateg.children;
+        for(let divProducto of productos){
+            let btnComprar = divProducto.getElementsByClassName("button")[0];
+            btnComprar.onclick = ()=>{
+                if(btnComprar.classList.contains("btn-comprado")){
+                    btnComprar.classList.remove("btn-comprado");
+                    btnComprar.innerHTML = "Comprar";
+                }else{
+                    btnComprar.classList.add("btn-comprado");
+                    btnComprar.innerHTML = "Seleccionado";
+                }
+            }
+        }
+    }
+}
 
 function onclicks(){
     for(let item of json){

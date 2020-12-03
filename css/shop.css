@@ -5,3 +5,33 @@
 #carousel-products{
     box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.4)
 }
+
+.btn-comprar{
+    width: 125px;
+    cursor: pointer;
+}
+
+.card-body{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-top{
+    margin-bottom:20px;
+}
+
+.card-text{
+    height: auto;
+}
+
+#carrito{
+    width: 40px;
+    height: 40px;
+    margin-left: 30px;
+}
+
+.btn-comprado{
+    background-color: gray!important;
+    width: 170px;
+}

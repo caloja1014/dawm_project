@@ -17,10 +17,15 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
     <!-- Third party plugin CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+    
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
-    <link href="css/shop.css" rel="stylesheet" />
+    <link href="css/carrito.css" rel="stylesheet" />
+    <!-- Stepper CSS -->
+    <link href="css/addons-pro/steppers.css" rel="stylesheet">
+    <!-- Stepper CSS - minified-->
+    <link href="css/addons-pro/steppers.min.css" rel="stylesheet">
 </head>
 
   <body>
@@ -46,44 +51,54 @@
       </div>
   </nav>
 
-    <!-- Page Content -->
+    
+    <!-- /.container -->
     <div class="container py-3" id="page-top">
 
-      <div class="row">
 
-        <div class="col-lg-3">
 
-          <h1 class="my-4 categorias">Categorías</h1>
-          <div id="categorias" class="list-group"></div>
+        <!-- Horizontal Steppers -->
+<div class="row">
+    <div class="col-md-12">
+  
+      <!-- Stepers Wrapper -->
+      <ul class="stepper stepper-horizontal">
+  
+        <!-- First Step -->
+        <li class="completed">
+          <a href="#!">
+            <span class="circle">1</span>
+            <span class="label">First step</span>
+          </a>
+        </li>
+  
+        <!-- Second Step -->
+        <li class="active">
+          <a href="#!">
+            <span class="circle">2</span>
+            <span class="label">Second step</span>
+          </a>
+        </li>
+  
+        <!-- Third Step -->
+        <li class="warning">
+          <a href="#!">
+            <span class="circle"><i class="fas fa-exclamation"></i></span>
+            <span class="label">Third step</span>
+          </a>
+        </li>
+  
+      </ul>
+      <!-- /.Stepers Wrapper -->
+  
+    </div>
+  </div>
+  <!-- /.Horizontal Steppers -->
 
-        </div>
-        <!-- /.col-lg-3 -->
 
-        <div class="col-lg-9">
-          <div id="carouselExampleIndicators" class="carousel slide my-5" data-ride="carousel">
-            <ol class="carousel-indicators"></ol>
-            <div id="carousel-products" class="carousel-inner" role="listbox"></div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
 
-          <div id="productos" class="row"></div>
-          <!-- /.row -->
-
-        </div>
-        <!-- /.col-lg-9 -->
-
-      </div>
-      <!-- /.row -->
 
     </div>
-    <!-- /.container -->
 
     <!-- Footer -->
     <footer class="py-5 bg-gray">
@@ -99,8 +114,14 @@
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    
+    
     <script src="js/scripts.js"></script>
-    <script src="js/cargar.js"></script>
+    <script src="js/carrito.js"></script>
+    <!-- Stepper JavaScript -->
+    <script type="text/javascript" src="js/addons-pro/steppers.js"></script>
+    <!-- Stepper JavaScript - minified -->
+    <script type="text/javascript" src="js/addons-pro/steppers.min.js"></script>
   </body>
 
 </html>
