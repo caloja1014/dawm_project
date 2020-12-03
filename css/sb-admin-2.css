@@ -32,12 +32,6 @@
   --danger: #dc3545;
   --light: #f8f9fa;
   --dark: #343a40;
-  --pie1: #9D1515;
-  --pie2: #D40A18;
-  --pie3: #F1441C;
-  --pie4: #FE761E;
-  --pie5: #3A778A;
-  --pie6: #192D36;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -60,23 +54,10 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.pie1 {
-  color: var(--pie1) !important;
-}
-.pie2 {
-  color: var(--pie2) !important;
-}
-.pie3 {
-  color: var(--pie3) !important;
-}
-.pie4 {
-  color: var(--pie4) !important;
-}
-.pie5 {
-  color: var(--pie5) !important;
-}
-.pie6 {
-  color: var(--pie6) !important;
+
+
+img#icon{
+  max-width: 30%;
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
