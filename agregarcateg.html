@@ -206,8 +206,12 @@
                                         <input type="file" class="px-4 form-control-file" id="ControlFile1">
                                     </div>
                                     
+                                    
+
                                     <div class="form-field col-lg-12">
-                                        <input id="submit" class="submit-btn" type="submit" value="Aceptar">
+                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirmar">
+                                            <input id="submit" class="submit-btn" type="submit" value="Aceptar">
+                                        </a>
                                     </div>
                                 </form>
                             </div>
@@ -254,6 +258,26 @@
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                         <a class="btn btn-primary" href="login.html">Salir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmar Modal-->
+        <div class="modal fade" id="confirmar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">¿Seguro que deseas agregar esa categoria?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">La categoria será ahora visible en la págna principal</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                        <a class="btn btn-primary" href="./ControlPanel.html">Aceptar</a>
                     </div>
                 </div>
             </div>
