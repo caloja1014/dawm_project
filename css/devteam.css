@@ -70,7 +70,7 @@ background-color: #e8e4e1;
 .imagen_dev {
     width: 60%;
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width:  800px){
     .contenedor_devs {
         flex-direction: column;
     }
