@@ -5,7 +5,7 @@ nuevoProduct.onclick = ()=>{
 
 let addnoticias = document.getElementById("addnoticias");
 addnoticias.onclick = ()=>{
-    window.location.replace("../AgregarProducto.html");
+    window.location.replace("../addnew.html");
 }
 
 let verestadisticas = document.getElementById("verestadisticas");
