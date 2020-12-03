@@ -1,0 +1,30 @@
+[
+    {
+        "categoria":"Navidad",
+        "nombre":"Arbol decorativo 1",
+        "descripcion":"Arbol navideño con esferas personalizadas de medida 52x40 cm. Disponibles en colores verde y rojo",
+        "precio":20,
+        "img": "arbol1.jpg"
+    },
+    {  
+        "categoria":"Navidad",
+        "nombre":"Esfera navideña personalizada",
+        "descripcion":"Esfera navideña con nombres personalizados. Disponible en rojo, azul, dorado y verde. Llevelas también por docenas",
+        "precio":2,
+        "img": "esferas.jpg"
+    },
+    {
+        "categoria":"Camisetas",
+        "nombre":"Camiseta Avengers",
+        "descripcion":" Camiseta con diseño de avengers animados",
+        "precio":20,
+        "img": "avengers.jpg"
+    },
+    {
+        "categoria":"Jarros",
+        "nombre":"Jarros navideños",
+        "descripcion":"Jarros de adornos navideños con sorbete",
+        "precio":5,
+        "img": "jarronavidad.jpg"
+    }
+]

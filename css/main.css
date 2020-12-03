@@ -12,7 +12,7 @@ body {
   border-bottom: 1.5px rgba(125, 61, 33, 0.7) solid;
 }
 
-#gradient::before{
+.gradient::before{
   content:'';
 	position: absolute;
   top: 0;
