@@ -4,7 +4,6 @@
         "header":{
             "imagenes":[
                 "headerNavidad.jpg",
-                "headerNavidad.jpg",
                 "headerNavidad.jpg"
             ]
         },
@@ -64,6 +63,7 @@
         "categoria":"Camisetas",
         "header":{
             "imagenes":[
+                "headerCamisetas.png",
                 "headerCamisetas.png"
             ]
         },
@@ -129,9 +129,8 @@
         "categoria":"Regalos",
         "header":{
             "imagenes":[
-                "http://placehold.it/900x350",
-                "http://placehold.it/900x350",
-                "http://placehold.it/900x350"
+                "banner_regalos.png",
+                "banner_regalos.png"
             ]
         },
         "productos":[
@@ -280,9 +279,8 @@
         "categoria":"Sueters",
         "header":{
             "imagenes":[
-                "http://placehold.it/900x350",
-                "http://placehold.it/900x350",
-                "http://placehold.it/900x350"
+                "headerChompas.png",
+                "headerChompas.png"
             ]
         },
         "productos":[
@@ -364,9 +362,8 @@
         "categoria":"Otros",
         "header":{
             "imagenes":[
-                "http://placehold.it/900x350",
-                "http://placehold.it/900x350",
-                "http://placehold.it/900x350"
+                "headerOtros.png",
+                "headerOtros.png"
             ]
         },
         "productos":[
