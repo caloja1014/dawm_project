@@ -63,6 +63,10 @@ a#productos{
     display: none !important;
 }
 
+.form-categorias{
+    border-radius: 0px;
+    border-style: none;
+}
 
 
 
@@ -79,6 +83,15 @@ a#productos{
         width: 100%;
         text-align: center;
         padding-top: 15px;
+    }
+
+    ul.stepper{
+        padding-right: 0px;
+        width:95%;
+    }
+
+    #seccionconfirmacion>img{
+        width:100%;
     }
     
 }

@@ -14,7 +14,7 @@
     <title>Admin-Meraki</title>
 
     <!-- Custom fonts for this template-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -22,6 +22,7 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <link href="css/admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/addproduct.css">
 
 </head>
 
@@ -51,7 +52,7 @@
             </div>
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="ControlPanel.html">
                     <i class="fas fa-fw fa-tools"></i>
                     <span>Panel de Control</span></a>
@@ -73,7 +74,7 @@
             </div>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Estadísticas</span></a>
@@ -167,87 +168,33 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div id="contenido" class="container-fluid mx-5">
+                    <h2 id="title-an">AGREGAR NOTICIA</h2>
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Estadísticas</h1>
-                    <p class="mb-4">
-
-                    </p>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <div class="col-xl-8 col-lg-7">
-
-                            <!-- Area Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Ventas de la Semana</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                    
-                                </div>
+                    <div id="formularioregistro">
+                        <form class="contact-form row">
+                            <div class="form-field col-lg-6">
+                            <input id="pnombre" class="input-text js-input" type="text" required>
+                            <label class="label" for="name">Titulo de la noticia</label>
+                            </div>                                                                                                      
+                            <div class="form-field col-lg-12">
+                                <label class="labelDesc" for="Textarea1">Descripción de la noticia</label>
+                                <textarea class="form-control" id="Textarea1" rows="3"></textarea>
+                            </div>                            
+                            <div class="form-field col-lg-12">
+                                <label class="labelDesc" for="ControlFile2">Agregar imagen</label>
+                                <input type="file" class="form-control-file js-input" id="ControlFile2">
                             </div>
-
-                            <!-- Bar Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Ventas Mensuales</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-bar">
-                                        <canvas id="myBarChart"></canvas>
-                                    </div>
-                                    
-                                </div>
+                            <div class="form-field col-lg-12">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirmar">
+                                    <input id="submit" class="submit-btn" type="submit" value="Aceptar">
+                                </a>
                             </div>
-
-                        </div>
-
-                        <!-- Donut Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Venta Categorías</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle pie1"></i> Navidad
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle pie2"></i> Camisetas
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle pie3"></i> Regalos
-                                        </span>
-                                    </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle pie4"></i> Jarros
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle pie5"></i> Sueters
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle pie6"></i> Otros
-                                        </span>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
+                        </form>
                     </div>
-
+                    
+                
+                    
                 </div>
                 <!-- /.container-fluid -->
 
@@ -277,24 +224,43 @@
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">¿Seguro que deseas salir?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Selecciona salir abajo para terminar tu sesión actual</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-primary" href="login.html">Salir</a>
-                    </div>
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
+    </div>
 
+    <!-- Confirmar Modal-->
+    <div class="modal fade" id="confirmar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Seguro que deseas agregar esa categoria?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">La categoria será ahora visible en la págna principal</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                <a class="btn btn-primary" href="ControlPanel.html">Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
@@ -308,8 +274,7 @@
     <!-- Page level custom scripts -->
     <script src="js/chart-area-demo.js"></script>
     <script src="js/chart-pie-demo.js"></script>
-    <script src="js/chart-bar-demo.js"></script>
-
+    <script src="js/chart-bar-demo.js"></script>    
 </body>
 
 </html>
