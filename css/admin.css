@@ -58,3 +58,13 @@ color: var(--pie6) !important;
         font-size: 20px;
     }
 }
+
+li.sidebar-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 10px;
+}
+
+li .text-center.d-none.d-md-inline{
+    position: relative;
+    left: 35%
+}
