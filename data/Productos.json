@@ -9,20 +9,20 @@
         },
         "productos":[
             {
-                "nombre":"Arbol decorativo 1",
-                "descripcion":"Arbol navideño con esferas personalizadas de medida 52x40 cm. Disponibles en colores verde y rojo",
+                "nombre":"Árbol decorativo 1",
+                "descripcion":"Árbol navideño con esferas personalizadas de medida 52x40 cm. Disponibles en colores verde y rojo",
                 "precio":20,
                 "img": "arbol1.jpg"
             },
             {
-                "nombre":"Arbol decorativo 2",
-                "descripcion":"Arbol de escritorio con una esfera personalizada de medida 25x20 cm. Disponibles en colores verde, rojo, amarillo y blanco",
+                "nombre":"Árbol decorativo 2",
+                "descripcion":"Árbol de escritorio con una esfera personalizada de medida 25x20 cm. Disponibles en colores verde, rojo, amarillo y blanco",
                 "precio":7,
                 "img": "arbol2.jpg"
             },
             {
-                "nombre":"Arbol decorativo 3",
-                "descripcion":"Arbol con esferas personalizadas.",
+                "nombre":"Árbol decorativo 3",
+                "descripcion":"Árbol con esferas personalizadas.",
                 "precio":15,
                 "img": "arbolredondo.jpg"
             },
@@ -40,13 +40,13 @@
             },
             {
                 "nombre":"Esfera navideña personalizada",
-                "descripcion":"Esfera navideña con nombres personalizados. Disponible en rojo, azul, dorado y verde. Llevelas también por docenas",
+                "descripcion":"Esfera navideña con nombres personalizados. Disponible en rojo, azul, dorado y verde. Llévelas también por docenas",
                 "precio":2,
                 "img": "esferas.jpg"
             },
             {
-                "nombre":"Arbol decorativo vacío",
-                "descripcion":"Arbol para colocar tus esferas. Disponible en rojo y verde.",
+                "nombre":"Árbol decorativo vacío",
+                "descripcion":"Árbol para colocar tus esferas. Disponible en rojo y verde.",
                 "precio":13,
                 "img": "arbolvacio.png"
             },
@@ -90,17 +90,17 @@
                 "precio":20,
                 "img": "nirvana.jpg"
             },{
-                "nombre":"Camiseta Rey Leon",
-                "descripcion":" Camiseta de simba, pumba y timón",
+                "nombre":"Camiseta Rey León",
+                "descripcion":" Camiseta de Simba, Pumba y Timón",
                 "precio":20,
                 "img": "lionking.jpg"
             },{
-                "nombre":"Camiseta Simba Rey Leon",
+                "nombre":"Camiseta Simba Rey León",
                 "descripcion":"Camiseta de Simba pequeño con frases creativas",
                 "precio":20,
                 "img": "lionking2.jpg"
             },{
-                "nombre":"Camiseta Bob Esponka",
+                "nombre":"Camiseta Bob Esponja",
                 "descripcion":"Camiseta con cara de bob esponja de fondo",
                 "precio":20,
                 "img": "bobesponja.jpg"
@@ -136,12 +136,12 @@
         "productos":[
             {
                 "nombre":"Regalo vino y copa",
-                "descripcion":"Regalale a tu media naranja este obsequio y demuéstrale lo mucho que la amas",
+                "descripcion":"Regálele a su media naranja este obsequio y demuéstrale lo mucho que la amas",
                 "precio":10,
                 "img": "miMejorCasualidad.jpg"
             },
             {
-                "nombre":"Caja de regalo de San Valentin",
+                "nombre":"Caja de regalo de San Valentín",
                 "descripcion":"Arma tu detalle y personalízalo como desees",
                 "precio":8,
                 "img": "cajaRegaloSanValentin.jpg"
@@ -177,7 +177,7 @@
                 "img": "regaloCajaNavidena.jpg"
             },
             {
-                "nombre":"Caja navideña con imagenes",
+                "nombre":"Caja navideña con imágenes",
                 "descripcion":"Caja navideña 33x25x14 cm para dar tus regalos de navidad mas bonitos",
                 "precio":7,
                 "img": "regaloCajaNavidenaCeleste.jpg"
@@ -220,7 +220,7 @@
             },
             {
                 "nombre":"Taza Capitan América",
-                "descripcion":"Taza de tu avenger favorito: Capitan América",
+                "descripcion":"Taza de tu avenger favorito: Capitán América",
                 "precio":9,
                 "img": "jarroCap.jpg"
             },            
@@ -333,8 +333,8 @@
                 "img":"sueterCasaPapel.jpg"
             },
             {
-                "nombre":"Suéter de Dragon Ball Z",
-                "descripcion":"Hermosas chompas de Dragon Ball z para que concentres tu ki 💪",
+                "nombre":"Suéter de Dragón Ball Z",
+                "descripcion":"Hermosas chompas de Dragón Ball z para que concentres tu ki 💪",
                 "precio":35,
                 "img":"sueterDBZ.jpg"
             },
