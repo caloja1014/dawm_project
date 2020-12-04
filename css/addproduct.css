@@ -80,7 +80,6 @@ body{
 
 #confirmacion> h2{
   color:  #7c3c21;
-  text-align: center;
 }
 
 #confirmacion{
@@ -90,7 +89,7 @@ body{
 }
 
 #confirmacion >img {
-  width: 500px;
+  width: 55%;
   height: auto;
 }
 
@@ -142,7 +141,6 @@ ul.stepper{
 
   #contenido{
     margin:5px;
-    padding-left: 0px;
     align-content:center;
   }
 
@@ -158,10 +156,7 @@ ul.stepper{
     width:90%;
   }
 
-  #contenido h2{
-    position: relative;
-    right: 40px;
-  }
+
 }
 
 @media(max-width:576px){

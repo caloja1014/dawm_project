@@ -48,6 +48,7 @@ let cargarJSONBar = () =>{
           hoverBackgroundColor: "#418791",
           borderColor: "#418791",
           data: ventas,
+          maxBarThickness: 25,
         }],
       },
       options: {
@@ -72,7 +73,7 @@ let cargarJSONBar = () =>{
             ticks: {
               maxTicksLimit: 12
             },
-            maxBarThickness: 25,
+            
           }],
           yAxes: [{
             ticks: {

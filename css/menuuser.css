@@ -13,7 +13,7 @@ div>img{
     border: 1px #7c3c21  solid;
 }
 
-header{
+#header{
     background-color: rgba(0, 0, 0, 0.4);
     height: 100px;
     display: flex;

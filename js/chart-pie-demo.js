@@ -16,7 +16,6 @@ let cargarJSON = () =>{
       let valor = json["categorias"][cat];
       porcentajes.push(parseInt(valor))
     }
-    console.log(ctx.innerHTML)
     var myPieChart = new Chart(ctx, {
       type: 'pie',
       data: {

@@ -86,8 +86,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 function metodopago(){
     let metodos = document.getElementById("metodos")
     for(let met of metodos.children){
-        met.onclick = ()=>{        
-            console.log(met) ; 
+        met.onclick = ()=>{     
             if(met.classList.contains("elegido")){
                 met.classList.remove("elegido");
             }
