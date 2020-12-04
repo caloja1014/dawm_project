@@ -23,18 +23,24 @@
 #history_title div>h1{
     text-align: center;
     color: #3a2a11;
-    margin: 40px 5px 25px 5px;
+    margin: 40px 5px 20px 5px;
     font-size:xx-large;
+}
+#history_title div>p{
+    text-align: center;
+    color: #3a2a11;
+    font-size:medium;
 }
 #container_h{
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: justify;
 }
 #history_container{
     display: inline-block;
     columns: 2;
-    width: 60%;
+    width: 70%;
     font-size: small;
     margin-bottom: 40px;
     color: #3a2a11;
@@ -48,6 +54,7 @@
     border-spacing: 10px;
     grid-gap: 20px;
     background-color: #fee696;
+    text-align: justify;
     
 }
 .content{
