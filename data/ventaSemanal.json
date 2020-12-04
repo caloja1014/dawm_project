@@ -3,10 +3,10 @@
         {
             "Lunes": 35,
             "Martes": 20,
-            "Miercoles": 15,
+            "Miércoles": 15,
             "Jueves": 45,
             "Viernes": 60,
-            "Sabado": 60,
+            "Sábado": 60,
             "Domingo": 75
         }
     ]

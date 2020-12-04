@@ -32,7 +32,7 @@ cargarJSONLine = () =>{
   .then(response => response.json())
   .then(datos=>{
     let semana = datos.semanas[0];
-    let dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"]
+    let dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
     let ventas = []
     for (let d of dias){
       ventas.push(parseInt(semana[d]))
