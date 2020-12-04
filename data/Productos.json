@@ -276,7 +276,7 @@
     },
 
     {
-        "categoria":"Sueters",
+        "categoria":"Suéters",
         "header":{
             "imagenes":[
                 "headerChompas.png",
@@ -322,7 +322,7 @@
             },
             {
                 "nombre":"Suéter de Deadpool",
-                "descripcion":"Maravilloso sueter rojo de deadpool",
+                "descripcion":"Maravilloso suéter rojo de deadpool",
                 "precio":35,
                 "img":"sueterDeadpool.jpg"
             },
