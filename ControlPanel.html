@@ -37,22 +37,25 @@
             <!-- Sidebar - Brand -->
             <li class="nav-item sidebar-logo ">
                     <div class="sidebar-brand-icon ">
-                        <img id="icon" src="assets/icons/icono.png"> 
+                        <img id="icon" src="assets/icons/icono.png" alt="Logo Empresa"> 
                     </div>
                     <div class="sidebar-brand-text mx-3"> MERAKI GIFTS </div>
             </li>
             
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <li class="sidebar-divider"> </li>
+            
+            
+            
             
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <li class="sidebar-heading">
                 Admin
-            </div>
+            </li>
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="ControlPanel.html">
                     <i class="fas fa-fw fa-tools"></i>
                     <span>Panel de Control</span></a>
@@ -65,28 +68,28 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <li class="sidebar-divider"></li>
 
             
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <li class="sidebar-heading">
                 Datos
-            </div>
+            </li>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Estadísticas</span></a>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <li class="sidebar-divider"></li>
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <li class="sidebar-heading">
                 Interfaz Usuario
-            </div>
+            </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">   
@@ -95,7 +98,7 @@
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Páginas</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapsePages" class="collapse"  data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Principales:</h6>
                         <a class="collapse-item" href="index.html" target="blank">Indice</a>
@@ -114,9 +117,12 @@
 
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+            <li>
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+            </li>
+            
 
         </ul>
         <!-- End of Sidebar -->
@@ -141,14 +147,14 @@
                     <ul class="navbar-nav ml-auto">
                         
                         
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <li class="topbar-divider d-none d-sm-block"></li>
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Patricia</span>
-                                <img class="img-profile rounded-circle"
+                                <img class="img-profile rounded-circle" alt="Profile Image"
                                     src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -171,7 +177,7 @@
                 <div class="container-fluid">
                     <h2 id="title-pc">OPCIONES</h2>
                     <div id="servicios" class="row">                        
-                        <div id="nuevoProduct"class="card col-4 mx-4" style="width: 18rem;">
+                        <div id="nuevoProduct" class="card col-4 mx-4" style="width: 18rem;">
                             <img class="card-img-top" src="./assets/icons/addproduct.png" alt="Card image cap">
                             <div class="card-body">
                                 <p class="card-text">Agrega un nuevo producto a la página</p>
