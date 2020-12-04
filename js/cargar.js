@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 var buscador = document.getElementById("inputProducto")
 
 buscador.oninput=()=>{
-    let value =buscador.value;
+    let value =buscador.value.toUpperCase();
     let categorias = document.getElementById("categorias");
     let catSelect=categorias.getElementsByClassName("categ-seleccionada");
     
@@ -103,7 +103,8 @@ buscador.oninput=()=>{
         divBusqueda.style.display = "";
         for (let elemento of json){
             for (let producto of elemento.productos){
-                if (producto.nombre.includes(value)){
+                let nombProducto=producto.nombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+                if (nombProducto.includes(value)){
 
                     divBusqueda.innerHTML += 
                     '<div class="col-lg-4 col-md-6 mb-4">'+
