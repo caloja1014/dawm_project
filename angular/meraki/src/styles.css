@@ -1,0 +1,66 @@
+@import "../styles/bootstrap.css";
+
+body {
+  padding-top: 56px;
+}
+
+.gradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(125, 61, 33, 0.7), transparent 60%);
+}
+.expand-on-hover {
+  transition: all ease-out 0.2s;
+}
+.expand-on-hover:hover {
+  transform: scale(1.05);
+}
+#about,
+#productos {
+  padding-bottom: 0px;
+}
+
+#separator-about,
+#separator-products {
+  display: relative;
+  top: -5px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: -5;
+}
+
+.content {
+  width: 150%;
+  height: 150px;
+  margin-left: -25%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+.categorias,
+#services h2,
+#services h3,
+#contact h2 {
+  color: #3a2a11;
+}
+.bg-gray {
+  background-color: gray;
+}
+
+@media (max-width: 576px) {
+  #header-carousel {
+    display: none;
+  }
+
+  #carouselExampleIndicators {
+    display: none;
+  }
+
+  #productos {
+    padding: 10px;
+  }
+}
