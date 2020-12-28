@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ContactanosComponent } from './contactanos/contactanos.component';
 import { ShopComponent } from './comprar/shop/shop.component';
 import { CartComponent } from './comprar/cart/cart.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [		
@@ -20,7 +21,8 @@ import { CartComponent } from './comprar/cart/cart.component';
    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
