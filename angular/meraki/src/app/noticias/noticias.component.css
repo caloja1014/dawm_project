@@ -1,0 +1,41 @@
+[hidden]{
+    display: none;
+}
+
+body{
+    margin-top: 20px;
+}
+
+h1{
+    text-align: center;
+    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #3a2a11;
+}
+
+.card-title{
+    color: #7c3c21;  
+}
+
+.card-header{
+    color: #7c3c21 ;
+}
+
+.btn-secondary, .btn-secondary.disabled, .btn-secondary:disabled, .btn-secondary:focus, .btn-secondary.focus{
+    background-color: #f9c49a;
+    border-color: #f9c49a;
+    color: #7c3c21;
+}
+
+.btn-secondary:hover, .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
+    background-color: #ec823a;
+    border-color: #ec823a;
+    color:white;
+}
+
+.card-body{
+    text-align: justify;
+}
+
+.card-body .btn{
+    display: none ;
+}
