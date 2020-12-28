@@ -7,13 +7,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import {Routes, RouterModule} from '@angular/router';
-const rutas:Routes=[{path:"about",component:AboutComponent}]
+import { DevComponent } from './dev/dev.component';
+const rutas:Routes=[{path:"about",component:AboutComponent},{path:"dev",component:DevComponent}]
 @NgModule({
   declarations: [			
     AppComponent,
       NavbarComponent,
       FooterComponent,
       AboutComponent,
+      DevComponent,
    ],
   imports: [
     BrowserModule,
