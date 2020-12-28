@@ -50,7 +50,7 @@ export class CartComponent implements OnInit {
 
   metodopago(){
     let metodos = document.getElementById("metodos");
-    for(let met of metodos!.children){
+    for(let met of <any>metodos!.children){
         met.onclick = ()=>{     
             if(met.classList.contains("elegido")){
                 met.classList.remove("elegido");

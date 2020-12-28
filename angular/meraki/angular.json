@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "meraki"
+  "defaultProject": "meraki",
+  "cli": {
+    "analytics": "7db83c40-957d-4519-aefa-42811f858765"
+  }
 }

@@ -83,7 +83,7 @@ export class ShopComponent implements OnInit {
       let divcateg = document.getElementById("div" + item.categoria);
       const productosC = divcateg!.children;
 
-      for (let divProducto of productosC) {
+      for (let divProducto of <any>productosC) {
         let btnComprar = divProducto.getElementsByClassName("button")[0];
         btnComprar.onclick = () => {
           if (btnComprar.classList.contains("btn-comprado")) {
@@ -141,7 +141,7 @@ export class ShopComponent implements OnInit {
     let nav = document.getElementById("mainNav");
     let ul = nav!.getElementsByTagName("ul")[0];
     ul.innerHTML += `<li class="nav-item"><a class="nav-link js-scroll-trigger" 
-    routerLink="/app-cart" href="/app-cart"><img id="carrito" 
+    routerLink="/cart" href="/cart"><img id="carrito" 
     src="./assets/icons/carrito-de-compras.png" alt=""></a></li>
     <li class="topbar-divider d-none d-sm-block"></li>
     <li class="nav-item dropdown text-center">
@@ -165,32 +165,32 @@ export class ShopComponent implements OnInit {
   };
 
   buscar(): void {
-    var buscador = document.getElementById("inputProducto");
-    buscador.oninput = () => {
-      let value = buscador.value.toUpperCase();
+    var buscador = document.getElementById("inputProducto") as HTMLInputElement;
+    buscador!.oninput = () => {
+      let value = buscador!.value.toUpperCase();
       let categorias = document.getElementById("categorias");
-      let catSelect = categorias.getElementsByClassName("categ-seleccionada");
+      let catSelect = categorias!.getElementsByClassName("categ-seleccionada");
 
       let divproductos = document.getElementById("productos");
       let divBusqueda = document.getElementById("divBusqueda");
       if (value == "") {
         let idDiv = catSelect[0].id;
-        document.getElementById("div" + idDiv).style.display = "";
-        divBusqueda.innerHTML = "";
+        document.getElementById("div" + idDiv)!.style.display = "";
+        divBusqueda!.innerHTML = "";
       }
       else {
-        let productosRow = divproductos.getElementsByClassName("row");
-        for (let p of productosRow) {
+        let productosRow = divproductos!.getElementsByClassName("row");
+        for (let p of <any>productosRow) {
           p.style.display = "none"
         }
-        divBusqueda.innerHTML = "";
-        divBusqueda.style.display = "";
+        divBusqueda!.innerHTML = "";
+        divBusqueda!.style.display = "";
         for (let elemento of productos) {
           for (let producto of elemento.productos) {
             let nombProducto = producto.nombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
             if (nombProducto.includes(value)) {
 
-              divBusqueda.innerHTML +=
+              divBusqueda!.innerHTML +=
                 '<div class="col-lg-4 col-md-6 mb-4">' +
                 '<div class="card h-100">' +
                 '<a href="#"><img class="card-img-top" src=./assets/productos/' + elemento.categoria + '/' + producto.img + ' alt=""></a>' +
