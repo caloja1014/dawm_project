@@ -8,7 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import {Routes, RouterModule} from '@angular/router';
 import { DevComponent } from './dev/dev.component';
-const rutas:Routes=[{path:"about",component:AboutComponent},{path:"dev",component:DevComponent}]
+import { HomeComponent } from './home/home.component';
+const rutas:Routes=[{path:"",component:HomeComponent},{path:"about",component:AboutComponent},{path:"dev",component:DevComponent}]
 @NgModule({
   declarations: [			
     AppComponent,
@@ -16,6 +17,7 @@ const rutas:Routes=[{path:"about",component:AboutComponent},{path:"dev",componen
       FooterComponent,
       AboutComponent,
       DevComponent,
+      HomeComponent,
    ],
   imports: [
     BrowserModule,
