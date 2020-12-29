@@ -20,7 +20,7 @@ import { AdminModule } from './admin/admin.module';
       NoticiasComponent,
       ContactanosComponent,
       ShopComponent,
-      CartComponent
+      CartComponent,
    ],
   imports: [
     BrowserModule,

@@ -1,0 +1,37 @@
+.container{
+	background-color: #ec823a;
+	margin: 0;
+	min-width:100%;
+	min-height:100% !important;
+}
+
+#logo_login{
+	margin:0;
+	width: 530px;
+	transform: rotate(-30deg);
+}
+
+.card.o-hidden.border-0.shadow-lg.my-5{
+	position: relative;
+	top:80px;
+
+}
+
+.logo_container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#errorLogin{
+	font-size: small;
+	color: red;
+	padding-bottom: 10px;
+	display: none;
+}
+
+@media(max-width:576px){
+	img{
+		width: 100% !important;
+	}
+}

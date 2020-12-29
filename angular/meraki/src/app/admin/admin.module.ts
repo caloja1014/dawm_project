@@ -4,11 +4,12 @@ import { AsideComponent } from './aside/aside.component';
 import { AdminComponent } from './admin.component';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { AppModule } from '../app.module';
+import { LoginComponent } from './login/login.component';
 
 
 
 @NgModule({
-  declarations: [AsideComponent, AdminComponent, ControlPanelComponent],
+  declarations: [AsideComponent, AdminComponent, ControlPanelComponent, LoginComponent],
   imports: [
     CommonModule
   ]

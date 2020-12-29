@@ -7,12 +7,14 @@ import { ControlPanelComponent } from './admin/control-panel/control-panel.compo
 import { CartComponent } from './comprar/cart/cart.component';
 import { ShopComponent } from './comprar/shop/shop.component';
 import { ContactanosComponent } from './contactanos/contactanos.component';
+import { LoginComponent } from './admin/login/login.component';
 
 const routes: Routes = [{path:"shop", component: ShopComponent},
 {path:"cart", component:CartComponent},
 {path:"contactus",component:ContactanosComponent},
 {path:"adminCPanel",component:ControlPanelComponent},
-{path:'noticias', component: NoticiasComponent}];
+{path:'noticias', component: NoticiasComponent},
+{path:'login',component: LoginComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes),CommonModule],
