@@ -141,7 +141,7 @@ export class ShopComponent implements OnInit {
     let nav = document.getElementById("mainNav");
     let ul = nav!.getElementsByTagName("ul")[0];
     ul.innerHTML += `<li class="nav-item"><a class="nav-link js-scroll-trigger" 
-    routerLink="/cart" href="/cart"><img id="carrito" 
+    href="/cart" href="/cart"><img id="carrito" 
     src="./assets/icons/carrito-de-compras.png" alt=""></a></li>
     <li class="topbar-divider d-none d-sm-block"></li>
     <li class="nav-item dropdown text-center">
