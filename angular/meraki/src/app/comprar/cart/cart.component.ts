@@ -9,7 +9,6 @@ import Stepper from 'bs-stepper';
 })
 export class CartComponent implements OnInit {
 
-  name = 'Angular';
   private stepper!: Stepper;
 
   productos:any;
