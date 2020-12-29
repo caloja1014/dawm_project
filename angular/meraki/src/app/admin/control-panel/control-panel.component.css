@@ -1,41 +1,41 @@
 #servicios {
-  display: flex;
-  columns: 2;
-  justify-content: center;
-  margin-top: 20px;
+    display: flex;
+    columns: 2;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 #servicios img {
-  width: 100px;
-  height: auto;
-  align-self: center;
-  padding-top: 20px;
+    width: 100px;
+    height: auto;
+    align-self: center;
+    padding-top: 20px;
 }
 
 .card {
-  background-color: #fff;
-  border-radius: 25px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  z-index: 0;
-  margin: 10px;
-  cursor: pointer;
-  transition: all ease-out 0.2s;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 0;
+    margin: 10px;
+    cursor: pointer;
+    transition: all ease-out 0.2s;
 }
 
 .card:hover {
-  background-color: #e0e0e0;
-  transform: scale(1.05);
+    background-color: #e0e0e0;
+    transform: scale(1.05);
 }
 
 #title-pc {
-  color: #7c3c21;
-  text-align: center;
-  font-weight: bold;
+    color: #7c3c21;
+    text-align: center;
+    font-weight: bold;
 }
 
 @media (max-width: 576px) {
-  /*#servicios{
+    /*#servicios{
         display: grid;        
         
     }
@@ -53,8 +53,16 @@
         padding: 1px;
         
     }*/
-  .card {
-    flex: 1 0 90%;
-    max-width: 90%;
-  }
+    .card {
+        flex: 1 0 90%;
+        max-width: 90%;
+    }
+}
+
+#servicios a {
+    color: black;
+}
+
+#servicios a:hover {
+    text-decoration: none;
 }

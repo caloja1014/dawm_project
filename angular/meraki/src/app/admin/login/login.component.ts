@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     let errorEl:any = document.getElementById("errorLogin")!;
     if(user == "admin" && pass=="admin"){
         errorEl.style.display="none";
-        window.open("/adminCPanel","_self")
+        window.open("/controlpanel","_self")
     }else{
         userEl.value="";
         passEl.value="";
