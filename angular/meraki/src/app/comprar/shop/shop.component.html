@@ -1,0 +1,55 @@
+<!-- Page Content -->
+<div class="container py-3" id="page-top">
+  <div class="row">
+    <div class="col-lg-3">
+      <h1 class="my-4 categorias">Categorías</h1>
+      <div id="categorias" class="list-group"></div>
+
+      <div class="card my-4">
+        <h5 class="card-header">Búsqueda</h5>
+        <div class="card-body">
+          <div class="input-group">
+            <input
+              type="text"
+              id="inputProducto"
+              class="form-control"
+              placeholder="Busca un producto..."
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-lg-3 -->
+
+    <div class="col-lg-9">
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide my-5"
+        data-ride="carousel"
+      >
+        <ol class="carousel-indicators"></ol>
+        <div id="carousel-products" class="carousel-inner" role="listbox"></div>
+        <a
+          class="carousel-control-prev"
+          href="#carouselExampleIndicators"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carouselExampleIndicators"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <div id="productos" class="container"></div>
+    </div>
+  </div>
+</div>
