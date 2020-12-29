@@ -8,13 +8,15 @@ import { CartComponent } from './comprar/cart/cart.component';
 import { ShopComponent } from './comprar/shop/shop.component';
 import { ContactanosComponent } from './contactanos/contactanos.component';
 import { LoginComponent } from './admin/login/login.component';
+import { EstadisticasComponent } from './admin/estadisticas/estadisticas.component';
 
 const routes: Routes = [{path:"shop", component: ShopComponent},
 {path:"cart", component:CartComponent},
 {path:"contactus",component:ContactanosComponent},
 {path:"adminCPanel",component:ControlPanelComponent},
 {path:'noticias', component: NoticiasComponent},
-{path:'login',component: LoginComponent}];
+{path:'login',component: LoginComponent},
+{path:"adminEstadisticas",component:EstadisticasComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes),CommonModule],
