@@ -4,7 +4,7 @@ import Stepper from 'bs-stepper';
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
-  styleUrls: ['./addproduct.component.css']
+  styleUrls: ['../sb-admin-2.css','./addproduct.component.css']
 })
 export class AddproductComponent implements OnInit {
 

@@ -1,0 +1,388 @@
+.log-reg .modal-content {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #999999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    outline: none;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    background-clip: padding-box;
+}
+
+.log-reg .modal-header {
+    min-height: 16.428571429px;
+    position: static !important;
+    padding: 15px !important;
+}
+
+.log-reg .modal-header .close,
+#logoutModal .modal-header .close {
+    margin-top: -20px !important;
+}
+
+.log-reg button.close,
+#logoutModal button.close {
+    padding: 0 !important;
+    cursor: pointer !important;
+    background: transparent !important;
+    border: 0 !important;
+    -webkit-appearance: none !important;
+}
+
+.log-reg .close,
+#logoutModal .close {
+    float: right !important;
+    font-size: 21px !important;
+    font-weight: bold !important;
+    line-height: 1 !important;
+    color: #000000 !important;
+    text-shadow: 0 1px 0 #ffffff !important;
+    opacity: 0.2 !important;
+    filter: alpha(opacity=20);
+}
+
+#logoutModal .close {
+    margin-right: 12px;
+}
+
+.log-reg .modal-title {
+    margin: 0 !important;
+    line-height: 1.428571429 !important;
+}
+.log-reg h4 {
+    font-size: 18px !important;
+    font-weight: 400;
+}
+
+.log-reg .modal-body {
+    position: relative !important;
+    padding: 20px !important;
+    height: auto !important;
+}
+
+.log-reg .modal-dialog {
+    position: relative !important;
+    z-index: 1050 !important;
+    padding: 10px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    margin-top: 0px;
+}
+
+@media screen and (min-width: 768px) {
+    .log-reg .modal-dialog {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+}
+
+.log-reg .modal-body .img img {
+    width: 160px;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated.hinges {
+    -webkit-animation-duration: 2s;
+    -moz-animation-duration: 2s;
+    -o-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+.animated.slow {
+    -webkit-animation-duration: 3s;
+    -moz-animation-duration: 3s;
+    -o-animation-duration: 3s;
+    animation-duration: 3s;
+}
+
+.animated.snail {
+    -webkit-animation-duration: 4s;
+    -moz-animation-duration: 4s;
+    -o-animation-duration: 4s;
+    animation-duration: 4s;
+}
+
+@-webkit-keyframes shake {
+    0%,
+    100% {
+        -webkit-transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translateX(-10px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translateX(10px);
+    }
+}
+
+@-moz-keyframes shake {
+    0%,
+    100% {
+        -moz-transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -moz-transform: translateX(-10px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -moz-transform: translateX(10px);
+    }
+}
+
+@-o-keyframes shake {
+    0%,
+    100% {
+        -o-transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -o-transform: translateX(-10px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -o-transform: translateX(10px);
+    }
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-10px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(10px);
+    }
+}
+
+.shake {
+    -webkit-animation-name: shake;
+    -moz-animation-name: shake;
+    -o-animation-name: shake;
+    animation-name: shake;
+}
+
+.login .modal-dialog {
+    width: 350px;
+}
+.login .modal-footer {
+    border-top: 0;
+    margin-top: 0px;
+    padding: 10px 20px 20px;
+}
+.login .modal-header {
+    border: 0 none;
+    padding: 15px 15px 15px;
+    /*     padding: 11px 15px; */
+}
+/*.login .modal-body{
+/*     background-color: #eeeeee; 
+}*/
+.login .division {
+    float: none;
+    margin: 0 auto 18px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.login .division .line {
+    border-top: 1px solid #dfdfdf;
+    position: absolute;
+    top: 10px;
+    width: 34%;
+}
+.login .division .line.l {
+    left: 0;
+}
+.login .division .line.r {
+    right: 0;
+}
+.login .division span {
+    color: #424242;
+    font-size: 17px;
+}
+.login .box .social {
+    float: none;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.login .social .circle {
+    background-color: #eeeeee;
+    color: #ffffff;
+    border-radius: 100px;
+    display: inline-block;
+    margin: 0 17px;
+    padding: 15px;
+}
+.login .social .circle .fa {
+    font-size: 16px;
+}
+.login .social .facebook {
+    background-color: #455ca8;
+    color: #ffffff;
+}
+.login .social .google {
+    background-color: #f74933;
+}
+.login .social .github {
+    background-color: #403a3a;
+}
+.login .facebook:hover {
+    background-color: #6e83cd;
+}
+.login .google:hover {
+    background-color: #ff7566;
+}
+.login .github:hover {
+    background-color: #4d4d4d;
+}
+.login .forgot {
+    color: #797979;
+    margin-left: 0;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+}
+.login .btn-login,
+.registerBox .btn-register {
+    background-color: #ec823a;
+    border-color: #ec823a;
+    border-width: 0;
+    color: #ffffff;
+    display: block;
+    margin: 0 auto;
+    padding: 15px 50px;
+    text-transform: uppercase;
+    width: 100%;
+}
+.login .btn-login:hover,
+.registerBox .btn-register:hover {
+    background-color: #f24516;
+    color: #ffffff;
+}
+.login .form-control {
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.09);
+    box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.09) inset;
+    color: #ffffff;
+}
+.login .form-control:hover {
+    background-color: rgba(0, 0, 0, 0.16);
+}
+.login .form-control:focus {
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.04) inset;
+    background-color: rgba(0, 0, 0, 0.23);
+    color: #ffffff;
+}
+.login .box .form input[type="text"],
+.login .box .form input[type="password"],
+.login .box .form input[type="email"] {
+    border-radius: 3px;
+    border: none;
+    color: #333333;
+    font-size: 16px;
+    height: 46px;
+    margin-bottom: 5px;
+    padding: 13px 12px;
+    width: 100%;
+}
+
+@media (max-width: 400px) {
+    .login .modal-dialog {
+        width: 100%;
+    }
+}
+
+.big-login,
+.big-register {
+    background-color: #0c63e4;
+    color: #ffffff;
+    border-radius: 7px;
+    border-width: 2px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 200;
+    padding: 16px 60px;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+}
+.big-login:hover {
+    background-color: #0c56c5;
+    color: #ffffff;
+}
+.big-register {
+    background-color: rgba(0, 0, 0, 0);
+    color: #00bbff;
+    border-color: #0c63e4;
+}
+
+.big-register:hover {
+    border-color: #0c56c5;
+    color: #0c56c5;
+}
+
+.log-reg .modal-footer a:hover {
+    text-decoration: underline;
+}
+
+.log-reg .modal-footer a {
+    color: #428bca;
+}
+
+.shopping-cart .qty .button .btn {
+    color: #282828 !important;
+}
+
+.shopping-cart .qty .button .btn:hover {
+    color: #007bff !important;
+    background-color: rgb(230, 227, 227);
+}
+
+.login-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.close {
+    margin-right: 10px;
+}

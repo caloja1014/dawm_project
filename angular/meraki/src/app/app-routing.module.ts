@@ -14,6 +14,7 @@ import { AboutComponent } from './about/about.component';
 import { DevComponent } from './dev/dev.component';
 import { LoginComponent } from './admin/login/login.component';
 import { EstadisticasComponent } from './admin/estadisticas/estadisticas.component';
+import { AddproductComponent } from './admin/addproduct/addproduct.component';
 
 const routes: Routes = [{ path: "shop", component: ShopComponent },
 { path: "cart", component: CartComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [{ path: "shop", component: ShopComponent },
 { path: "about", component: AboutComponent }, 
 { path: "dev", component: DevComponent },
 {path:'login',component: LoginComponent},
-{path:"adminEstadisticas",component:EstadisticasComponent}
+{path:"adminEstadisticas",component:EstadisticasComponent},
+{path:"addproduct",component:AddproductComponent}
 ];
 
 @NgModule({

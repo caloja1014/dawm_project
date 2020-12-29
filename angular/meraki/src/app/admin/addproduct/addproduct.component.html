@@ -1,83 +1,205 @@
-<div class="container py-5">
-    <div id="stepper1" class="bs-stepper">
-        <div class="bs-stepper-header mb-4">
-            <div class="step" data-target="#test-l-1">
-                <button class="step-trigger">
-                    <span class="bs-stepper-circle">1</span>
-                    <span class="bs-stepper-label">Confirma los artículos</span>
+<div id="wrapper">
+    <app-aside></app-aside>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content mb-5">
+            <!-- Topbar -->
+            <nav
+                class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+            >
+                <!-- Sidebar Toggle (Topbar) -->
+                <button
+                    id="sidebarToggleTop"
+                    class="btn btn-link d-md-none rounded-circle mr-3"
+                >
+                    <i class="fa fa-bars"></i>
                 </button>
-            </div>
-            <div class="line"></div>
-            <div class="step" data-target="#test-l-2">
-                <button class="step-trigger">
-                    <span class="bs-stepper-circle">2</span>
-                    <span class="bs-stepper-label">Datos del cliente</span>
-                </button>
-            </div>
-            <div class="line"></div>
-            <div class="step" data-target="#test-l-3">
-                <button class="step-trigger">
-                    <span class="bs-stepper-circle">3</span>
-                    <span class="bs-stepper-label">Confirmación</span>
-                </button>
-            </div>
-        </div>
-        <div class="bs-stepper-content">
-            <div id="test-l-1" class="content">
-                <div id="seccionproductos">
-                    <h2>Confirma tus productos</h2>
-                    <p>Estos son los productos que deseas comprar:</p>
-                    <div id="divproductos" class="row"></div>
-                </div>
-                <button (click)="next()" class="mt-3 btn btn-primary">
-                    Next
-                </button>
-            </div>
-            <div id="test-l-2" class="content">
-                <h2 class="pb-4">¿Cómo deseas hacer el pago?</h2>
-                <div id="metodos" class="row">
-                    <div
-                        id="metodo1"
-                        class="card text-white bg-gray mb-3 mx-3"
-                        style="max-width: 18rem"
-                    >
-                        <div class="card-header">Opcion 1</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Efectivo</h5>
-                            <p class="card-text text-white">
-                                Ponte en contacto con nosotros para coordinar el
-                                pago y la entrega presencial de la compra.
-                            </p>
-                        </div>
-                    </div>
 
-                    <div
-                        id="metodo2"
-                        class="card text-white bg-gray mb-3 mx-3"
-                        style="max-width: 18rem"
-                    >
-                        <div class="card-header">Opcion 2</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Transferencia bancaria</h5>
-                            <p class="card-text text-white">
-                                Realiza el pago mediante una transferencia y
-                                ponte en contacto con nosotros para coordinar el
-                                pago presencial o a domicilio.
-                            </p>
+                <div id="titAdmin" class="titleResponsive">
+                    MERAKI GIFTS - ADMINISTRADOR
+                </div>
+
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="topbar-divider d-none d-sm-block"></li>
+
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="userDropdown"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            <span
+                                class="mr-2 d-none d-lg-inline text-gray-600 small"
+                                >Patricia</span
+                            >
+                            <img
+                                class="img-profile rounded-circle"
+                                alt="Profile Image"
+                                src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png"
+                            />
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div
+                            class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="userDropdown"
+                        >
+                            <a
+                                class="dropdown-item"
+                                href="#"
+                                data-toggle="modal"
+                                data-target="#logoutModal"
+                            >
+                                <i
+                                    class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
+                                ></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div id="contenido" class="container mx-5">
+                <h2>Agregar producto</h2>
+                <div id="stepper1" class="mt-4 bs-stepper">
+                    <div class="bs-stepper-header mb-4">
+                        <div class="step" data-target="#test-l-1">
+                            <button class="step-trigger">
+                                <span class="bs-stepper-circle">1</span>
+                                <span class="bs-stepper-label"
+                                    >Completa el formulario</span
+                                >
+                            </button>
+                        </div>
+                        <div class="line"></div>
+                        <div class="step" data-target="#test-l-2">
+                            <button class="step-trigger">
+                                <span class="bs-stepper-circle">2</span>
+                                <span class="bs-stepper-label"
+                                    >Agrega Imagen</span
+                                >
+                            </button>
+                        </div>
+                        <div class="line"></div>
+                        <div class="step" data-target="#test-l-3">
+                            <button class="step-trigger">
+                                <span class="bs-stepper-circle">3</span>
+                                <span class="bs-stepper-label"
+                                    >Confirmación</span
+                                >
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bs-stepper-content">
+                        <div id="test-l-1" class="content">
+                            <div id="formularioregistro">
+                                <form class="contact-form row">
+                                    <div class="form-field col-lg-6">
+                                        <input
+                                            id="pnombre"
+                                            class="input-text js-input"
+                                            type="text"
+                                            required
+                                        />
+                                        <label class="label" for="pnombre"
+                                            >Nombre del Producto</label
+                                        >
+                                    </div>
+                                    <div
+                                        class="form-field input-group col-lg-6"
+                                    >
+                                        <select
+                                            class="form-control form-categorias input-text js-input"
+                                            id="sel1"
+                                            required
+                                        >
+                                            <option>Navidad</option>
+                                            <option>Jarros</option>
+                                            <option>Suéters</option>
+                                            <option>Camisetas</option>
+                                            <option>Regalos</option>
+                                            <option>Otros</option>
+                                        </select>
+                                        <label class="label" for="sel1"
+                                            >Elija una categoría</label
+                                        >
+                                    </div>
+                                    <div class="form-field col-lg-6">
+                                        <input
+                                            id="company"
+                                            class="input-text js-input"
+                                            type="number"
+                                            required
+                                        />
+                                        <label class="label" for="company"
+                                            >Precio del producto</label
+                                        >
+                                    </div>
+                                    <div class="form-field col-lg-12">
+                                        <label class="labelDesc" for="Textarea1"
+                                            >Descripción del producto</label
+                                        >
+                                        <textarea
+                                            class="form-control"
+                                            id="Textarea1"
+                                            rows="3"
+                                        ></textarea>
+                                    </div>
+                                    <button
+                                        (click)="next()"
+                                        class="btn btn-primary mt-3"
+                                    >
+                                        Aceptar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="test-l-2" class="content">
+                            <div id="agregarImagen">
+                                <form>
+                                    <div class="form-group">
+                                        <label
+                                            class="h4"
+                                            for=" py-4 ControlFile1"
+                                            >Agregar la imagen de su
+                                            producto</label
+                                        >
+                                        <input
+                                            type="file"
+                                            class="form-control-file py-4"
+                                            id="ControlFile1"
+                                        />
+                                    </div>
+                                </form>
+                            </div>
+                            <button
+                                (click)="next()"
+                                class="btn btn-primary mt-3"
+                            >
+                                Aceptar
+                            </button>
+                        </div>
+                        <div id="test-l-3" class="content text-center">
+                            <div id="confirmacion">
+                                <h2>Producto agregado</h2>
+                                <img
+                                    src="./assets/icons/productoagregado.gif"
+                                    alt=""
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
-                <button (click)="next()" class="btn btn-primary mt-3">
-                    Next
-                </button>
             </div>
-            <div id="test-l-3" class="content text-center">
-                <h2>¡Listo! Muchas gracias por comprar con nosotros.</h2>
-                <img src="./assets/icons/comprahecha.png" alt="" />
-                <div class="d-block my-5">
-                    <a href="/shop" class="btn btn-primary">Volver a comprar</a>
-                </div>
-            </div>
+            <!-- End of Main Content -->
         </div>
     </div>
 </div>

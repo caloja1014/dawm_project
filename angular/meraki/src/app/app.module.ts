@@ -13,6 +13,7 @@ import { ContactanosComponent } from './contactanos/contactanos.component';
 import { ShopComponent } from './comprar/shop/shop.component';
 import { CartComponent } from './comprar/cart/cart.component';
 import { AdminModule } from './admin/admin.module';
+import { AuthenticationComponent } from './authentication/authentication.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { AdminModule } from './admin/admin.module';
     NoticiasComponent,
     ContactanosComponent,
     ShopComponent,
-    CartComponent
+    CartComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,

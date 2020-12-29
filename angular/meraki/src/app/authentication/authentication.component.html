@@ -1,0 +1,230 @@
+<div class="log-reg">
+    <div
+        class="modal fade login"
+        id="loginModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModal"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog login animated" role="document">
+            <div class="modal-content">
+                <div
+                    class="modal-header d-flex justify-content-between align-items-center"
+                >
+                    <h4 class="modal-title">Iniciar sesión</h4>
+                    <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                    >
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="box">
+                        <div class="content">
+                            <div class="img text-center mb-5">
+                                <img
+                                    src="/assets/icons/icono.png"
+                                    alt="alarom logo"
+                                />
+                            </div>
+                            <div class="error"></div>
+                            <div class="form loginBox">
+                                <form id="signin1" accept-charset="UTF-8">
+                                    <input
+                                        class="form-control"
+                                        type="email"
+                                        placeholder="Email"
+                                        name="email"
+                                        required
+                                    />
+                                    <input
+                                        class="form-control"
+                                        type="password"
+                                        placeholder="Contraseña"
+                                        name="password"
+                                        required
+                                    />
+                                    <input
+                                        class="btn btn-default btn-login"
+                                        type="submit"
+                                        value="Iniciar Sesión"
+                                    />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="content registerBox" style="display: none">
+                            <div class="form">
+                                <form
+                                    id="signup1"
+                                    html="{:multipart=>true}"
+                                    data-remote="true"
+                                    accept-charset="UTF-8"
+                                >
+                                    <input
+                                        class="form-control"
+                                        type="email"
+                                        placeholder="Email"
+                                        name="email"
+                                        required
+                                    />
+
+                                    <input
+                                        class="form-control"
+                                        id="emaillogreg"
+                                        type="password"
+                                        placeholder="Contraseña"
+                                        required
+                                        name="password"
+                                    />
+
+                                    <input
+                                        class="form-control"
+                                        id="emaillogreg-conf"
+                                        type="password"
+                                        placeholder="Repita la Contraseña"
+                                        name="password_confirmation"
+                                        required
+                                    />
+
+                                    <input
+                                        type="submit"
+                                        class="btn btn-default btn-register"
+                                        value="Crear cuenta"
+                                    />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="forgot register-footer" style="display: none">
+                        <span>¿Ya tienes cuenta?</span>
+                        <a href="javascript: showLoginForm();">Inicia sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="log-reg">
+    <div
+        class="modal fade login"
+        id="registerModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModal"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog login animated" role="document">
+            <div class="modal-content">
+                <div
+                    class="modal-header d-flex justify-content-between align-items-center"
+                >
+                    <h4 class="modal-title">Iniciar sesión</h4>
+                    <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                    >
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="box">
+                        <div class="content">
+                            <div class="img text-center mb-5">
+                                <img
+                                    src="/assets/icons/icono.png"
+                                    alt="alarom logo"
+                                />
+                            </div>
+                            <div class="error"></div>
+                            <div class="form loginBox" style="display: none">
+                                <form id="signin2" accept-charset="UTF-8">
+                                    <input
+                                        class="form-control"
+                                        type="email"
+                                        placeholder="Email"
+                                        name="email"
+                                        required
+                                    />
+                                    <input
+                                        class="form-control"
+                                        type="password"
+                                        placeholder="Contraseña"
+                                        name="password"
+                                        required
+                                    />
+                                    <input
+                                        class="btn btn-default btn-login"
+                                        type="submit"
+                                        value="Iniciar Sesión"
+                                    />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="content registerBox">
+                            <div class="form">
+                                <form
+                                    id="signup2"
+                                    html="{:multipart=>true}"
+                                    data-remote="true"
+                                    accept-charset="UTF-8"
+                                >
+                                    <input
+                                        class="form-control"
+                                        type="email"
+                                        placeholder="Email"
+                                        name="email"
+                                        required
+                                    />
+                                    <input
+                                        class="form-control"
+                                        type="password"
+                                        placeholder="Contraseña"
+                                        name="password"
+                                        required
+                                    />
+                                    <input
+                                        class="form-control"
+                                        type="password"
+                                        placeholder="Repita la Contraseña"
+                                        name="password_confirmation"
+                                        required
+                                    />
+                                    <input
+                                        class="btn btn-default btn-register"
+                                        type="submit"
+                                        value="Crear cuenta"
+                                        name="commit"
+                                    />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="forgot login-footer" style="display: none">
+                        <span
+                            >¿Aún no tienes cuenta?
+                            <a href="javascript: showRegisterForm2();"
+                                >Crear una cuenta</a
+                            >
+                        </span>
+                    </div>
+                    <div class="forgot register-footer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
