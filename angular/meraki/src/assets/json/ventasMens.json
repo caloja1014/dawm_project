@@ -1,0 +1,50 @@
+[
+    {
+        "mes":"Enero",
+        "venta": "1300"
+    },
+    {
+        "mes":"Febrero",
+        "venta": "1200"
+    },
+    {
+        "mes":"Marzo",
+        "venta": "900"
+    },
+    {
+        "mes":"Abril",
+        "venta": "750"
+    },
+    {
+        "mes":"Mayo",
+        "venta": "1000"
+    },
+    {
+        "mes":"Junio",
+        "venta": "1100"
+    },
+    {
+        "mes":"Julio",
+        "venta": "600"
+    },
+    {
+        "mes":"Agosto",
+        "venta": "650"
+    },
+    {
+        "mes":"Septiembre",
+        "venta": "700"
+    },
+    {
+        "mes":"Octubre",
+        "venta": "900"
+    },
+    {
+        "mes":"Noviembre",
+        "venta": "1200"
+    },
+    {
+        "mes":"Diciembre",
+        "venta": "1500"
+    }    
+]
