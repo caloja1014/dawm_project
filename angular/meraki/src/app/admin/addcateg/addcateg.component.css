@@ -1,0 +1,181 @@
+.primary-color,
+ul.stepper li.active a .circle,
+ul.stepper li.completed a .circle {
+    background-color: #ec823a !important;
+}
+
+.primary-color,
+ul.stepper a .circle,
+ul.stepper li a .circle {
+    background-color: #9b918b !important;
+}
+
+.stepper {
+    width: 1000px;
+}
+
+.contact-form .form-field {
+    position: relative;
+    margin: 32px 0;
+}
+.contact-form .input-text {
+    display: block;
+    width: 100%;
+    height: 36px;
+    border-width: 0px 0px 2px 0px !important;
+    border-color: #ec823a;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+    border-radius: 0px;
+    background-color: transparent;
+}
+.contact-form .input-text:focus {
+    outline: none;
+}
+.contact-form .input-text:focus + .label,
+.contact-form .input-text.not-empty + .label {
+    -webkit-transform: translateY(-24px);
+    transform: translateY(-24px);
+}
+.contact-form .label {
+    position: absolute;
+    left: 20px;
+    bottom: 11px;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #9b918b;
+    cursor: text;
+    transition: -webkit-transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+.contact-form .submit-btn {
+    display: inline-block;
+    background-color: #000;
+    background-image: linear-gradient(125deg, #e7901f, #f5bb84);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+    padding: 8px 16px;
+    border: none;
+    width: 200px;
+    cursor: pointer;
+}
+
+#formularioregistro {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seccioninactiva {
+    display: none !important;
+}
+
+body {
+    padding-top: 0px;
+}
+
+#confirmacion > h2 {
+    color: #7c3c21;
+}
+
+#confirmacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#confirmacion > img {
+    width: 55%;
+    height: auto;
+}
+
+#Textarea1 {
+    border-color: #ec823a;
+    border-width: 2px;
+}
+
+.contact-form .labelDesc {
+    left: 20px;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #9b918b;
+    cursor: text;
+}
+
+label {
+    bottom: 18px !important;
+}
+
+#agregarImagen h4 {
+    color: #7c3c21;
+}
+#contenido h2 {
+    color: #7c3c21;
+    padding-top: 40px;
+    padding-bottom: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+ul.stepper {
+    padding-top: 0px;
+}
+
+#submit {
+    text-decoration: none;
+}
+
+@media (max-width: 992px) {
+    ul.stepper {
+        width: 500px;
+    }
+    .divsubmit {
+        max-width: 300px;
+    }
+
+    #contenido {
+        margin: 5px;
+        align-content: center;
+    }
+
+    #contenido h2 {
+        width: 90%;
+    }
+
+    #steepers-addproduct {
+        padding-left: 0px !important;
+    }
+
+    #confirmacion > img {
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    #contenido > h2 {
+        right: 0px;
+    }
+
+    #agregarImagen .form-group {
+        max-width: 250px;
+    }
+
+    /*#formularioregistro>form{
+    max-width: 250px;
+  }*/
+
+    form.row {
+        margin-right: -3.75rem;
+    }
+
+    #confirmacion {
+        margin-right: 10px;
+    }
+}
