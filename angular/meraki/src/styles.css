@@ -1,8 +1,5 @@
 @import "../styles/bootstrap.css";
-
-body {
-  padding-top: 56px;
-}
+@import "~bs-stepper/dist/css/bs-stepper.min.css";
 
 .gradient::before {
   content: "";
@@ -34,7 +31,8 @@ body {
   z-index: -5;
 }
 
-.content {
+#separator-about .content,
+#separator-products .content {
   width: 150%;
   height: 150px;
   margin-left: -25%;

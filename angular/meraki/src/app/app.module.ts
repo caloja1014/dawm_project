@@ -6,22 +6,31 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
-import {Routes, RouterModule} from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { DevComponent } from './dev/dev.component';
 import { HomeComponent } from './home/home.component';
-const rutas:Routes=[{path:"",component:HomeComponent},{path:"about",component:AboutComponent},{path:"dev",component:DevComponent}]
+import { NoticiasComponent } from './noticias/noticias.component';
+import { ContactanosComponent } from './contactanos/contactanos.component';
+import { ShopComponent } from './comprar/shop/shop.component';
+import { CartComponent } from './comprar/cart/cart.component';
+import { AdminModule } from './admin/admin.module';
 @NgModule({
-  declarations: [			
+  declarations: [
     AppComponent,
-      NavbarComponent,
-      FooterComponent,
-      AboutComponent,
-      DevComponent,
-      HomeComponent,
-   ],
+    NavbarComponent,
+    FooterComponent,
+    AboutComponent,
+    DevComponent,
+    HomeComponent,
+    NoticiasComponent,
+    ContactanosComponent,
+    ShopComponent,
+    CartComponent,
+  ],
   imports: [
     BrowserModule,
-    AppRoutingModule,RouterModule.forRoot(rutas),
+    AppRoutingModule,
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

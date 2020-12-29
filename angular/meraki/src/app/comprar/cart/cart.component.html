@@ -1,0 +1,104 @@
+<app-navbar></app-navbar>
+<div class="container py-5">
+  <div id="stepper1" class="bs-stepper">
+    <div class="bs-stepper-header mb-4">
+      <div class="step" data-target="#test-l-1">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">1</span>
+          <span class="bs-stepper-label">Confirma los artículos</span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#test-l-2">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">2</span>
+          <span class="bs-stepper-label">Datos del cliente</span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#test-l-3">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">3</span>
+          <span class="bs-stepper-label">Confirmación</span>
+        </button>
+      </div>
+    </div>
+    <div class="bs-stepper-content">
+      <div id="test-l-1" class="content">
+        <div id="seccionproductos">
+          <h2>Confirma tus productos</h2>
+          <p>Estos son los productos que deseas comprar:</p>
+          <div id="divproductos" class="row">
+            <div
+              class="card mb-3 m-3"
+              style="max-width: 500px"
+              *ngFor="let producto of productos"
+            >
+              <div class="row no-gutters">
+                <div class="div-card-img">
+                  <img
+                    class="card-img"
+                    src="assets/productos/{{ producto.categoria }}/{{
+                      producto.img
+                    }}"
+                    alt=""
+                  />
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#">{{ producto.nombre }}</a>
+                  </h4>
+                  <h5>${{ producto.precio }}</h5>
+                  <p class="card-text">{{ producto.descripcion }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button (click)="next()" class="mt-3 btn btn-primary">Next</button>
+      </div>
+      <div id="test-l-2" class="content">
+        <h2 class="pb-4">¿Cómo deseas hacer el pago?</h2>
+        <div id="metodos" class="row">
+          <div
+            id="metodo1"
+            class="card text-white bg-gray mb-3 mx-3"
+            style="max-width: 18rem"
+          >
+            <div class="card-header">Opcion 1</div>
+            <div class="card-body">
+              <h5 class="card-title">Efectivo</h5>
+              <p class="card-text text-white">
+                Ponte en contacto con nosotros para coordinar el pago y la
+                entrega presencial de la compra.
+              </p>
+            </div>
+          </div>
+
+          <div
+            id="metodo2"
+            class="card text-white bg-gray mb-3 mx-3"
+            style="max-width: 18rem"
+          >
+            <div class="card-header">Opcion 2</div>
+            <div class="card-body">
+              <h5 class="card-title">Transferencia bancaria</h5>
+              <p class="card-text text-white">
+                Realiza el pago mediante una transferencia y ponte en contacto
+                con nosotros para coordinar el pago presencial o a domicilio.
+              </p>
+            </div>
+          </div>
+        </div>
+        <button (click)="next()" class="btn btn-primary mt-3">Next</button>
+      </div>
+      <div id="test-l-3" class="content text-center">
+        <h2>¡Listo! Muchas gracias por comprar con nosotros.</h2>
+        <img src="./assets/icons/comprahecha.png" alt="" />
+        <div class="d-block my-5">
+          <a href="/shop" class="btn btn-primary">Volver a comprar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
