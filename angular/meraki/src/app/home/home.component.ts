@@ -54,10 +54,17 @@ const CATEGORIAS=[{
   styleUrls: ['./home.component.css']
 })
 
+
+
 export class HomeComponent implements OnInit {
   carrusel=CARRUSEL;
   cateogrias=CATEGORIAS;
-  constructor() { }
+
+  
+
+  constructor() { 
+
+  }
 
   ngOnInit(): void {
   }
