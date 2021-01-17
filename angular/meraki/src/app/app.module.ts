@@ -14,6 +14,8 @@ import { ShopComponent } from './comprar/shop/shop.component';
 import { CartComponent } from './comprar/cart/cart.component';
 import { AdminModule } from './admin/admin.module';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { ProfileComponent } from './profile/profile.component';
+import {HttpClientModule} from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,10 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     ContactanosComponent,
     ShopComponent,
     CartComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    ProfileComponent,
+    HttpClientModule,
+
   ],
   imports: [
     BrowserModule,

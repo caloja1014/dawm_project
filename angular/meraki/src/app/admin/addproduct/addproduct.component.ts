@@ -13,18 +13,21 @@ export class AddproductComponent implements OnInit {
   next() {
     console.log(this.stepper);
     this.stepper.next();
+    
   }
 
-  constructor() { }
+  constructor() { 
+    
+
+  }
 
   ngOnInit(): void {
-    let stepper = document.querySelector('#stepper1');
-    if (stepper != null) {
-      this.stepper = new Stepper(stepper, {
-        linear: false,
-        animation: true,
-      });
-    }
+    let stepper = document.getElementById('stepper1');
+    this.stepper = new Stepper(stepper!, {
+      linear: true,
+      animation: true,
+    });
+    
   }
 
 }
