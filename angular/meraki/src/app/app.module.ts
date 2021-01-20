@@ -14,26 +14,23 @@ import { ShopComponent } from './comprar/shop/shop.component';
 import { CartComponent } from './comprar/cart/cart.component';
 import { AdminModule } from './admin/admin.module';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    FooterComponent,
-    AboutComponent,
-    DevComponent,
-    HomeComponent,
-    NoticiasComponent,
-    ContactanosComponent,
-    ShopComponent,
-    CartComponent,
-    AuthenticationComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AdminModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        FooterComponent,
+        AboutComponent,
+        DevComponent,
+        HomeComponent,
+        NoticiasComponent,
+        ContactanosComponent,
+        ShopComponent,
+        CartComponent,
+        AuthenticationComponent,
+    ],
+    imports: [BrowserModule, FormsModule, AppRoutingModule, AdminModule],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
