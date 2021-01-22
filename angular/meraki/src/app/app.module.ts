@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,8 @@ import { CartComponent } from './comprar/cart/cart.component';
 import { AdminModule } from './admin/admin.module';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../services/auth/auth.service';
+import { AuthGuard } from './auth.guard';
 @NgModule({
     declarations: [
         AppComponent,
@@ -29,8 +32,14 @@ import { FormsModule } from '@angular/forms';
         CartComponent,
         AuthenticationComponent,
     ],
-    imports: [BrowserModule, FormsModule, AppRoutingModule, AdminModule],
-    providers: [],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        AdminModule,
+    ],
+    providers: [AuthService, AuthGuard],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

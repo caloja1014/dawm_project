@@ -15,24 +15,26 @@ import { DevComponent } from './dev/dev.component';
 import { LoginComponent } from './admin/login/login.component';
 import { EstadisticasComponent } from './admin/estadisticas/estadisticas.component';
 import { AddproductComponent } from './admin/addproduct/addproduct.component';
+import { AuthGuard } from './auth.guard';
 
-const routes: Routes = [{ path: "shop", component: ShopComponent },
-{ path: "cart", component: CartComponent },
-{ path: "contactus", component: ContactanosComponent },
-{ path: "controlpanel", component: ControlPanelComponent },
-{ path: 'noticias', component: NoticiasComponent },
-{ path: "addnew", component: AddnewComponent },
-{ path: "addcateg", component: AddcategComponent },
-{ path: "", component: HomeComponent }, 
-{ path: "about", component: AboutComponent }, 
-{ path: "dev", component: DevComponent },
-{path:'login',component: LoginComponent},
-{path:"stats",component:EstadisticasComponent},
-{path:"addproduct",component:AddproductComponent}
+const routes: Routes = [
+    { path: 'shop', component: ShopComponent },
+    { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+    { path: 'contactus', component: ContactanosComponent },
+    { path: 'controlpanel', component: ControlPanelComponent },
+    { path: 'noticias', component: NoticiasComponent },
+    { path: 'addnew', component: AddnewComponent },
+    { path: 'addcateg', component: AddcategComponent },
+    { path: '', component: HomeComponent },
+    { path: 'about', component: AboutComponent },
+    { path: 'dev', component: DevComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'stats', component: EstadisticasComponent },
+    { path: 'addproduct', component: AddproductComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), CommonModule],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes), CommonModule],
+    exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
