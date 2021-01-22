@@ -15,6 +15,7 @@ import { CartComponent } from './comprar/cart/cart.component';
 import { AdminModule } from './admin/admin.module';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { FormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
         ShopComponent,
         CartComponent,
         AuthenticationComponent,
+        ProfileComponent,
     ],
     imports: [BrowserModule, FormsModule, AppRoutingModule, AdminModule],
     providers: [],
