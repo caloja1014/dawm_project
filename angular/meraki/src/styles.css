@@ -1,10 +1,6 @@
 @import "../styles/bootstrap.css";
 @import "~bs-stepper/dist/css/bs-stepper.min.css";
 
-body{
-  height: auto;
-}
-
 .gradient::before {
   content: "";
   position: absolute;
