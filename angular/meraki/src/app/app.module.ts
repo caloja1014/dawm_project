@@ -18,6 +18,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth/auth.service';
 import { AuthGuard } from './auth.guard';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -31,6 +32,7 @@ import { AuthGuard } from './auth.guard';
         ShopComponent,
         CartComponent,
         AuthenticationComponent,
+        ProfileComponent,
     ],
     imports: [
         BrowserModule,

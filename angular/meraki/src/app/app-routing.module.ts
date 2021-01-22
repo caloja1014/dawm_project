@@ -16,6 +16,7 @@ import { LoginComponent } from './admin/login/login.component';
 import { EstadisticasComponent } from './admin/estadisticas/estadisticas.component';
 import { AddproductComponent } from './admin/addproduct/addproduct.component';
 import { AuthGuard } from './auth.guard';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
     { path: 'shop', component: ShopComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'stats', component: EstadisticasComponent },
     { path: 'addproduct', component: AddproductComponent },
+    {path:"profile", component: ProfileComponent}
 ];
 
 @NgModule({

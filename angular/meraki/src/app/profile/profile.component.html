@@ -1,0 +1,199 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+    <div class="row profile">
+        <div class="col-md-3">
+            <div class="profile-sidebar mt-4">
+                <!-- SIDEBAR USERPIC -->
+                <div id="cont-pequeno"> 
+                    <div class="profile-userpic text-center">
+                        <img src="../../assets/icons/logged.png" class="img-responsive" alt="">
+                    </div>
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name">
+                            name
+                        </div>
+                        <div class="profile-usertitle-job">
+                            user
+                        </div>
+                    </div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+
+                <!-- SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li class="active pr-5 mr-4 py-2">
+                            <a (click)="mostrarProfile(1)" class="py-2 pl-1">
+                                <i class="fas fa-home"></i>
+                                General</a>
+                        </li>
+                        <li class="py-2">
+                            <a (click)="mostrarProfile(2)" class="py-2 pl-1">
+                                <i class="fas fa-user"></i>
+                                Configuración de cuenta</a>
+                        </li>
+                        <li class="pr-5 mr-4 py-2">
+                            <a (click)="mostrarProfile(3)" class="py-2 pl-1">
+                                <i class="fa fa-history"></i>
+                                Pedidos</a>
+                        </li>
+                        <li class="pr-5 mr-4 py-2">
+                            <a href="cart" class="py-2 pl-1">
+                                <i class="fa fa-cart-arrow-down"></i>
+                                Carrito</a>
+
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
+            </div>
+        </div>
+        <div class="col-md-9 mt-5">
+            <div class="profile-content">
+                <div id="profile-container">
+                    <div class="container">
+                        <div class="prof-header pb-5">
+                            <h2>General</h2>
+                        </div>
+                        <div class="pl-3 prof-body row">
+                            <div class="col-md-6 pb-3">
+                                <p><b>Nombres: </b>
+                                    nom
+                                </p>
+                            </div>
+                            <div class="col-md-6 pb-3">
+                                <p><b>Apellidos: </b>
+                                    app
+                                </p>
+                            </div>
+                            <div class="col-md-12 pb-3">
+                                <p><b>Email: </b>email</p>
+                            </div>
+                            <div class="col-md-12 pb-3">
+                                <p><b>Dirección: </b>dirección</p>
+                            </div>
+                            <div class="col-md-12 pb-3">
+                                <p><b>Celular: </b>celular</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container d-none">
+                        <div class="prof-header pb-5">
+                            <h2>Configuración de la cuenta: </h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form id="form-config" method="POST" action="/updateprofile">
+                                    <div class="form-group row">
+                                        <label for="username" class="col-4 col-form-label">Nombre de usuario</label>
+                                        <div class="col-8">
+                                            <input id="username" name="username" placeholder="Nombre de usuario"
+                                                class="form-control here" required="required" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="name" class="col-4 col-form-label">Nombres</label>
+                                        <div class="col-8">
+                                            <input id="name" name="name" placeholder="Nombres" class="form-control here"
+                                                type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lastname" class="col-4 col-form-label">Apellidos</label>
+                                        <div class="col-8">
+                                            <input id="lastname" name="lastname" placeholder="Apellidos"
+                                                class="form-control here" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="email" class="col-4 col-form-label">Email</label>
+                                        <div class="col-8">
+                                            <input id="email" name="email" placeholder="Email" class="form-control here"
+                                                required="required" type="email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="newpass" class="col-4 col-form-label">Nueva Contraseña</label>
+                                        <div class="col-8">
+                                            <input id="newpass" name="newpass" placeholder="Nueva Contraseña"
+                                                class="form-control here" type="password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="newpassConfirm" class="col-4 col-form-label">Repita la nueva
+                                            Contraseña</label>
+                                        <div class="col-8">
+                                            <input id="newpassConfirm" name="newpassConfirm"
+                                                placeholder="Nueva Contraseña" class="form-control here"
+                                                type="password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="offset-4 col-8">
+                                            <button name="submit" type="submit" class="btn btn-primary">Actualizar mi
+                                                perfil</button>
+                                            <a class="btn btn-lg" type="reset"><i class="fas fa-redo-alt"></i>
+                                                Reset</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="container d-none">
+                        <div class="prof-header pb-5">
+                            <h2>Pedidos: </h2>
+                        </div>
+                        <div class="card horizontal-scrollable">
+                            <div class="container-scrollable">
+                                <div class="card-header">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            Pedido
+                                        </div>
+                                        <div class="col-3">
+                                            Fecha
+                                        </div>
+                                        <div class="col-3">
+                                            Metodo de Pago
+                                        </div>
+                                        <div class="col-3">
+                                            Total
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col-3">
+                                                id
+                                            </div>
+                                            <div class="col-3">
+                                                fecha
+                                            </div>
+                                            <div class="col-3">
+                                                metodo
+                                            </div>
+                                            <div class="col-3">
+                                                total
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
