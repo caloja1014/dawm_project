@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/noticias",noticiasRouter);
-app.use("/dias",diasRouter);
+app.use("/compra",diasRouter);
 
 
 
