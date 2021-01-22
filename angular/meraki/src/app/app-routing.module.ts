@@ -15,7 +15,7 @@ import { DevComponent } from './dev/dev.component';
 import { LoginComponent } from './admin/login/login.component';
 import { EstadisticasComponent } from './admin/estadisticas/estadisticas.component';
 import { AddproductComponent } from './admin/addproduct/addproduct.component';
-
+import {ProfileComponent} from './profile/profile.component'
 const routes: Routes = [{ path: "shop", component: ShopComponent },
 { path: "cart", component: CartComponent },
 { path: "contactus", component: ContactanosComponent },
@@ -28,7 +28,8 @@ const routes: Routes = [{ path: "shop", component: ShopComponent },
 { path: "dev", component: DevComponent },
 {path:'login',component: LoginComponent},
 {path:"stats",component:EstadisticasComponent},
-{path:"addproduct",component:AddproductComponent}
+{path:"addproduct",component:AddproductComponent},
+{path:"profile", component: ProfileComponent}
 ];
 
 @NgModule({
