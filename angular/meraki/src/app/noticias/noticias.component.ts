@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/services/auth/auth.service';
 import { NewsService } from 'src/services/news/news.service';
 
 @Component({
@@ -28,8 +29,10 @@ export class NoticiasComponent implements OnInit {
     }
   }
 
-  constructor(private serv: NewsService) {
+  constructor(private serv: NewsService,private _authService: AuthService) {
+    _authService.setIsCompras(false);
     this.cargarNoticias();
+    
   }
   cargarNoticias() {
     this.serv.recibirNoticias().subscribe(

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/services/auth/auth.service';
 import { EmailService } from 'src/services/email/email.service';
 
 @Component({
@@ -19,7 +20,9 @@ export class ContactanosComponent implements OnInit {
     this.serv.enviarEmail(this.bodyEmail);
     console.log(this.bodyEmail);
   }
-  constructor(private serv: EmailService) { }
+  constructor(private serv: EmailService,private _authService: AuthService) {
+    _authService.setIsCompras(false);
+  }
 
   ngOnInit(): void {
   }
