@@ -1,80 +1,76 @@
-#carrito{
-    width: 40px;
-    height: 40px;
-    margin-left: 30px;
-}
-
-#divproductos img{
+#divproductos img {
     height: 200px;
     width: auto;
 }
 
-a#productos{
-    padding:24px;
+a#productos {
+    padding: 24px;
 }
 
-.primary-color, ul.stepper li.active a .circle, ul.stepper li.completed a .circle {
+.primary-color,
+ul.stepper li.active a .circle,
+ul.stepper li.completed a .circle {
     background-color: #ec823a !important;
 }
 
-.primary-color, ul.stepper a .circle, ul.stepper li a .circle {
+.primary-color,
+ul.stepper a .circle,
+ul.stepper li a .circle {
     background-color: #9b918b !important;
 }
 
-#divproductos .card-body{
+#divproductos .card-body {
     width: 330px;
 }
-#metodos{
+#metodos {
     display: flex;
     justify-content: center;
     align-self: center;
     margin-top: 20px;
 }
 
-#metodo1, #metodo2{
+#metodo1,
+#metodo2 {
     transition: all ease-out 0.2s;
 }
-#metodo1:hover, #metodo2:hover{
+#metodo1:hover,
+#metodo2:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
 
-.elegido{
+.elegido {
     box-shadow: 0 0 10px #7c3c21;
     background-color: #ec823a;
 }
 
-#test-l-3 > h2{
-    color:  #7c3c21;
+#test-l-3 > h2 {
+    color: #7c3c21;
     text-align: center;
 }
 
-
-
-#test-l-3 >img {
+#test-l-3 > img {
     width: 500px;
     height: auto;
 }
 
-.seccioninactiva{
+.seccioninactiva {
     display: none !important;
 }
 
-div > h2{
+div > h2 {
     color: #7c3c21;
-    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
 }
 
-.form-categorias{
+.form-categorias {
     border-radius: 0px;
     border-style: none;
 }
 
-#user{
-    width: 40px;
-    height: 40px;
-    opacity: 0.5;
-}
 /*nuevo steper*/
 
 .active .bs-stepper-circle {
@@ -86,28 +82,27 @@ div > h2{
     outline: 0;
 }
 
-@media (max-width:576px){
-    #divproductos{
+@media (max-width: 576px) {
+    #divproductos {
         justify-content: center;
     }
-    #divproductos .card-body{
+    #divproductos .card-body {
         display: block;
         width: 200px;
     }
 
-    #divproductos .div-card-img{
+    #divproductos .div-card-img {
         width: 100%;
         text-align: center;
         padding-top: 15px;
     }
 
-    ul.stepper{
+    ul.stepper {
         padding-right: 0px;
-        width:95%;
+        width: 95%;
     }
 
-    #seccionconfirmacion>img{
-        width:100%;
+    #seccionconfirmacion > img {
+        width: 100%;
     }
-    
 }

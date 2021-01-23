@@ -8,6 +8,8 @@ export class AuthService {
     private _registerUrl = 'http://localhost:3000/register';
     private _loginUrl = 'http://localhost:3000/login';
 
+    private isCompras = false;
+
     constructor(private http: HttpClient) {}
 
     registerUser(user: any) {
@@ -20,5 +22,17 @@ export class AuthService {
 
     loggedIn(): boolean {
         return !!localStorage.getItem('token');
+    }
+
+    getToken() {
+        return localStorage.getItem('token');
+    }
+
+    getIsCompras() {
+        return this.isCompras;
+    }
+
+    setIsCompras(isCompras: boolean) {
+        this.isCompras = isCompras;
     }
 }

@@ -17,28 +17,117 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto my-2 my-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="/">Inicio</a>
+                    <a class="nav-link js-scroll-trigger" [routerLink]="['/']"
+                        >Inicio</a
+                    >
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="/about"
+                    <a
+                        class="nav-link js-scroll-trigger"
+                        [routerLink]="['/about']"
                         >¿Qué hacemos?</a
                     >
                 </li>
                 <li class="nav-item">
                     <a
                         class="nav-link js-scroll-trigger"
-                        href="/noticias"
+                        [routerLink]="['/noticias']"
                         routerLinkActive="active"
                         >Noticias</a
                     >
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="/contactus"
+                    <a
+                        class="nav-link js-scroll-trigger"
+                        [routerLink]="['/contactus']"
                         >Contáctanos</a
                     >
                 </li>
                 <li class="nav-item nav-button">
-                    <a href="/shop" class="button ml-3">Comprar</a>
+                    <a [routerLink]="['/shop']" class="button ml-3">Comprar</a>
+                </li>
+
+                <li *ngIf="_authService.getIsCompras()" class="nav-item">
+                    <a
+                        class="nav-link js-scroll-trigger"
+                        [routerLink]="['/cart']"
+                        ><img
+                            id="carrito"
+                            src="./assets/icons/carrito-de-compras.png"
+                            alt=""
+                    /></a>
+                </li>
+                <li
+                    *ngIf="_authService.getIsCompras()"
+                    class="topbar-divider d-none d-sm-block"
+                ></li>
+                <li
+                    *ngIf="_authService.getIsCompras()"
+                    class="nav-item dropdown text-center"
+                >
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="userDropdown"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        <span class="mr-2 d-none d-lg-inline cuenta"
+                            >Cuenta</span
+                        >
+                        <img
+                            id="user"
+                            alt="Profile Image"
+                            class="h-100"
+                            src="/assets/icons/not-logged.png"
+                        />
+                    </a>
+                    <div
+                        class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                        aria-labelledby="userDropdown"
+                    >
+                        <a
+                            *ngIf="!_authService.loggedIn()"
+                            id="iniciarSesionBtn"
+                            class="dropdown-item"
+                            href="#"
+                            data-toggle="modal"
+                            data-target="#loginModal"
+                        >
+                            Iniciar Sesión
+                        </a>
+                        <a
+                            *ngIf="_authService.loggedIn()"
+                            id="registrarseBtn"
+                            class="dropdown-item"
+                            [routerLink]="['/profile']"
+                        >
+                            Ver Perfil
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a
+                            *ngIf="!_authService.loggedIn()"
+                            id="registrarseBtn"
+                            class="dropdown-item"
+                            href="#"
+                            data-toggle="modal"
+                            data-target="#registerModal"
+                        >
+                            Registrarse
+                        </a>
+                        <a
+                            *ngIf="_authService.loggedIn()"
+                            id="registrarseBtn"
+                            class="dropdown-item"
+                            href="#"
+                            data-toggle="modal"
+                            data-target="#registerModal"
+                        >
+                            Cerrar Sesión
+                        </a>
+                    </div>
                 </li>
             </ul>
         </div>

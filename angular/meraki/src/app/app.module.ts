@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth/auth.service';
 import { AuthGuard } from './auth.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { TokenInterceptorService } from '../services/auth/token-interceptor.service';
 @NgModule({
     declarations: [
         AppComponent,
@@ -41,7 +42,15 @@ import { ProfileComponent } from './profile/profile.component';
         AppRoutingModule,
         AdminModule,
     ],
-    providers: [AuthService, AuthGuard],
+    providers: [
+        AuthService,
+        AuthGuard,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptorService,
+            multi: true,
+        },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

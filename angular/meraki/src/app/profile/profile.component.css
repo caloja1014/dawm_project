@@ -1,17 +1,15 @@
-body{
+body {
     height: auto;
-  }
-  
+}
+
 /* Profile sidebar */
 .profile-sidebar {
     padding: 20px 0 10px 0;
     background: #fff;
-    
-    
 }
 
-.prof-header{
-    color : #3a2a11;
+.prof-header {
+    color: #3a2a11;
 }
 .profile-userpic img {
     float: none;
@@ -55,7 +53,7 @@ body{
     padding: 6px 15px;
     margin-right: 5px;
 }
-#cont-pequeno{
+#cont-pequeno {
     margin-right: 40px;
 }
 
@@ -89,7 +87,7 @@ body{
 .profile-usermenu ul li a:hover {
     background-color: #fafcfd;
     color: #e69965;
-    cursor : pointer
+    cursor: pointer;
 }
 
 .profile-usermenu ul li.active {
