@@ -12,12 +12,12 @@
                 <div class="card mb-4" *ngFor="let dic of noticias">
                     <img class="card-img-top" src={{dic.imagen}}>
                     <div class="card-body">
-                        <h2 class="card-title">{{dic.Titulo}}</h2>
-                        <p class="card-text">{{dic.Descripcion}} </p>
+                        <h2 class="card-title">{{dic.titulo}}</h2>
+                        <p class="card-text">{{dic.descripcion}} </p>
                         <a class="btn btn-primary" href="">Read More</a>
                     </div>
                     <div class="card-footer text-muted">
-                        Publicado: {{dic.Fecha}}
+                        Publicado: {{dic.fecha.slice(0,10)}}
                     </div>
                 </div>
             </div>

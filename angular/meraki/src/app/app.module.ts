@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth/auth.service';
 import { AuthGuard } from './auth.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { NewsService } from 'src/services/news/news.service';
 import { TokenInterceptorService } from '../services/auth/token-interceptor.service';
 @NgModule({
     declarations: [
@@ -50,6 +51,7 @@ import { TokenInterceptorService } from '../services/auth/token-interceptor.serv
             useClass: TokenInterceptorService,
             multi: true,
         },
+        NewsService
     ],
     bootstrap: [AppComponent],
 })
