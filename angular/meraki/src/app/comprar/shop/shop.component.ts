@@ -1,14 +1,16 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/services/auth/auth.service';
 import productos from '../../../assets/Productos.json';
 
 @Component({
     selector: 'app-shop',
     templateUrl: './shop.component.html',
     styleUrls: ['./shop.component.css'],
-    encapsulation: ViewEncapsulation.None,
 })
 export class ShopComponent implements OnInit {
-    constructor() {}
+    constructor(private _authService: AuthService) {
+        _authService.setIsCompras(true);
+    }
 
     ngOnInit(): void {
         this.addnav();
@@ -163,7 +165,7 @@ export class ShopComponent implements OnInit {
     addnav(): void {
         let nav = document.getElementById('mainNav');
         let ul = nav!.getElementsByTagName('ul')[0];
-        ul.innerHTML += `<li class="nav-item"><a class="nav-link js-scroll-trigger" 
+        /*ul.innerHTML += `<li class="nav-item"><a class="nav-link js-scroll-trigger" 
     href="/cart" href="/cart"><img id="carrito" 
     src="./assets/icons/carrito-de-compras.png" alt=""></a></li>
     <li class="topbar-divider d-none d-sm-block"></li>
@@ -184,7 +186,7 @@ export class ShopComponent implements OnInit {
           Registrarse
         </a>
       </div>
-    </li>`;
+    </li>`;*/
     }
 
     buscar(): void {

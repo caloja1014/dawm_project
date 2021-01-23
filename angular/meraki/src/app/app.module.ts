@@ -20,6 +20,7 @@ import { AuthService } from '../services/auth/auth.service';
 import { AuthGuard } from './auth.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { NewsService } from 'src/services/news/news.service';
+import { TokenInterceptorService } from '../services/auth/token-interceptor.service';
 @NgModule({
     declarations: [
         AppComponent,
@@ -42,7 +43,16 @@ import { NewsService } from 'src/services/news/news.service';
         AppRoutingModule,
         AdminModule,
     ],
-    providers: [AuthService, AuthGuard,NewsService],
+    providers: [
+        AuthService,
+        AuthGuard,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptorService,
+            multi: true,
+        },
+        NewsService
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

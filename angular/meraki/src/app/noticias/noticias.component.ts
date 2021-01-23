@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from 'src/services/news/news.service';
 
-
 @Component({
-  selector: 'app-noticias',
-  templateUrl: './noticias.component.html',
-  styleUrls: ['./noticias.component.css']
+    selector: 'app-noticias',
+    templateUrl: './noticias.component.html',
+    styleUrls: ['./noticias.component.css'],
 })
-
-
 export class NoticiasComponent implements OnInit {
 
   noticias: any = [];
