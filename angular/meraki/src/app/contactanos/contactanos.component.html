@@ -3,28 +3,30 @@
     <div class="contenedor1">
         <div class="wrap-contact100">
 
-            <form class="contact100-form validate-form" autocomplete="off">
+            <form class="contact100-form validate-form">
                 <span class="contact100-form-title">
                     Contáctanos
                 </span>
                 <hr class="divider light2 my-4">
                 <div class="wrap-input100 validate-input" data-validate="Por favor ingresa tu nombre">
-                    <input class="input100" type="text" name="name" placeholder="Tu nombre">
+                    <input [(ngModel)]="bodyEmail.name" class="input100" type="text" name="name"
+                        placeholder="Tu nombre">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Por favor ingresa tu correo: e@a.x">
-                    <input class="input100" type="text" name="email" placeholder="Correo">
+                    <input [(ngModel)]="bodyEmail.email" class="input100" type="text" name="email" placeholder="Correo">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Por favor ingresa tu telefono">
-                    <input class="input100" type="text" name="phone" placeholder="Telefono">
+                    <input [(ngModel)]="bodyEmail.telf" class="input100" type="text" name="phone"
+                        placeholder="Telefono">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Lugar de origen">
-                    <select id="origen" class="input100" type="text" name="origen">
+                    <select [(ngModel)]="bodyEmail.origin" id="origen" class="input100" type="text" name="origen">
                         <option value="" disabled selected>Lugar de origen</option>
                         <option value="dentro">
                             Dentro de Guayaquil
@@ -36,27 +38,14 @@
                     <span class="focus-input100"></span>
                 </div>
 
-                <!--div class="form-field input-group col-lg-6">
-                        <select class="form-control form-categorias input-text js-input" id="sel1" required>
-                            <option>Navidad</option>
-                            <option>Jarros</option>
-                            <option>Suéters</option>
-                            <option>Camisetas</option>
-                            <option>Regalos</option>
-                            <option>Otros</option>
-
-
-                        </select>
-                        <label class="label" for="sel1">Elija una categoría</label>
-                    </div-->
-
                 <div class="wrap-input100 validate-input" data-validate="Por favor ingresa un mensaje">
-                    <textarea class="input100" name="message" placeholder="Tu mensaje"></textarea>
+                    <textarea [(ngModel)]="bodyEmail.msg" class="input100" name="message"
+                        placeholder="Tu mensaje"></textarea>
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="container-contact100-form-btn">
-                    <button class="contact100-form-btn">
+                    <button class="contact100-form-btn" (click)="enviarEmail()">
                         <span>
                             <i class="fas fa-paper-plane" aria-hidden="true"></i>
                             Enviar

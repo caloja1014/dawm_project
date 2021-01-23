@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth/auth.service';
 import { AuthGuard } from './auth.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { NewsService } from 'src/services/news/news.service';
 @NgModule({
     declarations: [
         AppComponent,
@@ -41,7 +42,7 @@ import { ProfileComponent } from './profile/profile.component';
         AppRoutingModule,
         AdminModule,
     ],
-    providers: [AuthService, AuthGuard],
+    providers: [AuthService, AuthGuard,NewsService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

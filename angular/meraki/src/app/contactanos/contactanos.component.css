@@ -165,14 +165,14 @@
   /*---------------------------------------------*/
   input.input100, select {
     height: 40px;
-    padding: 0 40px 0 35px;
+    padding: 0 40px 0 10px;
     
   }
   
   
   textarea.input100 {
     min-height: 169px;
-    padding: 19px 35px 0 35px;
+    padding: 19px 35px 0 10px;
   }
   
   /*------------------------------------------------------------------

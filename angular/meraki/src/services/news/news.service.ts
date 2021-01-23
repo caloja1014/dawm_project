@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
 
-  constructor() { }
+  private noticias = 'http://localhost:3000/noticias';
+
+  constructor(private http: HttpClient) {}
+
+  recibirNoticias() {
+      return this.http.get<any>(this.noticias);
+  }
+ 
 }
