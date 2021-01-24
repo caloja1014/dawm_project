@@ -1,5 +1,5 @@
 const Dias = require("../../collections/dias.model");
-
+const mesesController= require("./meses.controller")
 exports.create = (req, res) => {
   if (!req.body.id_usu || !req.body.fecha) {
     res.status(400).send({
@@ -10,6 +10,16 @@ exports.create = (req, res) => {
 
   var dias = new Date(req.body.fecha);
   dias.setUTCHours(5);
+  mesesController.create(req.body).then(
+    (data) => {
+    res.send(data);
+  })
+  .catch((err) => {
+    res.status(500).send({
+      message: err.message || "Ocurrio un error al crear un nuevo producto e indexarlo en la coleccion de meses",
+    });
+  });
+  
   Dias.updateOne(
     {
       fecha: dias,
@@ -91,7 +101,42 @@ exports.getCompraUsuario = (req, res) => {
       });
     });
 };
+exports.getVentaCategoriaSemanal=(req,res)=>{
+  if (!req.query.fecha) {
+    res.status(400).send({
+      message: "El contenido no puede estar vacio!",
+    });
+    return;
+  }
+  var initialDate = new Date(req.query.fecha);
+  initialDate.setUTCHours(5);
+  var finalDate = new Date(initialDate);
+  finalDate.setDate(finalDate.getDate() + 6);
+  Dias.find(
+    {
+      fecha: {
+        $gte: initialDate,
+        $lte: finalDate,
+      },
+      "compras.productos.categoria":req.query.categoria,
+    }
+  ).then(
+    data=>{
+      console.log(data);
+      res.send(data)
+    }
+  ).catch(
+    (err) => {
+      res.status(500).send({
+        message:
+          err.message ||
+          "Ocurrio un error al encontrar las ventas en el dia " +
+            req.query.fecha,
+      });
+    }
+  )
 
+}
 let obtenerVentasO = (ventas) => {
   let resultado = {
     Domingo: 0,

@@ -7,4 +7,5 @@ const diasController= require("../controllers/nodb/dias.controller");
 router.post("/",diasController.create);
 router.get("/semana",diasController.getVentaSemanal);
 router.get("/porusu",diasController.getCompraUsuario)
+router.get("/catsemana",diasController.getVentaCategoriaSemanal)
 module.exports = router;
