@@ -1,8 +1,9 @@
 const sql = require("../../config/databaseCon");
+const jwt = require("jsonwebtoken");
+const auth = require("../../middleware/auth");
 
 
 exports.createCliente = (req,res) =>{
-    console.log(req.body)
     const cliente = [
         req.body.email,
         req.body.password
@@ -14,10 +15,34 @@ exports.createCliente = (req,res) =>{
                 message: "Ocurrió un error al crear el Cliente"
             })
         }else{
-            res.status(200).send({
-                message: "Cliente insertado con exito"
-            })
+            let payload = {user: cliente[0]}
+            let token = jwt.sign(payload, "merakiProject");
+            
+            res.status(200).send({token})
         }
 
     })
 }
+
+
+exports.loginCliente = (req,res) =>{
+    const cliente = [
+        req.body.email,
+        req.body.password
+    ]
+    var q = "select * from Cliente where email = '"+req.body.email+"';"
+    sql.query(q,(err,result)=>{
+        if(err){
+            res.send(err);
+        }else if(!result){
+            res.status(401).send("Correo Invalido")
+        }else if (cliente[1] != result[0].password){ //result es un arreglo 
+            res.status(401).send("Contrasena Invalida")
+        }else{
+            token = auth.sign(cliente[0]);
+            res.status(200).send({token})
+        }
+    })
+
+}
+
