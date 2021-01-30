@@ -1,7 +1,7 @@
 @import "../styles/bootstrap.css";
 @import "~bs-stepper/dist/css/bs-stepper.min.css";
 
-.gradient::before { 
+.gradient::before {
     content: "";
     position: absolute;
     top: 0;
@@ -132,4 +132,14 @@ a:hover {
 
 #navidad:hover {
     cursor: pointer;
+}
+
+.alert .login-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.alert .close {
+    margin-right: 10px;
 }
