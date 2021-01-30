@@ -121,9 +121,7 @@
                             *ngIf="_authService.loggedIn()"
                             id="registrarseBtn"
                             class="dropdown-item"
-                            href="#"
-                            data-toggle="modal"
-                            data-target="#registerModal"
+                            (click)="_authService.logoutUser()"
                         >
                             Cerrar Sesión
                         </a>
