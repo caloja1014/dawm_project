@@ -12,5 +12,9 @@ export class NewsService {
   recibirNoticias() {
       return this.http.get<any>(this.noticias);
   }
+
+  crearNoticia(noticia:any){
+    return this.http.post<any>(this.noticias, noticia);
+  }
  
 }

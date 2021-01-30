@@ -4,14 +4,9 @@
         <!-- Main Content -->
         <div id="content mb-5">
             <!-- Topbar -->
-            <nav
-                class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
-            >
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                 <!-- Sidebar Toggle (Topbar) -->
-                <button
-                    id="sidebarToggleTop"
-                    class="btn btn-link d-md-none rounded-circle mr-3"
-                >
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
                 </button>
 
@@ -25,39 +20,17 @@
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
-                        <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            id="userDropdown"
-                            role="button"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                        >
-                            <span
-                                class="mr-2 d-none d-lg-inline text-gray-600 small"
-                                >Patricia</span
-                            >
-                            <img
-                                class="img-profile rounded-circle"
-                                alt="Profile Image"
-                                src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png"
-                            />
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Patricia</span>
+                            <img class="img-profile rounded-circle" alt="Profile Image"
+                                src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" />
                         </a>
                         <!-- Dropdown - User Information -->
-                        <div
-                            class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                            aria-labelledby="userDropdown"
-                        >
-                            <a
-                                class="dropdown-item"
-                                href="#"
-                                data-toggle="modal"
-                                data-target="#logoutModal"
-                            >
-                                <i
-                                    class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
-                                ></i>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
                             </a>
                         </div>
@@ -73,44 +46,19 @@
                     <div id="formularioregistro">
                         <form class="contact-form row">
                             <div class="form-field col-lg-6">
-                                <input
-                                    id="pnombre"
-                                    class="input-text js-input"
-                                    type="text"
-                                    required
-                                />
-                                <label class="label" for="pnombre"
-                                    >Título de la noticia</label
-                                >
+                                <input [(ngModel)]="bodyNew.titulo" name="titulo" id="pnombre" class="input-text js-input" type="text" required />
+                                <label class="label" for="pnombre">Título de la noticia</label>
                             </div>
                             <div class="form-field col-lg-12">
-                                <label class="labelDesc" for="Textarea1"
-                                    >Descripción de la noticia</label
-                                >
-                                <textarea
-                                    class="form-control"
-                                    id="Textarea1"
-                                    rows="3"
-                                ></textarea>
+                                <label class="labelDesc" for="Textarea1">Descripción de la noticia</label>
+                                <textarea [(ngModel)]="bodyNew.descripcion" name="descripcion" class="form-control" id="Textarea1" rows="3"></textarea>
+                            </div>
+                            <div class="form-field col-lg-12"> 
+                                <label class="labelDesc" for="ControlFile2">Agregar imagen</label>
+                                <input [(ngModel)]="bodyNew.imagen" name="imagen" type="file" class="form-control-file js-input" id="ControlFile2" />
                             </div>
                             <div class="form-field col-lg-12">
-                                <label class="labelDesc" for="ControlFile2"
-                                    >Agregar imagen</label
-                                >
-                                <input
-                                    type="file"
-                                    class="form-control-file js-input"
-                                    id="ControlFile2"
-                                />
-                            </div>
-                            <div class="form-field col-lg-12">
-                                <a
-                                    id="submit"
-                                    class="submit-btn"
-                                    href="#"
-                                    data-toggle="modal"
-                                    data-target="#confirmar"
-                                >
+                                <a id="submit" class="submit-btn" href="#" data-toggle="modal" data-target="#confirmar" (click)="crearNoticia()">
                                     Aceptar
                                 </a>
                             </div>
