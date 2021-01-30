@@ -9,13 +9,15 @@ import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { AddnewComponent } from './addnew/addnew.component';
 import { AddcategComponent } from './addcateg/addcateg.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [AsideComponent, AdminComponent, ControlPanelComponent, LoginComponent, EstadisticasComponent, NavbarAdminComponent, AddnewComponent, AddcategComponent,AddproductComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class AdminModule { }
+ 

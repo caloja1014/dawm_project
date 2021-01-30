@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsService } from 'src/services/news/news.service';
 
 @Component({
   selector: 'app-addnew',
@@ -6,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../sb-admin-2.css','./addnew.component.css']
 })
 export class AddnewComponent implements OnInit {
+  bodyNew = {
+    titulo: '',
+    descripcion: '',
+    imagen: ''
+  };
 
-  constructor() { }
+  crearNoticia(): void{
+    this.serv.crearNoticia(this.bodyNew);
+    console.log(this.bodyNew);
+  }
+  constructor(private serv: NewsService) { }
 
   ngOnInit(): void {
   }
