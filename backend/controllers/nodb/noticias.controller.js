@@ -13,6 +13,7 @@ exports.findAll=(req,res)=>{
 }
 
 exports.create =(req,res)=>{
+    console.log("liksndnkjndsf")
     if (!req.body.titulo || !req.body.fecha) {
         res.status(400).send({
             message: "El contenido no puede estar vacio!"
