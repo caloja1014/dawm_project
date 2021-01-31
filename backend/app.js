@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var adminRouter=require("./routes/admin.routes");
+var mailRouter=require("./routes/mail.routes")
 const cors = require("cors");
 var app = express();
 var corsOptions = {origin: "http://localhost:4200"};
@@ -38,7 +39,7 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/admin",adminRouter)
-
+app.use("/enviarEmail",mailRouter)
 
 
 // catch 404 and forward to error handler
