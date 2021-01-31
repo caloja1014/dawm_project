@@ -5,7 +5,7 @@ var auth = require("../middleware/auth")
 /* GET home page. */
 
 router.get('/', auth.verifyToken ,direccion.getDireccion);
-router.post('/', direccion.crearDireccion);
-/*router.put('/', verifyToken, direccion.actualizarDireccion);
-router.delete('/:id',verifyToken, direccion.deleteDireccion);*/
+router.post('/', auth.verifyToken, direccion.crearDireccion);
+router.put('/', auth.verifyToken, direccion.actualizarDireccion);
+router.delete('/:id', direccion.deleteDireccion);
 module.exports = router;
