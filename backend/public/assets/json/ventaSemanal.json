@@ -1,0 +1,13 @@
+{
+    "semanas":[
+        {
+            "Lunes": 35,
+            "Martes": 20,
+            "Miércoles": 15,
+            "Jueves": 45,
+            "Viernes": 60,
+            "Sábado": 60,
+            "Domingo": 75
+        }
+    ]
+}
