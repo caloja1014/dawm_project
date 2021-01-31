@@ -1,7 +1,9 @@
 const Meses = require("../../collections/meses.model");
 
 let createByFecha=async (compra)=>{
-    let fecha=compra.fecha.split("-",2).join("-")
+    let fecha=compra.fecha.split("-")
+    let anio=Number.parseInt(fecha[0])
+    let mes=Number.parseInt(fecha[1])
     let productos=compra.productos
     let lCategorias=[]
     let dCategorias={}
@@ -26,7 +28,8 @@ let createByFecha=async (compra)=>{
 
     return await Meses.create(
         {
-            fecha:fecha,
+            anio:anio,
+            mes:mes,
             categorias:lCategorias,
             total:totalGlobal
         }
@@ -35,9 +38,13 @@ let createByFecha=async (compra)=>{
 
 let createByCategory=async (producto,fecha)=>{
     console.log(producto)
+    let fehcaSep=fecha.split("-");
+    let anio=Number.parseInt(fehcaSep[0]);
+    let mes=Number.parseInt(fehcaSep[1]);
     return await Meses.updateOne(
         {
-            fecha: fecha,
+            anio:anio,
+            mes:mes,
         },
         {
             $push: {
@@ -63,22 +70,26 @@ exports.create = async (compra) => {
     fecha.setUTCHours(5);
     let mes = fecha.getMonth() + 1;
     let fechaBuscar = fecha.getFullYear() + "-" + mes;
-
+    let anio=fecha.getFullYear();
     let fechaExist=await Meses.exists({
-        fecha: fechaBuscar,});
+        anio:anio,
+        mes:mes,
+    });
     if (!fechaExist){
         return await createByFecha(compra)
     }
 
     for (let producto of productos) {
         let exist=await Meses.exists({
-        fecha: fechaBuscar,
+        anio:anio,
+        mes:mes,
         "categorias.categoria": producto.categoria,
         });
         if (exist &&fechaExist ) {
             return await Meses.findOneAndUpdate(
             {
-                fecha: fechaBuscar,
+                anio:anio,
+                mes:mes,
                 "categorias.categoria": producto.categoria,
             },
             {
@@ -98,3 +109,12 @@ exports.create = async (compra) => {
         }
     }
 };
+
+exports.ventaAnualPorCateg=(req,res)=>{
+    if(!req.params.categ){
+        res.status(400).send({
+            message: "El contenido no puede estar vacio!",
+        });
+        return;
+    }
+}

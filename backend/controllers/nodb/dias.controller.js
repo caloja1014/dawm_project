@@ -49,13 +49,13 @@ exports.create = (req, res) => {
 };
 
 exports.getVentaSemanal = (req, res) => {
-  if (!req.query.fecha) {
+  if (!req.body.fecha) {
     res.status(400).send({
       message: "El contenido no puede estar vacio!",
     });
     return;
   }
-  var initialDate = new Date(req.query.fecha);
+  var initialDate = new Date(req.body.fecha);
   initialDate.setUTCHours(5);
   var finalDate = new Date(initialDate);
   finalDate.setDate(finalDate.getDate() + 6);
@@ -73,7 +73,7 @@ exports.getVentaSemanal = (req, res) => {
         message:
           err.message ||
           "Ocurrio un error al encontrar las ventas en el dia " +
-            req.query.fecha,
+            req.body.fecha,
       });
     });
 };
@@ -102,6 +102,7 @@ exports.getCompraUsuario = (req, res) => {
     });
 };
 exports.getVentaCategoriaSemanal=(req,res)=>{
+  console.log(req.params);
   if (!req.query.fecha) {
     res.status(400).send({
       message: "El contenido no puede estar vacio!",
@@ -137,6 +138,10 @@ exports.getVentaCategoriaSemanal=(req,res)=>{
   )
 
 }
+
+
+
+
 let obtenerVentasO = (ventas) => {
   let resultado = {
     Domingo: 0,
