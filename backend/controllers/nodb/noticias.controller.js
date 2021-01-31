@@ -25,7 +25,12 @@ var storage = multer.diskStorage({
   var upload = multer({ storage })
 
 exports.create =(req,res)=>{
+<<<<<<< HEAD
     if (!req.body.titulo || !req.body.fecha) {  
+=======
+    console.log("liksndnkjndsf")
+    if (!req.body.titulo || !req.body.fecha) {
+>>>>>>> d5bf6c90ed34cde35cc371f7723ed10aecd800a2
         res.status(400).send({
             message: "El contenido no puede estar vacio!"
         });
