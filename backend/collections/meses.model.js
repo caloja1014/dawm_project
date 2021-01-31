@@ -1,9 +1,8 @@
 var mongoose = require("mongoose");
 
 var MesesSchemema = new mongoose.Schema({
-    fecha:{
-        type:String
-    },
+    anio:Number,
+    mes:Number,
     categorias:{
         type: Array
     },
