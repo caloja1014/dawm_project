@@ -1,4 +1,4 @@
-module.exports = {
+/*module.exports = {
     HOST: "104.154.47.206",
     USER: "root",
     PASSWORD: "dawm",
@@ -10,4 +10,4 @@ module.exports = {
       acquire: 30000,
       idle: 10000
     }
-  };
+  };*/

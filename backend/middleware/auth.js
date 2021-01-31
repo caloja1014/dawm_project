@@ -1,7 +1,7 @@
 var jwt = require("jsonwebtoken");
 var accessKey = "merakiProject";
 
-modul.exports.verifyToken = (req,res,next)=>{
+module.exports.verifyToken = (req,res,next)=>{
     if(!req.headers.authorization){
         return res.status(401).send('Request no autorizado');
     }
@@ -11,11 +11,10 @@ modul.exports.verifyToken = (req,res,next)=>{
     let payload = jwt.verify(token,accessKey);
     if(!payload)
         return res.status(401).send('Request no autorizado');
-    req.user = payload.user
+    req.userId = payload.userId
     next()
 }
 
-module.exports.sign = (username)=>{
-    let payload = {user: cliente[0]};
+module.exports.sign = (payload)=>{
     return jwt.sign(payload, accessKey);
 }

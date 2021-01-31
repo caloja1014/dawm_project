@@ -4,10 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
+var clientRouter = require('./routes/client.routes');
 var usersRouter = require('./routes/users');
 var noticiasRouter= require("./routes/noticias.routes");
 var diasRouter=require("./routes/dias.routes");
+var direccionRouter = require('./routes/direccion.routes');
+
 const cors = require("cors");
 var app = express();
 var corsOptions = {origin: "http://localhost:4200"};
@@ -36,11 +38,11 @@ app.use((req, res, next) => {
 });
 
 
-app.use('/', indexRouter);
+app.use('/', clientRouter);
 app.use('/users', usersRouter);
 app.use("/noticias",noticiasRouter);
 app.use("/compra",diasRouter);
-
+app.use("/address",direccionRouter);
 
 
 
