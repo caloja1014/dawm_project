@@ -94,4 +94,10 @@ export class AuthenticationComponent implements OnInit {
             </div>
         `;
     }
+
+    verifyEnter(event: any, id: string) {
+        if (event.keyCode == 13) {
+            document.getElementById(id)?.click();
+        }
+    }
 }
