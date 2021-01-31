@@ -21,13 +21,45 @@ export class AuthenticationComponent implements OnInit {
     ngOnInit(): void {}
 
     registerUser() {
+        if (
+            this.registerUserData.email == '' ||
+            this.registerUserData.password == '' ||
+            this.registerUserData.password_confirmation == ''
+        ) {
+            this.informError(
+                'registerModal',
+                'Por favor, llene todos los campos'
+            );
+            return;
+        }
+
+        if (this.registerUserData.email.split('@').length != 2) {
+            this.informError('registerModal', 'Ingrese un email válido');
+            return;
+        }
+        if (this.registerUserData.password.length < 6) {
+            this.informError(
+                'registerModal',
+                'La contraseña debe tener al menos 6 caracteres'
+            );
+            return;
+        }
+        if (
+            this.registerUserData.password !=
+            this.registerUserData.password_confirmation
+        ) {
+            this.informError('registerModal', 'Las contraseñas no coinciden');
+            return;
+        }
         this._auth.registerUser(this.registerUserData).subscribe(
             (res) => {
                 localStorage.setItem('token', res.token);
                 document.getElementById('closeRegister')?.click();
                 this._router.navigate(['/shop']);
             },
-            (err) => {}
+            (err) => {
+                this.informError('registerModal', 'Ha ocurrido un error');
+            }
         );
     }
 
@@ -35,11 +67,10 @@ export class AuthenticationComponent implements OnInit {
         this._auth.loginUser(this.loginUserData).subscribe(
             (res) => {
                 localStorage.setItem('token', res.token);
-                //document.getElementById('closeLogin')?.click();
+                document.getElementById('closeLogin')?.click();
                 this._router.navigate(['/shop']);
             },
             (err) => {
-                console.log('Error');
                 this.informError('loginModal', 'Ha ocurrido un error');
             }
         );
@@ -56,8 +87,9 @@ export class AuthenticationComponent implements OnInit {
         divError!.innerHTML = `
             <div class="alert alert-danger alert-dismisable fade show position-relative">
                 ${error}
-                <button type="button" class="close login-close" data-dismiss="alert" aria-label="close">
-                    <span aria-hidden="true"> &times; </span>
+                <button type="button" 
+                    class="close login-close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true"> &times; </span>
                 </button>
             </div>
         `;

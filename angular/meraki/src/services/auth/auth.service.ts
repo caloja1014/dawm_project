@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root',
@@ -10,7 +11,7 @@ export class AuthService {
 
     private isCompras = false;
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private _router: Router) {}
 
     registerUser(user: any) {
         return this.http.post<any>(this._registerUrl, user);
@@ -34,5 +35,10 @@ export class AuthService {
 
     setIsCompras(isCompras: boolean) {
         this.isCompras = isCompras;
+    }
+
+    logoutUser() {
+        localStorage.removeItem('token');
+        this._router.navigate(['/shop']);
     }
 }

@@ -46,12 +46,12 @@ import { TokenInterceptorService } from '../services/auth/token-interceptor.serv
     providers: [
         AuthService,
         AuthGuard,
+        NewsService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: TokenInterceptorService,
             multi: true,
         },
-        NewsService
     ],
     bootstrap: [AppComponent],
 })

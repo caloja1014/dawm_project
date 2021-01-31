@@ -31,8 +31,8 @@ export class ShopComponent implements OnInit {
             }" class="${active}"></li>`;
 
             carousel!.innerHTML += `<div class="carousel-item ${active}">
-          <img class="d-block img-fluid" src="assets/productos/${firstCateg.categoria}/${imgCarousel}" alt="First slide">
-          </div>`;
+            <img class="d-block img-fluid" src="assets/productos/${firstCateg.categoria}/${imgCarousel}" alt="First slide">
+            </div>`;
         }
 
         let categorias = document.getElementById('categorias');
@@ -59,18 +59,16 @@ export class ShopComponent implements OnInit {
                 divCategoria.innerHTML +=
                     '<div class="col-lg-4 col-md-6 mb-4">' +
                     '<div class="card h-100">' +
-                    '<a href="#"><img class="card-img-top" src="./assets/productos/' +
+                    '<img class="card-img-top" src="./assets/productos/' +
                     elemento.categoria +
                     '/' +
                     producto.img +
-                    '" alt=""></a>' +
+                    '" alt="">' +
                     '<div class="card-body">' +
                     '<div class="card-top">' +
-                    '<h4 class="card-title">' +
-                    '<a href="#">' +
+                    '<h5 class="card-title text-primary">' +
                     producto.nombre +
-                    '</a>' +
-                    '</h4>' +
+                    '</h5>' +
                     '<h5>$' +
                     producto.precio +
                     '</h5>' +
@@ -78,7 +76,9 @@ export class ShopComponent implements OnInit {
                     producto.descripcion +
                     '</p>' +
                     '</div>' +
-                    '<a class="button btn-comprar">Comprar</a>';
+                    '<a id="comprar-' +
+                    producto.id +
+                    '" class="button btn-comprar">Comprar</a>';
                 '</div>' + '</div>' + '</div>';
             }
         }

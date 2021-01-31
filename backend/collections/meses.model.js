@@ -1,10 +1,13 @@
 var mongoose = require("mongoose");
 
 var MesesSchemema = new mongoose.Schema({
-    anio:{
-        type:String
+    anio:Number,
+    mes:Number,
+    categorias:{
+        type: Array
     },
-    meses:{
-        type: Object
-    }
+    total:Number
+
 })
+
+module.exports= mongoose.model("meses",MesesSchemema,"meses");
