@@ -1,4 +1,5 @@
 const Noticias =require("../../collections/noticias.model");
+var multer  = require('multer')
 
 exports.findAll=(req,res)=>{
     Noticias.find({},(err,docs)=>{
@@ -12,13 +13,25 @@ exports.findAll=(req,res)=>{
     )
 }
 
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'public/assets/img/noticias')
+    },
+    filename: function (req, file, cb) {
+      cb(null,file.originalname)
+    }
+  })
+   
+  var upload = multer({ storage })
+
 exports.create =(req,res)=>{
-    if (!req.body.titulo || !req.body.fecha) {
+    if (!req.body.titulo || !req.body.fecha) {  
         res.status(400).send({
             message: "El contenido no puede estar vacio!"
         });
         return;
     }
+    
     const noticia={
         titulo: req.body.titulo,
         imagen: req.body.imagen,
@@ -26,6 +39,8 @@ exports.create =(req,res)=>{
         redireccion:"",
         fecha: req.body.fecha,
     }
+    var file =noticia.imagen;
+    upload.single("file");
     Noticias.create(noticia).then(
         data=>{
             res.send(data)

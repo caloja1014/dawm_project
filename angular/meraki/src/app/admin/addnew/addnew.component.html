@@ -46,8 +46,8 @@
                     <div id="formularioregistro">
                         <form class="contact-form row">
                             <div class="form-field col-lg-6">
-                                <input [(ngModel)]="bodyNew.titulo" name="titulo" id="pnombre" class="input-text js-input" type="text" required />
-                                <label class="label" for="pnombre">Título de la noticia</label>
+                                <input [(ngModel)]="bodyNew.titulo" name="titulo" id="ptitulo" class="input-text js-input" type="text" required />
+                                <label class="label" for="ptitulo">Título de la noticia</label>
                             </div>
                             <div class="form-field col-lg-12">
                                 <label class="labelDesc" for="Textarea1">Descripción de la noticia</label>
@@ -58,9 +58,7 @@
                                 <input [(ngModel)]="bodyNew.imagen" name="imagen" type="file" class="form-control-file js-input" id="ControlFile2" />
                             </div>
                             <div class="form-field col-lg-12">
-                                <a id="submit" class="submit-btn" href="#" data-toggle="modal" data-target="#confirmar" (click)="crearNoticia()">
-                                    Aceptar
-                                </a>
+                                <input id="submit" type="reset" class="submit-btn" href="#" data-toggle="modal" data-target="#confirmar" (click)="crearNoticia()" value="Aceptar"/>
                             </div>
                         </form>
                     </div>

@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NewsService {
 
-  private noticias = 'http://localhost:3000/noticias';
+  private noticias = 'http://localhost:3000/news';
 
   constructor(private http: HttpClient) {}
 
