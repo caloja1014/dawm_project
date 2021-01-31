@@ -1,3 +1,4 @@
+const { isValidObjectId } = require("mongoose");
 const Dias = require("../../collections/dias.model");
 const mesesController= require("./meses.controller")
 exports.create = (req, res) => {
@@ -27,7 +28,6 @@ exports.create = (req, res) => {
     {
       $push: {
         compras: {
-          ncompra: req.body.ncompra,
           id_usu: req.body.id_usu,
           productos: req.body.productos,
           total: req.body.total,
@@ -90,14 +90,34 @@ exports.getCompraUsuario = (req, res) => {
     "compras.id_usu": req.query.id_usu,
   })
     .then((data) => {
-      res.send(data);
+      let cont=1;
+      let compras={
+        
+      }
+      for (let compraGlobal of data){
+        let comprasArr=compraGlobal["compras"];
+        let fecha=(new Date(compraGlobal["fecha"])).toISOString().split("T")[0];
+
+        for (let c of comprasArr){
+          let idUsuario=c["id_usu"];
+          if (idUsuario==req.query.id_usu){
+            fecha in compras || (compras[fecha] = []);
+            compras[fecha].push({
+              id:cont,
+              total:c["total"],
+            })
+            cont++;
+          }
+        }
+      }
+      res.send(compras);
+
     })
     .catch((err) => {
       res.status(500).send({
         message:
           err.message ||
-          "Ocurrio un error al encontrar las ventas en el dia " +
-            req.query.fecha,
+          "Ocurrio un error al encontrar las ventas"
       });
     });
 };
