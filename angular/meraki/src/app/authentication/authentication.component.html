@@ -50,8 +50,12 @@
                                         placeholder="Contraseña"
                                         name="password"
                                         required
+                                        (keypress)="
+                                            verifyEnter($event, 'btnLogin')
+                                        "
                                     />
                                     <button
+                                        id="btnLogin"
                                         (click)="loginUser()"
                                         class="btn btn-default btn-login"
                                         type="button"
@@ -135,8 +139,12 @@
                                         placeholder="Repita la Contraseña"
                                         name="password_confirmation"
                                         required
+                                        (keypress)="
+                                            verifyEnter($event, 'btnReg')
+                                        "
                                     />
                                     <button
+                                        id="btnReg"
                                         (click)="registerUser()"
                                         class="btn btn-default btn-login"
                                         type="button"
