@@ -118,7 +118,6 @@ exports.ventaAnualPorCateg=(req,res)=>{
         return;
     }
     let anio=(new Date()).getFullYear();
-console.log(anio+"saff"+req.params.categ);
     Meses.find(
         {
             anio:anio,
@@ -141,6 +140,16 @@ console.log(anio+"saff"+req.params.categ);
         }
     );
 }
+
+exports.ventaAnualCategorias=(req,res)=>{
+    let anio=(new Date()).getFullYear();
+    Meses.find(
+        {
+            anio:anio,
+        }
+    );
+}
+
 
 let obtenerVentasAnual=(data,categoria)=>{
     let resultado = {
