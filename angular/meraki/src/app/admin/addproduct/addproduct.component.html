@@ -105,11 +105,13 @@
                                     <div class="form-field col-lg-6">
                                         <input
                                             id="pnombre"
+                                            [(ngModel)]="productBody.nombre"
+                                            name="nombre"
                                             class="input-text js-input"
                                             type="text"
                                             required
                                         />
-                                        <label class="label" for="pnombre"
+                                        <label class="label" for="nombre"
                                             >Nombre del Producto</label
                                         >
                                     </div>
@@ -117,44 +119,50 @@
                                         class="form-field input-group col-lg-6"
                                     >
                                         <select
+                                            [(ngModel)]="productBody.categoria"
+                                            name = "categoria"
                                             class="form-control form-categorias input-text js-input"
                                             id="sel1"
                                             required
                                         >
-                                            <option>Navidad</option>
-                                            <option>Jarros</option>
-                                            <option>Suéters</option>
-                                            <option>Camisetas</option>
-                                            <option>Regalos</option>
-                                            <option>Otros</option>
+                                            <option>navidad</option>
+                                            <option>jarros</option>
+                                            <option>sueters</option>
+                                            <option>camisetas</option>
+                                            <option>regalos</option>
+                                            <option>otros</option>
                                         </select>
-                                        <label class="label" for="sel1"
+                                        <label class="label" for="categoria"
                                             >Elija una categoría</label
                                         >
                                     </div>
                                     <div class="form-field col-lg-6">
                                         <input
+                                            [(ngModel)]="productBody.costoBase"
+                                            name="costoBase"
                                             id="company"
                                             class="input-text js-input"
                                             type="number"
                                             required
                                         />
-                                        <label class="label" for="company"
+                                        <label class="label" for="costoBase"
                                             >Precio del producto</label
                                         >
                                     </div>
                                     <div class="form-field col-lg-12">
-                                        <label class="labelDesc" for="Textarea1"
+                                        <label class="labelDesc" for="descripcion"
                                             >Descripción del producto</label
                                         >
                                         <textarea
+                                            [(ngModel)]="productBody.descripcion"
+                                            name = "descripcion"
                                             class="form-control"
                                             id="Textarea1"
                                             rows="3"
                                         ></textarea>
                                     </div>
                                     <button
-                                        (click)="next()"
+                                    (click)="next()"
                                         class="btn btn-primary mt-3"
                                     >
                                         Aceptar
@@ -174,14 +182,17 @@
                                         >
                                         <input
                                             type="file"
+                                            (change)="saveEvent($event)"
+                                            id="inputFileProduct"
                                             class="form-control-file py-4"
-                                            id="ControlFile1"
+                                            
                                         />
                                     </div>
                                 </form>
                             </div>
                             <button
-                                (click)="next()"
+                                
+                                (click)="crearProducto()"
                                 class="btn btn-primary mt-3"
                             >
                                 Aceptar
