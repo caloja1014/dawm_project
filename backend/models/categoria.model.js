@@ -11,3 +11,20 @@ exports.findCategoria = (nombre,result) =>{
         }
     });
 }
+
+exports.crearCategoria=(categoria,result)=>{
+    let cat=[
+        categoria.imagenes,
+        categoria.nombre,
+        categoria.admin
+    ]
+    var q="insert into Categoria(imagenes,nombre,admin) values (?);";
+    sql.query(q, [cat], (err,res)=>{
+        if(err){
+            result(err,null);
+            return;
+            }else{
+            result(null,res);
+        }
+    });
+}
