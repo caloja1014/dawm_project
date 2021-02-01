@@ -16,14 +16,26 @@ export class ProfileComponent implements OnInit {
         celular: '-',
     };
 
+    dataEdit = {
+        nombres: '',
+        apellidos: '',
+        username: '',
+        celular: '',
+        newpass: '',
+        newpassConfirm: '',
+    };
+
     direcciones: Array<any> = [];
     constructor(private _authService: AuthService, private _router: Router) {
         _authService.setIsCompras(true);
         _authService.getDirecciones().subscribe((dir) => {
             this.direcciones = dir;
         });
+        this.cargarProfile();
     }
-    ngOnInit(): void {
+    ngOnInit(): void {}
+
+    cargarProfile() {
         this._authService.getProfile().subscribe((res) => {
             console.log(res);
             this.data.nombres = res.nombres ?? '-';
@@ -31,9 +43,14 @@ export class ProfileComponent implements OnInit {
             this.data.username = res.username ?? '-';
             this.data.email = res.email;
             this.data.celular = res.celular ?? '-';
+            this.dataEdit.nombres = res.nombres ?? '';
+            this.dataEdit.apellidos = res.apellidos ?? '';
+            this.dataEdit.username = res.username ?? '';
+            this.dataEdit.celular = res.celular ?? '';
+            this.dataEdit.newpass = '';
+            this.dataEdit.newpassConfirm = '';
         });
     }
-
     mostrarProfile(numero: number): void {
         const secciones: any = document.getElementById('profile-container')!
             .children;
@@ -116,5 +133,40 @@ export class ProfileComponent implements OnInit {
                 this.direcciones = dir;
             });
         });
+    }
+
+    actualizarPerfil() {
+        if (!this.validarPassword()) {
+            return;
+        }
+        let newpass: any = document.getElementById('newpass');
+        newpass = newpass.value;
+        let body = {
+            username: this.dataEdit.username,
+            newpass,
+            name: this.dataEdit.nombres,
+            lastname: this.dataEdit.apellidos,
+            cell: this.dataEdit.celular,
+        };
+        this._authService.changeProfile(body).subscribe((res) => {
+            this.cargarProfile();
+            alert('Sus datos se han cambiado exitosamente!');
+        });
+    }
+
+    validarPassword() {
+        console.log(this.dataEdit.newpass == '');
+        if (this.dataEdit.newpass == '' && this.dataEdit.newpassConfirm == '') {
+            return true;
+        }
+        if (this.dataEdit.newpass != this.dataEdit.newpassConfirm) {
+            alert('Las contraseñas no coinciden');
+            return false;
+        }
+        if (this.dataEdit.newpass.length < 6) {
+            alert('La contraseña debe tener al menos 6 caracteres');
+            return false;
+        }
+        return true;
     }
 }
