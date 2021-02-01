@@ -28,17 +28,16 @@ export class EstadisticasComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.cargarJSONLine(this.getFirstDayOfWeek());
+        this.cargarJSONLine(this.getFirstDayOfWeek(new Date()));
     }
 
-    cargarJSONLine = async (dia: string) => {
+    cargarJSONLine = (dia: string) => {
         this._adminService.getVentasSemanales({ fecha: dia }).subscribe(
             (semana) => {
                 let ventas = [];
                 for (let d of this.dias) {
                     ventas.push(parseInt(semana[d]));
                 }
-                console.log(ventas);
                 this.myLineChart = new Chart('myAreaChart', {
                     type: 'line',
                     data: {
@@ -80,7 +79,7 @@ export class EstadisticasComponent implements OnInit {
                                     },
                                     ticks: {
                                         maxTicksLimit: 7,
-                                    }
+                                    },
                                 },
                             ],
                             yAxes: [
@@ -103,7 +102,7 @@ export class EstadisticasComponent implements OnInit {
                                         drawBorder: false,
                                         borderDash: [2],
                                         zeroLineBorderDash: [2],
-                                    }
+                                    },
                                 },
                             ],
                         },
@@ -145,8 +144,6 @@ export class EstadisticasComponent implements OnInit {
                 this._router.navigate(['/login']);
             }
         );
-
-        //});
     };
 
     cargarJSONBar = () => {
@@ -324,8 +321,7 @@ export class EstadisticasComponent implements OnInit {
             });
     };
 
-    getFirstDayOfWeek(): string {
-        const curr = new Date();
+    getFirstDayOfWeek(curr: Date): string {
         if (curr.getDay() == 0) {
             curr.setDate(curr.getDate() - 6);
         } else {
@@ -338,5 +334,13 @@ export class EstadisticasComponent implements OnInit {
         let day = curr.getDate() < 10 ? '0' + curr.getDate() : curr.getDate();
         let stringCurr = curr.getFullYear() + '-' + month + '-' + day;
         return stringCurr;
+    }
+
+    cambiarSemana() {
+        let week: any = document.getElementById('date');
+        let date = new Date(week.value);
+        date.setHours(date.getHours() + 5);
+        let strDate = this.getFirstDayOfWeek(date);
+        this.cargarJSONLine(strDate);
     }
 }

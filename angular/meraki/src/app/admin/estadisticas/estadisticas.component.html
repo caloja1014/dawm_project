@@ -1,92 +1,121 @@
 <div id="wrapper">
-  <app-aside></app-aside>
-  <div id="content-wrapper" class="d-flex flex-column">
-    <!-- Main Content -->
-    <div id="content mb-5">
-      <!-- Topbar -->
-      <app-navbar-admin></app-navbar-admin>
-      <div class="container-fluid">
+    <app-aside></app-aside>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content mb-5">
+            <!-- Topbar -->
+            <app-navbar-admin></app-navbar-admin>
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">Estadísticas</h1>
+                <p class="mb-4"></p>
 
-        <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Estadísticas</h1>
-        <p class="mb-4">
+                <!-- Content Row -->
+                <div class="row">
+                    <div class="col-xl-8 col-lg-7">
+                        <!-- Area Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    Ventas de la Semana
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="getFecha form-group row">
+                                    <div class="col-3 mt-2">
+                                        <label for="date"
+                                            >Semana del día:
+                                        </label>
+                                    </div>
+                                    <div class="col-5">
+                                        <input
+                                            class="form-control"
+                                            type="date"
+                                            id="date"
+                                        />
+                                    </div>
+                                    <div class="mr-3 col-2">
+                                        <button
+                                            (click)="cambiarSemana()"
+                                            class="btn btn-primary"
+                                        >
+                                            buscar
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="chart-area">
+                                    <canvas id="myAreaChart">{{
+                                        myLineChart
+                                    }}</canvas>
+                                </div>
+                            </div>
+                        </div>
 
-        </p>
+                        <!-- Bar Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    Ventas Mensuales
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-bar">
+                                    <canvas id="myBarChart">{{
+                                        myBarChart
+                                    }}</canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Content Row -->
-        <div class="row">
-
-          <div class="col-xl-8 col-lg-7">
-
-            <!-- Area Chart -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Ventas de la Semana</h6>
-              </div>
-              <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="myAreaChart">{{myLineChart}}</canvas>
+                    <!-- Donut Chart -->
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    Venta Categorías
+                                </h6>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="chart-pie pt-4">
+                                    <canvas id="myPieChart">{{
+                                        myPieChart
+                                    }}</canvas>
+                                </div>
+                                <div class="mt-4 text-center small">
+                                    <span class="mr-2">
+                                        <i class="fas fa-circle pie1"></i>
+                                        Navidad
+                                    </span>
+                                    <span class="mr-2">
+                                        <i class="fas fa-circle pie2"></i>
+                                        Camisetas
+                                    </span>
+                                    <span class="mr-2">
+                                        <i class="fas fa-circle pie3"></i>
+                                        Regalos
+                                    </span>
+                                </div>
+                                <div class="mt-4 text-center small">
+                                    <span class="mr-2">
+                                        <i class="fas fa-circle pie4"></i>
+                                        Jarros
+                                    </span>
+                                    <span class="mr-2">
+                                        <i class="fas fa-circle pie5"></i>
+                                        Sueters
+                                    </span>
+                                    <span class="mr-2">
+                                        <i class="fas fa-circle pie6"></i> Otros
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-              </div>
             </div>
-
-            <!-- Bar Chart -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Ventas Mensuales</h6>
-              </div>
-              <div class="card-body">
-                <div class="chart-bar">
-                  <canvas id="myBarChart">{{myBarChart}}</canvas>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Donut Chart -->
-          <div class="col-xl-4 col-lg-5">
-            <div class="card shadow mb-4">
-              <!-- Card Header - Dropdown -->
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Venta Categorías</h6>
-              </div>
-              <!-- Card Body -->
-              <div class="card-body">
-                <div class="chart-pie pt-4">
-                  <canvas id="myPieChart">{{myPieChart}}</canvas>
-                </div>
-                <div class="mt-4 text-center small">
-                  <span class="mr-2">
-                    <i class="fas fa-circle pie1"></i> Navidad
-                  </span>
-                  <span class="mr-2">
-                    <i class="fas fa-circle pie2"></i> Camisetas
-                  </span>
-                  <span class="mr-2">
-                    <i class="fas fa-circle pie3"></i> Regalos
-                  </span>
-                </div>
-                <div class="mt-4 text-center small">
-                  <span class="mr-2">
-                    <i class="fas fa-circle pie4"></i> Jarros
-                  </span>
-                  <span class="mr-2">
-                    <i class="fas fa-circle pie5"></i> Sueters
-                  </span>
-                  <span class="mr-2">
-                    <i class="fas fa-circle pie6"></i> Otros
-                  </span>
-                </div>
-
-              </div>
-            </div>
-          </div>
         </div>
-
-      </div>
     </div>
-  </div>
 </div>
