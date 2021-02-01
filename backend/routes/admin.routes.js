@@ -6,10 +6,9 @@ const noticiasController= require("../controllers/nodb/noticias.controller");
 const mesesController=require("../controllers/nodb/meses.controller")
 const adminController = require("../controllers/db/admin.controller");
 //router.get("/",noticiasController.findAll);
+const productosController =require("../controllers/db/producto.controller");
 
-
-router.post("/addProduct",diasController.create);
-
+router.post("/addProduct",productosController.agregarProducto)
 router.post("/ventaSemanal",diasController.getVentaSemanal);
 
 

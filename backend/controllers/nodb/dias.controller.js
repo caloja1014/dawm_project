@@ -2,6 +2,7 @@ const { isValidObjectId } = require("mongoose");
 const Dias = require("../../collections/dias.model");
 const mesesController= require("./meses.controller")
 exports.create = (req, res) => {
+  
   if (!req.body.id_usu || !req.body.fecha) {
     res.status(400).send({
       message: "El contenido no puede estar vacio!",
@@ -31,6 +32,7 @@ exports.create = (req, res) => {
           id_usu: req.body.id_usu,
           productos: req.body.productos,
           total: req.body.total,
+          metodoPago:req.body.metodoPago
         },
       },
     },
@@ -105,6 +107,7 @@ exports.getCompraUsuario = (req, res) => {
             compras[fecha].push({
               id:cont,
               total:c["total"],
+              metodoPago:c["metodoPago"],
             })
             cont++;
           }
