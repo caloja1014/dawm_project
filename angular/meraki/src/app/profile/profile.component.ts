@@ -25,11 +25,22 @@ export class ProfileComponent implements OnInit {
         newpassConfirm: '',
     };
 
+    pedidos: Array<any> = [];
+
     direcciones: Array<any> = [];
     constructor(private _authService: AuthService, private _router: Router) {
         _authService.setIsCompras(true);
-        _authService.getDirecciones().subscribe((dir) => {
-            this.direcciones = dir;
+        _authService.getDirecciones().subscribe(
+            (dir) => {
+                this.direcciones = dir;
+            },
+            (err) => {
+                this._router.navigate(['/shop']);
+            }
+        );
+        _authService.getPedidos().subscribe((dir) => {
+            console.log(dir);
+            this.pedidos = dir;
         });
         this.cargarProfile();
     }

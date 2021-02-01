@@ -11,6 +11,7 @@ export class AuthService {
     private _loginUrl = 'http://localhost:3000/login';
     private _profile = 'http://localhost:3000/profile';
     private _direcciones = 'http://localhost:3000/address';
+    private _pedidos = 'http://localhost:3000/pedidos';
 
     private isCompras = false;
 
@@ -67,5 +68,9 @@ export class AuthService {
 
     deleteDireccion(id: any) {
         return this.http.delete<any>(this._direcciones + '/' + id);
+    }
+
+    getPedidos() {
+        return this.http.get<any>(this._pedidos);
     }
 }
