@@ -99,7 +99,7 @@
                                 >
                                     <p>
                                         <b>Dirección {{ i + 1 }}: </b
-                                        >{{ direccion.direccion }}
+                                        >{{ direccion.descripcion }}
                                     </p>
                                 </div>
                             </div>
@@ -294,7 +294,7 @@
                                     name="direccion1"
                                     type="text"
                                     class="form-control col-6"
-                                    value="{{ direccion.direccion }}"
+                                    value="{{ direccion.descripcion }}"
                                     disabled
                                 />
                                 <div
@@ -308,8 +308,9 @@
                                     ></i>
                                 </div>
                                 <div
-                                    id="delete-dir-{{ i }}"
+                                    id="delete-dir-{{ i }}-{{ direccion.id }}"
                                     class="delete-addr"
+                                    (click)="deleteDireccion($event)"
                                 >
                                     <i
                                         class="h5 m-2 pen fas fa-trash"
@@ -334,7 +335,7 @@
                             href="#"
                             data-toggle="modal"
                             data-target="#addAddrModal"
-                            class="mt-4 btn btn-primary"
+                            class="my-4 btn btn-primary"
                         >
                             Agregar dirección
                         </a>
@@ -360,6 +361,7 @@
                     Editar la dirección <span class="direccionInput"></span>
                 </h5>
                 <button
+                    id="btnCloseEdit"
                     class="close"
                     type="button"
                     data-dismiss="modal"
@@ -407,6 +409,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Agregar nueva dirección</h5>
                 <button
+                    id="btnCloseAdd"
                     class="close"
                     type="button"
                     data-dismiss="modal"
