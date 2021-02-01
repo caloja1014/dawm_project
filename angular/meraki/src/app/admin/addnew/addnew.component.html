@@ -55,7 +55,7 @@
                             </div>
                             <div class="form-field col-lg-12"> 
                                 <label class="labelDesc" for="ControlFile2">Agregar imagen</label>
-                                <input [(ngModel)]="bodyNew.imagen" name="imagen" type="file" class="form-control-file js-input" id="ControlFile2" />
+                                <input [(ngModel)]="bodyNew.imagen" name="imagen" (change)="saveEvent($event)" type="file" class="form-control-file js-input" id="ControlFile2" />
                             </div>
                             <div class="form-field col-lg-12">
                                 <input id="submit" type="reset" class="submit-btn" href="#" data-toggle="modal" data-target="#confirmar" (click)="crearNoticia()" value="Aceptar"/>
@@ -63,7 +63,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> 
             <!-- End of Main Content -->
         </div>
     </div>
