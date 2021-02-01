@@ -57,7 +57,7 @@ exports.updateClient = (req, res) => {
              else {
                 res.status(500).send({
                     message:
-                        "Error actualizando al Cliente con id ${req.userId}",
+                        `Error actualizando al Cliente con id ${req.userId}`,
                 });
             }
         } else res.send(data);

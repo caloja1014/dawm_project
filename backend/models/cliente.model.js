@@ -7,7 +7,7 @@ exports.insertCliente = (email, pass, result) => {
         if(err){
             result(err,null)
             return;
-        }else if(res){
+        }else if(res.length){
             console.log(res)
             var number = parseInt(res[0].username.split(user)[1])+1
             user = user + number.toString()
@@ -28,18 +28,16 @@ exports.insertCliente = (email, pass, result) => {
 
 searchUserName = (user,result) =>{
     var q = `select username from Cliente where username like '%${user}%' order by username desc limit 1;`
-   console.log("")
+   
     sql.query(q,(err,res)=>{
         if(err){
             
             result(err,null)
             return;
-        }else if(!res.length){
-            
+        }else{
             result(null,res);
             return;
-        }else{
-        result(null,null)}
+        }
     })
 }
 
@@ -78,7 +76,7 @@ exports.update = (id, body, result) => {
         if(err){
             result(err,null)
             return;
-        }else if(res.length>0){
+        }else if(res.length){
            result({kind:"username_exists"},null)
            return;
         }else{
