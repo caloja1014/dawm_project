@@ -19,6 +19,7 @@ exports.createClient = (req, res) => {
 };
 
 exports.loginClient = (req, res) => {
+    console.log(req.body)
     client.findByEmail(req.body.email, (err, result) => {
         if (err) {
             res.send(err);

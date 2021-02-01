@@ -51,16 +51,29 @@ exports.removeFromCarrito = (req,res) =>{
 
 exports.productosCarrito=(req,res)=>{
     producto.getProdCliente(req.userId,(err,resultado)=>{
+        if(err){
+            if (err.kind === "not_found") {
+            res.status(404).send({
+                message: `No se han podido obtener los productos del carrito`
+            });
+            } else {
+            res.status(500).send({
+                message: "Error obteniendo productos"
+            });
+            }
+        }
         let listaProductos=[]
         for (let p of resultado){
         listaProductos.push({
-            categoria:p.categoria,
             cantidad:p.cantidad,
             noombre:p.nomProducto,
             precio:p.precio,
             imagen:p.imagen,
+            descripcion:p.descripcion
         });
         }
+        res.send(listaProductos);
+        
     })
 }
 const storageProduct = multer.diskStorage({

@@ -16,6 +16,5 @@ router.post("/comprar",auth.verifyToken,diasController.create);
 //router.get("/pedidos",auth.verifyToken,diasController.getCompraUsuario);
 router.get("/pedidos",auth.verifyToken,diasController.getCompraUsuario);
 router.get("/categ",categoriaController.getCategorias)
-
 router.get("/news",noticiasController.findAll);
 module.exports = router;
