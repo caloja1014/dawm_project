@@ -28,15 +28,18 @@ exports.insertCliente = (email, pass, result) => {
 
 searchUserName = (user,result) =>{
     var q = `select username from Cliente where username like '%${user}%' order by username desc limit 1;`
+   console.log("")
     sql.query(q,(err,res)=>{
         if(err){
+            
             result(err,null)
             return;
-        }else if(res.length){
+        }else if(!res.length){
+            
             result(null,res);
             return;
-        }else
-        result(null,null)
+        }else{
+        result(null,null)}
     })
 }
 
