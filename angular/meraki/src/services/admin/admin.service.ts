@@ -33,6 +33,6 @@ export class AdminService {
     }
 
     getVentasCategorias() {
-        return this.http.get<any>(this.host + '/ventaCateg');
+        return this.http.get<any>(this.host + '/pie');
     }
 }

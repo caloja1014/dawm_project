@@ -7,10 +7,19 @@ import { AuthService } from 'src/services/auth/auth.service';
     styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
+    data = {
+        nombres: 'Alex',
+        apellidos: 'Velez',
+        email: 'velezllaquealex@gmail.com',
+    };
     constructor(private _authService: AuthService) {
         _authService.setIsCompras(true);
     }
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this._authService.getProfile().subscribe((res) => {
+            console.log(res);
+        });
+    }
 
     mostrarProfile(numero: number): void {
         const secciones: any = document.getElementById('profile-container')!
