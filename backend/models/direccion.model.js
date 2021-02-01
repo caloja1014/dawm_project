@@ -1,11 +1,9 @@
 const sql = require("../config/databaseCon");
 
 exports.insertDireccion = (idCliente, direccion, result) => {
-    obj = { idCliente, descripcion: direccion };
-    console.log(obj);
     sql.query(
-        "insert into Direccion(idCliente,descripcion) values ?;",
-        [idCliente, direccion],
+        "insert into Direccion(idCliente,descripcion) values (?)",
+        [[idCliente, direccion]],
         (err, res) => {
             if (err) {
                 console.log(err);
