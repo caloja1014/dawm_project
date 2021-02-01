@@ -29,7 +29,7 @@ export class AdminService {
     }
 
     getVentasAnuales(categoria: string) {
-        return this.http.get<any>(this.host + '/ventaAnual/' + categoria);
+        return this.http.get<any>(this.host + '/ventaCateg/' + categoria);
     }
 
     getVentasCategorias() {

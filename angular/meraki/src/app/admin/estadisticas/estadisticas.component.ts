@@ -22,13 +22,25 @@ export class EstadisticasComponent implements OnInit {
         'Sabado',
         'Domingo',
     ];
-    constructor(private _adminService: AdminService, private _router: Router) {
-        this.cargarJSONBar();
-        this.cargarJsonPie();
-    }
+
+    categorias = [
+        'Navidad',
+        'Camisetas',
+        'Regalos',
+        'Jarros',
+        'Sueters',
+        'Otros',
+    ];
+    constructor(private _adminService: AdminService, private _router: Router) {}
 
     ngOnInit(): void {
-        this.cargarJSONLine(this.getFirstDayOfWeek(new Date()));
+        let firstDay = this.getFirstDayOfWeek(new Date());
+        let inputDate: any = document.getElementById('date');
+        inputDate.value = firstDay;
+
+        this.cargarJSONLine(firstDay);
+        this.cargarJSONBar(this.categorias[0]);
+        this.cargarJsonPie();
     }
 
     cargarJSONLine = (dia: string) => {
@@ -146,114 +158,106 @@ export class EstadisticasComponent implements OnInit {
         );
     };
 
-    cargarJSONBar = () => {
-        fetch('assets/json/ventasMens.json')
-            .then((response) => response.json())
-            .then((datos) => {
-                let meses = [];
-                let ventas = [];
-                for (let d of datos) {
-                    meses.push(d['mes']);
-                    ventas.push(parseInt(d['venta']));
-                }
-                this.myBarChart = new Chart('myBarChart', {
-                    type: 'bar',
-                    data: {
-                        labels: meses,
-                        datasets: [
+    cargarJSONBar = (categoria: string) => {
+        this._adminService.getVentasAnuales(categoria).subscribe((datos) => {
+            let meses = [];
+            let ventas = [];
+            let keys = Object.keys(datos);
+            for (let d of keys) {
+                meses.push(d);
+                ventas.push(parseInt(datos[d]));
+            }
+            this.myBarChart = new Chart('myBarChart', {
+                type: 'bar',
+                data: {
+                    labels: meses,
+                    datasets: [
+                        {
+                            label: 'Revenue',
+                            backgroundColor: '#418791',
+                            hoverBackgroundColor: '#418791',
+                            borderColor: '#418791',
+                            data: ventas,
+                            maxBarThickness: 25,
+                        },
+                    ],
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            left: 0,
+                            right: 10,
+                            top: 25,
+                            bottom: 0,
+                        },
+                    },
+                    scales: {
+                        xAxes: [
                             {
-                                label: 'Revenue',
-                                backgroundColor: '#418791',
-                                hoverBackgroundColor: '#418791',
-                                borderColor: '#418791',
-                                data: ventas,
-                                maxBarThickness: 25,
+                                time: {
+                                    unit: 'month',
+                                },
+                                gridLines: {
+                                    display: false,
+                                    drawBorder: false,
+                                },
+                                ticks: {
+                                    maxTicksLimit: 12,
+                                },
+                            },
+                        ],
+                        yAxes: [
+                            {
+                                ticks: {
+                                    min: 0,
+                                    max: 1500,
+                                    maxTicksLimit: 5,
+                                    padding: 10,
+                                    // Include a dollar sign in the ticks
+                                    callback: function (value, index, values) {
+                                        return '$' + value;
+                                    },
+                                },
+                                gridLines: {
+                                    color: 'rgb(234, 236, 244)',
+                                    zeroLineColor: 'rgb(234, 236, 244)',
+                                    drawBorder: false,
+                                    borderDash: [2],
+                                    zeroLineBorderDash: [2],
+                                },
                             },
                         ],
                     },
-                    options: {
-                        maintainAspectRatio: false,
-                        layout: {
-                            padding: {
-                                left: 0,
-                                right: 10,
-                                top: 25,
-                                bottom: 0,
-                            },
-                        },
-                        scales: {
-                            xAxes: [
-                                {
-                                    time: {
-                                        unit: 'month',
-                                    },
-                                    gridLines: {
-                                        display: false,
-                                        drawBorder: false,
-                                    },
-                                    ticks: {
-                                        maxTicksLimit: 12,
-                                    },
-                                },
-                            ],
-                            yAxes: [
-                                {
-                                    ticks: {
-                                        min: 0,
-                                        max: 1500,
-                                        maxTicksLimit: 5,
-                                        padding: 10,
-                                        // Include a dollar sign in the ticks
-                                        callback: function (
-                                            value,
-                                            index,
-                                            values
-                                        ) {
-                                            return '$' + value;
-                                        },
-                                    },
-                                    gridLines: {
-                                        color: 'rgb(234, 236, 244)',
-                                        zeroLineColor: 'rgb(234, 236, 244)',
-                                        drawBorder: false,
-                                        borderDash: [2],
-                                        zeroLineBorderDash: [2],
-                                    },
-                                },
-                            ],
-                        },
-                        legend: {
-                            display: false,
-                        },
-                        tooltips: {
-                            titleMarginBottom: 10,
-                            titleFontColor: '#6e707e',
-                            titleFontSize: 14,
-                            backgroundColor: 'rgb(255,255,255)',
-                            bodyFontColor: '#858796',
-                            borderColor: '#dddfeb',
-                            borderWidth: 1,
-                            xPadding: 15,
-                            yPadding: 15,
-                            displayColors: false,
-                            caretPadding: 10,
-                            callbacks: {
-                                label: function (tooltipItem, chart) {
-                                    var datasetLabel =
-                                        chart.datasets![
-                                            tooltipItem.datasetIndex!
-                                        ].label || '';
-                                    return (
-                                        datasetLabel +
-                                        ': $' +
-                                        tooltipItem.yLabel
-                                    );
-                                },
+                    legend: {
+                        display: false,
+                    },
+                    tooltips: {
+                        titleMarginBottom: 10,
+                        titleFontColor: '#6e707e',
+                        titleFontSize: 14,
+                        backgroundColor: 'rgb(255,255,255)',
+                        bodyFontColor: '#858796',
+                        borderColor: '#dddfeb',
+                        borderWidth: 1,
+                        xPadding: 15,
+                        yPadding: 15,
+                        displayColors: false,
+                        caretPadding: 10,
+                        callbacks: {
+                            label: function (tooltipItem, chart) {
+                                var datasetLabel =
+                                    chart.datasets![tooltipItem.datasetIndex!]
+                                        .label || '';
+                                return (
+                                    datasetLabel + ': $' + tooltipItem.yLabel
+                                );
                             },
                         },
                     },
-                });
+                },
             });
+        });
     };
 
     cargarJsonPie = () => {
@@ -336,11 +340,18 @@ export class EstadisticasComponent implements OnInit {
         return stringCurr;
     }
 
+    formatDate(date: Date) {}
     cambiarSemana() {
         let week: any = document.getElementById('date');
         let date = new Date(week.value);
         date.setHours(date.getHours() + 5);
         let strDate = this.getFirstDayOfWeek(date);
         this.cargarJSONLine(strDate);
+    }
+
+    cambiarCategoria(event: any) {
+        let categoria: any = document.getElementById('categoria');
+        categoria = categoria.value;
+        this.cargarJSONBar(categoria);
     }
 }

@@ -59,6 +59,28 @@
                                 </h6>
                             </div>
                             <div class="card-body">
+                                <div class="getFecha form-group row">
+                                    <div class="col-3 mt-2">
+                                        <label for="categoria"
+                                            >Categoría:
+                                        </label>
+                                    </div>
+                                    <div class="col-5">
+                                        <select
+                                            class="form-control"
+                                            name="categoria"
+                                            id="categoria"
+                                            (change)="cambiarCategoria($event)"
+                                        >
+                                            <option
+                                                *ngFor="let categ of categorias"
+                                                value="{{ categ }}"
+                                            >
+                                                {{ categ }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="chart-bar">
                                     <canvas id="myBarChart">{{
                                         myBarChart
