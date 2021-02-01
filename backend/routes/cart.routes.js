@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var producto = require("../controllers/db/producto.controller")
+var auth = require("../middleware/auth")
 
-router.post("/add",producto.addProdCarrito);
+router.post("/add",auth.verifyToken,producto.addProdCarrito);
 
 router.delete("/:idProducto",producto.removeFromCarrito);
+
+module.exports=router;
