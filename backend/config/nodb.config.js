@@ -4,5 +4,4 @@ module.exports = {
     PASSWORD: "user",
     noDB: "meraki",
     dialect: "mongodb",
-    
 };
