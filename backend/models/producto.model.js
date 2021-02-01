@@ -39,7 +39,7 @@ exports.getProdCliente = (idCliente,result) =>{
     sql.query(q,(err,res)=>{
         if (err){
             result(err,null);
-        }else if(!res.lenght){
+        }else if(!res.length){
             result({ kind: "not_found" }, null);
         }
         else{
@@ -66,34 +66,34 @@ exports.addProdCliente = (body, idCliente, result) =>{
 
 exports.deleteProdFromCarrito = (idProd, idCliente, result) => {
     sql.query(`DELETE FROM ProdCliente WHERE producto = ${idProd} and cliente = ${idCliente};`, (err, res) => {
-      if (err) {
-        console.log("error: ", err);
-        result(null, err);
-        return;
-      }
-  
-      if (res.affectedRows == 0) {
-        result({ kind: "not_found" }, null);
-        return;
-      }
-  
-      result(null, res);
-    });
-  }
-
-  exports.deleteAllByCliente = (idCliente,result) =>{
-    sql.query(`DELETE FROM ProdCliente WHERE cliente = ${idCliente};`, (err, res) => {
         if (err) {
-          console.log("error: ", err);
-          result(null, err);
-          return;
+            console.log("error: ", err);
+            result(null, err);
+            return;
         }
     
         if (res.affectedRows == 0) {
-          result({ kind: "not_found" }, null);
-          return;
+            result({ kind: "not_found" }, null);
+            return;
         }
     
         result(null, res);
-      });
+        });
+    }
+
+  exports.deleteAllByCliente = (idCliente,result) =>{
+    sql.query(`DELETE FROM ProdCliente WHERE cliente = ${idCliente};`, (err, res) => {
+            if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+            }
+        
+            if (res.affectedRows == 0) {
+            result({ kind: "not_found" }, null);
+            return;
+            }
+        
+            result(null, res);
+        });
   }

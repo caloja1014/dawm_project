@@ -1,53 +1,66 @@
 const { isValidObjectId } = require("mongoose");
 const Dias = require("../../collections/dias.model");
 const mesesController= require("./meses.controller")
+let productoModel=require("../../models/producto.model");
 exports.create = (req, res) => {
-  
-  if (!req.body.id_usu || !req.body.fecha) {
-    res.status(400).send({
-      message: "El contenido no puede estar vacio!",
-    });
-    return;
-  }
-
-  var dias = new Date(req.body.fecha);
-  dias.setUTCHours(5);
-  mesesController.create(req.body).then(
-    (data) => {
-    res.send(data);
-  })
-  .catch((err) => {
-    res.status(500).send({
-      message: err.message || "Ocurrio un error al crear un nuevo producto e indexarlo en la coleccion de meses",
-    });
-  });
-  
-  Dias.updateOne(
-    {
-      fecha: dias,
-    },
-    {
-      $push: {
-        compras: {
-          id_usu: req.body.id_usu,
-          productos: req.body.productos,
-          total: req.body.total,
-          metodoPago:req.body.metodoPago
-        },
-      },
-    },
-    {
-      upsert: true,
+  productoModel.getProdCliente(7,(err,resultado)=>{
+    let listaProductos=[]
+    let totalVendido=0
+    for (let p of resultado){
+      listaProductos.push({
+        categoria:p.categoria,
+        cantidad:p.cantidad,
+        noombre:p.nomProducto,
+        precio:p.precio,
+      });
+      totalVendido+=p.cantidad*p.precio;
     }
-  )
-    .then((data) => {
+    
+    var dias = new Date();
+    mesesController.create({
+      fecha:dias.toISOString(),
+      productos:listaProductos
+    }).then(
+      (data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Ocurrio un error al crear un nuevo producto",
+        message: err.message || "Ocurrio un error al crear un nuevo producto e indexarlo en la coleccion de meses",
       });
     });
+    
+    Dias.updateOne(
+      {
+        fecha: dias,
+      },
+      {
+        $push: {
+          compras: {
+            id_usu: req.body.id_usu,
+            productos: listaProductos,
+            total: totalVendido,
+            metodoPago:req.body.metodoPago
+          },
+        },
+      },
+      {
+        upsert: true,
+      }
+    )
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || "Ocurrio un error al crear un nuevo producto",
+        });
+      });
+})
+
+
+  
+  
 };
 
 exports.getVentaSemanal = (req, res) => {
@@ -88,6 +101,7 @@ exports.getCompraUsuario = (req, res) => {
     });
     return;
   }
+
   Dias.find({
     "compras.id_usu": req.query.id_usu,
   })
