@@ -86,13 +86,6 @@ exports.getVentaSemanal = (req, res) => {
 };
 
 exports.getCompraUsuario = (req, res) => {
-  console.log(req.query);
-  if (!req.query.id_usu) {
-    res.status(400).send({
-      message: "El contenido no puede estar vacio!",
-    });
-    return;
-  }
 
   Dias.find({
     "compras.id_usu": req.userId,
