@@ -8,6 +8,7 @@ const DiasSchema= new mongoose.Schema ({
         id_usu:String,
         productos:Array,
         total:Number,
+        metodoPago:String
     }]
 });
 module.exports= mongoose.model("dias",DiasSchema,"dias");
