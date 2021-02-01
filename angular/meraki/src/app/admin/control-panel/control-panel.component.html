@@ -1,11 +1,11 @@
 <div id="wrapper">
-  <app-aside></app-aside>
-  <div id="content-wrapper" class="d-flex flex-column">
-    <!-- Main Content -->
-    <div id="content mb-5">
-      <!-- Topbar -->
-      <app-navbar-admin></app-navbar-admin>
-      <!-- End of Topbar -->
+    <app-aside></app-aside>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content mb-5">
+            <!-- Topbar -->
+            <app-navbar-admin></app-navbar-admin>
+            <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
@@ -16,7 +16,7 @@
                         class="card col-4 mx-4 text-center"
                         style="width: 18rem"
                     >
-                        <a href="/addproduct">
+                        <a [routerLink]="['/addproduct']">
                             <img
                                 class="card-img-top"
                                 src="./assets/icons/addproduct.png"
@@ -34,7 +34,7 @@
                         class="card col-4 mx-4 text-center"
                         style="width: 18rem"
                     >
-                        <a href="/addnew">
+                        <a [routerLink]="['/addnew']">
                             <img
                                 class="card-img-top"
                                 src="./assets/icons/addnew.png"
@@ -52,7 +52,7 @@
                         class="card col-4 mx-4 text-center"
                         style="width: 18rem"
                     >
-                        <a href="/stats">
+                        <a [routerLink]="['/stats']">
                             <img
                                 class="card-img-top"
                                 src="/assets/icons/estadisticas.png"
@@ -71,7 +71,7 @@
                         class="card col-4 mx-4 text-center"
                         style="width: 18rem"
                     >
-                        <a href="/addcateg">
+                        <a [routerLink]="['/addcateg']">
                             <img
                                 class="card-img-top"
                                 src="/assets/icons/categorias.png"

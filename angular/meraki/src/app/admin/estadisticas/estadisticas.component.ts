@@ -9,7 +9,7 @@ import { AdminService } from 'src/services/admin/admin.service';
     styleUrls: ['../sb-admin-2.css', './estadisticas.component.css'],
 })
 export class EstadisticasComponent implements OnInit {
-    myLineChart: any;
+    myLineChart!: Chart;
     myBarChart: any;
     myPieChart: any;
 
@@ -50,6 +50,7 @@ export class EstadisticasComponent implements OnInit {
                 for (let d of this.dias) {
                     ventas.push(parseInt(semana[d]));
                 }
+
                 this.myLineChart = new Chart('myAreaChart', {
                     type: 'line',
                     data: {
@@ -346,6 +347,7 @@ export class EstadisticasComponent implements OnInit {
         let date = new Date(week.value);
         date.setHours(date.getHours() + 5);
         let strDate = this.getFirstDayOfWeek(date);
+        this.myLineChart.destroy();
         this.cargarJSONLine(strDate);
     }
 
