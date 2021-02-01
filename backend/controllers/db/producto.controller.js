@@ -1,8 +1,7 @@
 const producto=require("../../models/producto.model")
-
+const multer = require("multer");
 exports.agregarProducto=(req,res)=>{
-    console.log(req.body);
-    producto.insertProducto(req.body,(err,result)=>{
+    producto.insertProducto(req.body,req.adminId,(err,result)=>{
         if(err){
             res.status(500).send({
                 message: err.toString()||"Ocurrió un error al ingresar un nuevo producto"
@@ -49,4 +48,43 @@ exports.removeFromCarrito = (req,res) =>{
 
     })
 }
+
+exports.productosCarrito=(req,res)=>{
+    producto.getProdCliente(req.userId,(err,resultado)=>{
+        if(err){
+            if (err.kind === "not_found") {
+            res.status(404).send({
+                message: `No se han podido obtener los productos del carrito`
+            });
+            } else {
+            res.status(500).send({
+                message: "Error obteniendo productos"
+            });
+            }
+        }
+        let listaProductos=[]
+        for (let p of resultado){
+        listaProductos.push({
+            cantidad:p.cantidad,
+            noombre:p.nomProducto,
+            precio:p.precio,
+            imagen:p.imagen,
+            descripcion:p.descripcion
+        });
+        }
+        res.send(listaProductos);
+        
+    })
+}
+const storageProduct = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "public/assets/img/productos");
+    },
+    filename: function (req, file, cb) {
+        cb(null, `${file.originalname}`);
+    },
+});
+
+
+exports.uploadPhoto = multer({ storage: storageProduct });
 

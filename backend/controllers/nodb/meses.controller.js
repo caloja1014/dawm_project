@@ -140,7 +140,7 @@ exports.ventaAnualPorCateg=(req,res)=>{
         }
     );
 }
-
+let categoriaModel=require("../../models/categoria.model")
 exports.ventaAnualCategorias=(req,res)=>{
     let anio=(new Date()).getFullYear();
     Meses.find(
@@ -148,17 +148,32 @@ exports.ventaAnualCategorias=(req,res)=>{
             anio:anio,
         }
     ).then(
-        data=>{
-            let categoriasResponse={
-            }
-            for (let c of data){
-                let categorias=c["categorias"]
-                for (let cates of categorias){
-                    cates["categoria"] in categoriasResponse || (categoriasResponse[cates["categoria"]] = 0);
-                    categoriasResponse[cates["categoria"]]+=cates["noVendido"]
+        dataP=>{
+            
+            categoriaModel.getAll(
+                (err,data)=>{
+                    if(err){
+                        res.status(500).send(err);
+                    }
+                    let categoriasResponse={
+                    }
+                    for (dic of data){
+                        dic.nombre in categoriasResponse || (categoriasResponse[dic.nombre] = 0);
+                    }
+                    for (let c of dataP){
+                        let categorias=c["categorias"]
+                        for (let cates of categorias){
+                            cates["categoria"] in categoriasResponse || (categoriasResponse[cates["categoria"]] = 0);
+                            categoriasResponse[cates["categoria"]]+=cates["noVendido"]
+                        }
+                    }
+                    
+                    res.send(categoriasResponse);
+                    
                 }
-            }
-            res.send(categoriasResponse);
+            )
+            
+           
         }
     ).catch(
         err=>{

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from 'src/services/news/news.service';
-import { DatePipe } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+
 @Component({
     selector: 'app-addnew',
     templateUrl: './addnew.component.html',
     styleUrls: ['../sb-admin-2.css', './addnew.component.css'],
-    providers: [DatePipe],
+    providers: [],
 })
 export class AddnewComponent implements OnInit {
     fechatemp = new Date();
@@ -41,14 +40,13 @@ export class AddnewComponent implements OnInit {
             },
             (err) => {
                 alert('Hubo un error. No se pudo agregar la noticia');
+                console.log(err);
             }
         );
         this.upload();
     }
     constructor(
-        private serv: NewsService,
-        private datePipe: DatePipe,
-        private httpc: HttpClient
+        private serv: NewsService        
     ) {}
 
     ngOnInit(): void {}

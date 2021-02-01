@@ -1,5 +1,5 @@
 const Noticias =require("../../collections/noticias.model");
-
+const multer = require("multer");
 
 exports.findAll=(req,res)=>{
     Noticias.find({},(err,docs)=>{
@@ -40,3 +40,14 @@ exports.create =(req,res)=>{
         }
     )
 }
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "public/assets/img/noticias");
+    },
+    filename: function (req, file, cb) {
+        cb(null, `${file.originalname}`);
+    },
+});
+
+exports.uploadNoticias = multer({ storage });

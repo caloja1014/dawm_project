@@ -10,15 +10,16 @@ exports.enviarCorreo = (req, res) => {
     }
     let bodymail = req.body;
     var transporter = nodemailer.createTransport({
-        service: "gmail",
+        service: "hotmail",
+
         auth: {
-        user: "@gmail.com",
-        pass: "",
+        user: "meraki_gifts12@outlook.com",
+        pass: "Paguevara129",
         },
     });
 
     var mailOptions = {
-        from: "Meraki Gifts",
+        from: "meraki_gifts12@outlook.com",
         to: bodymail.email,
         subject: "Compra",
         text: `Nombre: ${bodymail.name}\nTelefono: ${bodymail.telf}\nDirección: ${bodymail.origin}\nMensaje: ${bodymail.msg}`,

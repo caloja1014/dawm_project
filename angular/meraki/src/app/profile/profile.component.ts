@@ -25,11 +25,22 @@ export class ProfileComponent implements OnInit {
         newpassConfirm: '',
     };
 
+    pedidos: Array<any> = [];
+
     direcciones: Array<any> = [];
     constructor(private _authService: AuthService, private _router: Router) {
         _authService.setIsCompras(true);
-        _authService.getDirecciones().subscribe((dir) => {
-            this.direcciones = dir;
+        _authService.getDirecciones().subscribe(
+            (dir) => {
+                this.direcciones = dir;
+            },
+            (err) => {
+                this._router.navigate(['/shop']);
+            }
+        );
+        _authService.getPedidos().subscribe((dir) => {
+            console.log(dir);
+            this.pedidos = dir;
         });
         this.cargarProfile();
     }
@@ -148,10 +159,15 @@ export class ProfileComponent implements OnInit {
             lastname: this.dataEdit.apellidos,
             cell: this.dataEdit.celular,
         };
-        this._authService.changeProfile(body).subscribe((res) => {
-            this.cargarProfile();
-            alert('Sus datos se han cambiado exitosamente!');
-        });
+        this._authService.changeProfile(body).subscribe(
+            (res) => {
+                this.cargarProfile();
+                alert('Sus datos se han cambiado exitosamente!');
+            },
+            (err) => {
+                alert('Ya existe un usuario con ese username');
+            }
+        );
     }
 
     validarPassword() {
