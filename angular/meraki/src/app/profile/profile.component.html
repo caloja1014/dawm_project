@@ -15,8 +15,12 @@
                     <!-- END SIDEBAR USERPIC -->
                     <!-- SIDEBAR USER TITLE -->
                     <div class="profile-usertitle">
-                        <div class="profile-usertitle-name">name</div>
-                        <div class="profile-usertitle-job">user</div>
+                        <div class="profile-usertitle-name">
+                            {{ data.nombres }} {{ data.apellidos }}
+                        </div>
+                        <div class="profile-usertitle-job">
+                            {{ data.username }}
+                        </div>
                     </div>
                 </div>
                 <!-- END SIDEBAR USER TITLE -->
@@ -25,25 +29,31 @@
                 <div class="profile-usermenu">
                     <ul class="nav">
                         <li class="active pr-5 mr-4 py-2">
-                            <a (click)="mostrarProfile(1)" class="py-2 pl-1">
+                            <a (click)="mostrarProfile(1)" class="py-2 pl-2">
                                 <i class="fas fa-home"></i>
                                 General</a
                             >
                         </li>
                         <li class="py-2">
-                            <a (click)="mostrarProfile(2)" class="py-2 pl-1">
+                            <a (click)="mostrarProfile(2)" class="py-2 pl-2">
                                 <i class="fas fa-user"></i>
                                 Configuración de cuenta</a
                             >
                         </li>
                         <li class="pr-5 mr-4 py-2">
-                            <a (click)="mostrarProfile(3)" class="py-2 pl-1">
+                            <a (click)="mostrarProfile(3)" class="py-2 pl-2">
                                 <i class="fa fa-history"></i>
                                 Pedidos</a
                             >
                         </li>
                         <li class="pr-5 mr-4 py-2">
-                            <a [routerLink]="['/cart']" class="py-2 pl-1">
+                            <a (click)="mostrarProfile(4)" class="py-2 pl-2">
+                                <i class="fas fa-map-marked-alt"></i>
+                                Direcciones</a
+                            >
+                        </li>
+                        <li class="pr-5 mr-4 py-2">
+                            <a [routerLink]="['/cart']" class="py-2 pl-2">
                                 <i class="fa fa-cart-arrow-down"></i>
                                 Carrito</a
                             >
@@ -64,23 +74,40 @@
                             <div class="col-md-6 pb-3">
                                 <p>
                                     <b>Nombres: </b>
-                                    nom
+                                    {{ data.nombres }}
                                 </p>
                             </div>
                             <div class="col-md-6 pb-3">
                                 <p>
                                     <b>Apellidos: </b>
-                                    app
+                                    {{ data.apellidos }}
                                 </p>
                             </div>
                             <div class="col-md-12 pb-3">
-                                <p><b>Email: </b>email</p>
+                                <p><b>Email: </b>{{ data.email }}</p>
                             </div>
                             <div class="col-md-12 pb-3">
-                                <p><b>Dirección: </b>dirección</p>
+                                <p><b>Celular: </b>{{ data.celular }}</p>
                             </div>
-                            <div class="col-md-12 pb-3">
-                                <p><b>Celular: </b>celular</p>
+                            <div *ngIf="direcciones.length > 0">
+                                <div
+                                    *ngFor="
+                                        let direccion of direcciones;
+                                        let i = index
+                                    "
+                                    class="col-md-12 pb-3"
+                                >
+                                    <p>
+                                        <b>Dirección {{ i + 1 }}: </b
+                                        >{{ direccion.direccion }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div *ngIf="direcciones.length == 0">
+                                <p>
+                                    No tiene direcciones registradas a esta
+                                    cuenta
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -110,6 +137,7 @@
                                                 class="form-control here"
                                                 required="required"
                                                 type="text"
+                                                value="{{ data.username }}"
                                             />
                                         </div>
                                     </div>
@@ -126,6 +154,7 @@
                                                 placeholder="Nombres"
                                                 class="form-control here"
                                                 type="text"
+                                                value="{{ data.nombres }}"
                                             />
                                         </div>
                                     </div>
@@ -142,23 +171,25 @@
                                                 placeholder="Apellidos"
                                                 class="form-control here"
                                                 type="text"
+                                                value="{{ data.apellidos }}"
                                             />
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label
-                                            for="email"
+                                            for="cell"
                                             class="col-4 col-form-label"
-                                            >Email</label
+                                            >Celular</label
                                         >
                                         <div class="col-8">
                                             <input
-                                                id="email"
-                                                name="email"
-                                                placeholder="Email"
+                                                id="cell"
+                                                name="cell"
+                                                placeholder="Celular"
                                                 class="form-control here"
                                                 required="required"
-                                                type="email"
+                                                type="text"
+                                                value="{{ data.celular }}"
                                             />
                                         </div>
                                     </div>
@@ -241,7 +272,172 @@
                             </div>
                         </div>
                     </div>
+                    <div class="container d-none">
+                        <div class="prof-header pb-5">
+                            <h2>Direcciones:</h2>
+                        </div>
+                        <div *ngIf="direcciones.length > 0">
+                            <div
+                                *ngFor="
+                                    let direccion of direcciones;
+                                    let i = index
+                                "
+                                class="form-group row"
+                            >
+                                <label
+                                    class="col-2 mt-2"
+                                    for="direccion{{ i + 1 }}"
+                                    >Dirección {{ i + 1 }}</label
+                                >
+                                <input
+                                    id="direccion-{{ i + 1 }}"
+                                    name="direccion1"
+                                    type="text"
+                                    class="form-control col-6"
+                                    value="{{ direccion.direccion }}"
+                                    disabled
+                                />
+                                <div
+                                    id="edit-dir-{{ i + 1 }}-{{ direccion.id }}"
+                                    class="edit-addr"
+                                    (click)="editDireccion($event)"
+                                >
+                                    <i
+                                        class="h5 m-2 fas fa-pen"
+                                        style="color: #eea06c"
+                                    ></i>
+                                </div>
+                                <div
+                                    id="delete-dir-{{ i }}"
+                                    class="delete-addr"
+                                >
+                                    <i
+                                        class="h5 m-2 pen fas fa-trash"
+                                        style="color: rgb(245, 109, 109)"
+                                    ></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a
+                            id="editBtn"
+                            href="#"
+                            data-toggle="modal"
+                            data-target="#editAddrModal"
+                            class="d-none"
+                        ></a>
+                        <div *ngIf="direcciones.length == 0">
+                            <p>
+                                No tiene direcciones registradas a esta cuenta
+                            </p>
+                        </div>
+                        <a
+                            href="#"
+                            data-toggle="modal"
+                            data-target="#addAddrModal"
+                            class="mt-4 btn btn-primary"
+                        >
+                            Agregar dirección
+                        </a>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="editAddrModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    Editar la dirección <span class="direccionInput"></span>
+                </h5>
+                <button
+                    class="close"
+                    type="button"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="changeDireccion"
+                        >Introduce la nueva dirección:
+                    </label>
+                    <input
+                        id="changeDireccion"
+                        class="changeDireccion form-control"
+                        type="text"
+                    />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button
+                    class="btn btn-secondary"
+                    type="button"
+                    data-dismiss="modal"
+                >
+                    Cancelar
+                </button>
+                <a class="btnEditar btn btn-primary">Editar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="addAddrModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar nueva dirección</h5>
+                <button
+                    class="close"
+                    type="button"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="newDireccion"
+                        >Introduce la nueva dirección:
+                    </label>
+                    <input
+                        id="newDireccion"
+                        class="newDireccion form-control"
+                        type="text"
+                    />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button
+                    class="btn btn-secondary"
+                    type="button"
+                    data-dismiss="modal"
+                >
+                    Cancelar
+                </button>
+                <button (click)="addDireccion()" class="btn btn-primary">
+                    Agregar
+                </button>
             </div>
         </div>
     </div>

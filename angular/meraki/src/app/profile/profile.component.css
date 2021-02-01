@@ -100,3 +100,11 @@ body {
     border-left: 2px solid #e69965;
     margin-left: -2px;
 }
+
+.edit-addr:hover {
+    cursor: pointer;
+}
+
+.delete-addr:hover {
+    cursor: pointer;
+}

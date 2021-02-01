@@ -9,8 +9,8 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class AuthService {
     private _registerUrl = 'http://localhost:3000/register';
     private _loginUrl = 'http://localhost:3000/login';
-
     private _profile = 'http://localhost:3000/profile';
+    private _direcciones = 'http://localhost:3000/address';
 
     private isCompras = false;
 
@@ -47,5 +47,21 @@ export class AuthService {
 
     getProfile() {
         return this.http.get<any>(this._profile);
+    }
+
+    getDirecciones() {
+        return this.http.get<any>(this._direcciones);
+    }
+
+    addDireccion(body: any) {
+        return this.http.post<any>(this._direcciones, body);
+    }
+
+    changeDireccion(body: any) {
+        return this.http.put<any>(this._direcciones, body);
+    }
+
+    deleteDireccion(id: any) {
+        return this.http.delete<any>(this._direcciones + '/' + id);
     }
 }
