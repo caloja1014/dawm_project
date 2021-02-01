@@ -1,5 +1,5 @@
 const producto=require("../../models/producto.model")
-
+const multer = require("multer");
 exports.agregarProducto=(req,res)=>{
     console.log(req.body);
     producto.insertProducto(req.body,(err,result)=>{
@@ -49,4 +49,16 @@ exports.removeFromCarrito = (req,res) =>{
 
     })
 }
+
+const storageProduct = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "public/assets/img/productos");
+    },
+    filename: function (req, file, cb) {
+        cb(null, `${file.originalname}`);
+    },
+});
+
+
+exports.uploadPhoto = multer({ storage: storageProduct });
 

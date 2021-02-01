@@ -3,7 +3,8 @@ const categoriaModel=require("./categoria.model")
 exports.insertProducto = (producto,result) =>{
     categoriaModel.findCategoria(producto.categoria,(er,re)=>{
         if (re.length==0){
-            result(new Error("No existe la categoria que ha ingresado"),null);
+            
+            result(new Error("No existe la categoria que ha ingresado"+producto.categoria),null);
                 return;
         }
         let id =re[0].id
