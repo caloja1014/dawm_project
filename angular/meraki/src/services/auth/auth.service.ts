@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
     providedIn: 'root',
@@ -8,6 +9,8 @@ import { Router } from '@angular/router';
 export class AuthService {
     private _registerUrl = 'http://localhost:3000/register';
     private _loginUrl = 'http://localhost:3000/login';
+
+    private _profile = 'http://localhost:3000/profile';
 
     private isCompras = false;
 
@@ -40,5 +43,9 @@ export class AuthService {
     logoutUser() {
         localStorage.removeItem('token');
         this._router.navigate(['/shop']);
+    }
+
+    getProfile() {
+        return this.http.get<any>(this._profile);
     }
 }

@@ -118,7 +118,6 @@ exports.ventaAnualPorCateg=(req,res)=>{
         return;
     }
     let anio=(new Date()).getFullYear();
-console.log(anio+"saff"+req.params.categ);
     Meses.find(
         {
             anio:anio,
@@ -141,6 +140,38 @@ console.log(anio+"saff"+req.params.categ);
         }
     );
 }
+
+exports.ventaAnualCategorias=(req,res)=>{
+    let anio=(new Date()).getFullYear();
+    Meses.find(
+        {
+            anio:anio,
+        }
+    ).then(
+        data=>{
+            let categoriasResponse={
+            }
+            for (let c of data){
+                let categorias=c["categorias"]
+                for (let cates of categorias){
+                    cates["categoria"] in categoriasResponse || (categoriasResponse[cates["categoria"]] = 0);
+                    categoriasResponse[cates["categoria"]]+=cates["noVendido"]
+                }
+            }
+            res.send(categoriasResponse);
+        }
+    ).catch(
+        err=>{
+            res.status(500).send({
+                message:
+                    err.message ||
+                    "Ocurrio un error al obtener la cantidad vendida anual" +
+                    req.params.categ,
+                });
+        }
+    );
+}
+
 
 let obtenerVentasAnual=(data,categoria)=>{
     let resultado = {
