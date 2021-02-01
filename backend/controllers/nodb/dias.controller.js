@@ -1,53 +1,58 @@
 const { isValidObjectId } = require("mongoose");
 const Dias = require("../../collections/dias.model");
 const mesesController= require("./meses.controller")
+let productoModel=require("../../models/producto.model");
 exports.create = (req, res) => {
-  
-  if (!req.body.id_usu || !req.body.fecha) {
-    res.status(400).send({
-      message: "El contenido no puede estar vacio!",
+  productoModel.getProdCliente(req.userId,(err,resultado)=>{
+    let listaProductos=[]
+    let totalVendido=0
+    for (let p of resultado){
+      listaProductos.push({
+        categoria:p.categoria,
+        cantidad:p.cantidad,
+        noombre:p.nomProducto,
+        precio:p.precio,
+      });
+      totalVendido+=p.cantidad*p.precio;
+    }
+    
+    var dias = new Date();
+    mesesController.create({
+      fecha:dias.toISOString(),
+      productos:listaProductos,
+      total:totalVendido,
     });
-    return;
-  }
-
-  var dias = new Date(req.body.fecha);
-  dias.setUTCHours(5);
-  mesesController.create(req.body).then(
-    (data) => {
-    res.send(data);
-  })
-  .catch((err) => {
-    res.status(500).send({
-      message: err.message || "Ocurrio un error al crear un nuevo producto e indexarlo en la coleccion de meses",
-    });
-  });
-  
-  Dias.updateOne(
-    {
-      fecha: dias,
-    },
-    {
-      $push: {
-        compras: {
-          id_usu: req.body.id_usu,
-          productos: req.body.productos,
-          total: req.body.total,
-          metodoPago:req.body.metodoPago
+    Dias.updateOne(
+      {
+        fecha: dias,
+      },
+      {
+        $push: {
+          compras: {
+            id_usu: req.userId,
+            productos: listaProductos,
+            total: totalVendido,
+            metodoPago:req.body.metodoPago
+          },
         },
       },
-    },
-    {
-      upsert: true,
-    }
-  )
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Ocurrio un error al crear un nuevo producto",
+      {
+        upsert: true,
+      }
+    )
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || "Ocurrio un error al crear un nuevo producto",
+        });
       });
-    });
+})
+
+
+  
+  
 };
 
 exports.getVentaSemanal = (req, res) => {
@@ -81,15 +86,9 @@ exports.getVentaSemanal = (req, res) => {
 };
 
 exports.getCompraUsuario = (req, res) => {
-  console.log(req.query);
-  if (!req.query.id_usu) {
-    res.status(400).send({
-      message: "El contenido no puede estar vacio!",
-    });
-    return;
-  }
+
   Dias.find({
-    "compras.id_usu": req.query.id_usu,
+    "compras.id_usu": req.userId,
   })
     .then((data) => {
       let cont=1;
@@ -102,7 +101,7 @@ exports.getCompraUsuario = (req, res) => {
 
         for (let c of comprasArr){
           let idUsuario=c["id_usu"];
-          if (idUsuario==req.query.id_usu){
+          if (idUsuario==req.userId){
             fecha in compras || (compras[fecha] = []);
             compras[fecha].push({
               id:cont,

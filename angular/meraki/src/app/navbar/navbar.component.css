@@ -37,6 +37,11 @@ a.button:hover {
     opacity: 0.5;
 }
 
+#user-logged {
+    width: 40px;
+    height: 40px;
+}
+
 #carrito {
     width: 40px;
     height: 40px;

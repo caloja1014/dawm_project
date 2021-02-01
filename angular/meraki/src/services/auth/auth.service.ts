@@ -49,6 +49,10 @@ export class AuthService {
         return this.http.get<any>(this._profile);
     }
 
+    changeProfile(newData: any) {
+        return this.http.put<any>(this._profile, newData);
+    }
+
     getDirecciones() {
         return this.http.get<any>(this._direcciones);
     }

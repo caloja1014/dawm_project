@@ -10,15 +10,26 @@ import { AddnewComponent } from './addnew/addnew.component';
 import { AddcategComponent } from './addcateg/addcateg.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { FormsModule } from '@angular/forms';
-import {AngularFileUploaderModule} from "angular-file-uploader";
+import { AngularFileUploaderModule } from 'angular-file-uploader';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [AsideComponent, AdminComponent, ControlPanelComponent, LoginComponent, EstadisticasComponent, NavbarAdminComponent, AddnewComponent, AddcategComponent,AddproductComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    AngularFileUploaderModule
-  ]
+    declarations: [
+        AsideComponent,
+        AdminComponent,
+        ControlPanelComponent,
+        LoginComponent,
+        EstadisticasComponent,
+        NavbarAdminComponent,
+        AddnewComponent,
+        AddcategComponent,
+        AddproductComponent,
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule,
+        AngularFileUploaderModule,
+    ],
 })
-export class AdminModule { }
- 
+export class AdminModule {}

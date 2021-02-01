@@ -24,7 +24,14 @@
                     </div>
                 </div>
                 <!-- END SIDEBAR USER TITLE -->
-
+                <div class="profile-userbuttons">
+                    <a [routerLink]="['/cart']" class="btn btn-success btn-sm"
+                        >Carrito</a
+                    >
+                    <a [routerLink]="['/shop']" class="btn btn-danger btn-sm"
+                        >Comprar</a
+                    >
+                </div>
                 <!-- SIDEBAR MENU -->
                 <div class="profile-usermenu">
                     <ul class="nav">
@@ -46,16 +53,10 @@
                                 Pedidos</a
                             >
                         </li>
-                        <li class="pr-5 mr-4 py-2">
+                        <li class="pr-5 mr-4 py-2 mb-5">
                             <a (click)="mostrarProfile(4)" class="py-2 pl-2">
                                 <i class="fas fa-map-marked-alt"></i>
                                 Direcciones</a
-                            >
-                        </li>
-                        <li class="pr-5 mr-4 py-2">
-                            <a [routerLink]="['/cart']" class="py-2 pl-2">
-                                <i class="fa fa-cart-arrow-down"></i>
-                                Carrito</a
                             >
                         </li>
                     </ul>
@@ -99,7 +100,7 @@
                                 >
                                     <p>
                                         <b>Dirección {{ i + 1 }}: </b
-                                        >{{ direccion.direccion }}
+                                        >{{ direccion.descripcion }}
                                     </p>
                                 </div>
                             </div>
@@ -137,7 +138,7 @@
                                                 class="form-control here"
                                                 required="required"
                                                 type="text"
-                                                value="{{ data.username }}"
+                                                [(ngModel)]="dataEdit.username"
                                             />
                                         </div>
                                     </div>
@@ -154,7 +155,7 @@
                                                 placeholder="Nombres"
                                                 class="form-control here"
                                                 type="text"
-                                                value="{{ data.nombres }}"
+                                                [(ngModel)]="dataEdit.nombres"
                                             />
                                         </div>
                                     </div>
@@ -171,7 +172,7 @@
                                                 placeholder="Apellidos"
                                                 class="form-control here"
                                                 type="text"
-                                                value="{{ data.apellidos }}"
+                                                [(ngModel)]="dataEdit.apellidos"
                                             />
                                         </div>
                                     </div>
@@ -189,7 +190,7 @@
                                                 class="form-control here"
                                                 required="required"
                                                 type="text"
-                                                value="{{ data.celular }}"
+                                                [(ngModel)]="dataEdit.celular"
                                             />
                                         </div>
                                     </div>
@@ -206,6 +207,7 @@
                                                 placeholder="Nueva Contraseña"
                                                 class="form-control here"
                                                 type="password"
+                                                [(ngModel)]="dataEdit.newpass"
                                             />
                                         </div>
                                     </div>
@@ -222,6 +224,9 @@
                                                 placeholder="Nueva Contraseña"
                                                 class="form-control here"
                                                 type="password"
+                                                [(ngModel)]="
+                                                    dataEdit.newpassConfirm
+                                                "
                                             />
                                         </div>
                                     </div>
@@ -229,12 +234,15 @@
                                         <div class="offset-4 col-8">
                                             <button
                                                 name="submit"
-                                                type="submit"
                                                 class="btn btn-primary"
+                                                (click)="actualizarPerfil()"
                                             >
                                                 Actualizar mi perfil
                                             </button>
-                                            <a class="btn btn-lg" type="reset"
+                                            <a
+                                                class="btn btn-lg"
+                                                type="reset"
+                                                (click)="cargarProfile()"
                                                 ><i class="fas fa-redo-alt"></i>
                                                 Reset</a
                                             >
@@ -294,7 +302,7 @@
                                     name="direccion1"
                                     type="text"
                                     class="form-control col-6"
-                                    value="{{ direccion.direccion }}"
+                                    value="{{ direccion.descripcion }}"
                                     disabled
                                 />
                                 <div
@@ -308,8 +316,9 @@
                                     ></i>
                                 </div>
                                 <div
-                                    id="delete-dir-{{ i }}"
+                                    id="delete-dir-{{ i }}-{{ direccion.id }}"
                                     class="delete-addr"
+                                    (click)="deleteDireccion($event)"
                                 >
                                     <i
                                         class="h5 m-2 pen fas fa-trash"
@@ -334,7 +343,7 @@
                             href="#"
                             data-toggle="modal"
                             data-target="#addAddrModal"
-                            class="mt-4 btn btn-primary"
+                            class="my-4 btn btn-primary"
                         >
                             Agregar dirección
                         </a>
@@ -360,6 +369,7 @@
                     Editar la dirección <span class="direccionInput"></span>
                 </h5>
                 <button
+                    id="btnCloseEdit"
                     class="close"
                     type="button"
                     data-dismiss="modal"
@@ -407,6 +417,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Agregar nueva dirección</h5>
                 <button
+                    id="btnCloseAdd"
                     class="close"
                     type="button"
                     data-dismiss="modal"

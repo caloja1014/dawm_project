@@ -1,15 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AdminService {
     private host = 'http://localhost:3000/admin';
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private _router: Router) {}
 
     login(body: any) {
         return this.http.post<any>(this.host + '/login', body);
+    }
+
+    logoutUser() {
+        localStorage.removeItem('token');
+        this._router.navigate(['/login']);
     }
 
     addProduct(producto: any) {

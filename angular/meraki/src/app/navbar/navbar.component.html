@@ -32,7 +32,6 @@
                     <a
                         class="nav-link js-scroll-trigger"
                         [routerLink]="['/noticias']"
-                        routerLinkActive="active"
                         >Noticias</a
                     >
                 </li>
@@ -74,14 +73,29 @@
                         aria-haspopup="true"
                         aria-expanded="false"
                     >
-                        <span class="mr-2 d-none d-lg-inline cuenta"
+                        <span
+                            *ngIf="!_authService.loggedIn()"
+                            class="mr-2 d-none d-lg-inline cuenta"
                             >Cuenta</span
                         >
+                        <span
+                            *ngIf="_authService.loggedIn()"
+                            class="mr-2 d-none d-lg-inline cuenta"
+                            >{{ username }}</span
+                        >
                         <img
+                            *ngIf="!_authService.loggedIn()"
                             id="user"
                             alt="Profile Image"
                             class="h-100"
                             src="/assets/icons/not-logged.png"
+                        />
+                        <img
+                            *ngIf="_authService.loggedIn()"
+                            id="user-logged"
+                            alt="Profile Image"
+                            class="h-100"
+                            src="/assets/icons/iconoUser.png"
                         />
                     </a>
                     <div

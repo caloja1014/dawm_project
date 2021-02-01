@@ -9,8 +9,8 @@ import { AdminService } from 'src/services/admin/admin.service';
 })
 export class LoginComponent implements OnInit {
     loginAdminData = {
-        user: '',
-        pass: '',
+        username: '',
+        password: '',
     };
     constructor(private _adminService: AdminService, private _router: Router) {}
 
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
     entrar() {
         let errorEl: any = document.getElementById('errorLogin')!;
-        if (
+        /*if (
             this.loginAdminData.user == 'admin' &&
             this.loginAdminData.pass == 'admin'
         ) {
@@ -28,20 +28,19 @@ export class LoginComponent implements OnInit {
             this.loginAdminData.user = '';
             this.loginAdminData.pass = '';
             errorEl.style.display = 'block';
-        }
+        }*/
 
-        /*this._adminService.login(this.loginAdminData).subscribe(
+        this._adminService.login(this.loginAdminData).subscribe(
             (res) => {
                 localStorage.setItem('token', res.token);
                 this._router.navigate(['/controlpanel']);
             },
             (err) => {
-                this.loginAdminData.user = '';
-                this.loginAdminData.pass = '';
+                this.loginAdminData.username = '';
+                this.loginAdminData.password = '';
                 errorEl.style.display = 'block';
             }
         );
-        */
     }
 
     verifyEnter(event: any) {

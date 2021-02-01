@@ -1,8 +1,7 @@
 const producto=require("../../models/producto.model")
 const multer = require("multer");
 exports.agregarProducto=(req,res)=>{
-    console.log(req.body);
-    producto.insertProducto(req.body,(err,result)=>{
+    producto.insertProducto(req.body,req.adminId,(err,result)=>{
         if(err){
             res.status(500).send({
                 message: err.toString()||"Ocurrió un error al ingresar un nuevo producto"
@@ -18,11 +17,11 @@ exports.addProdCarrito = (req,res) =>{
     producto.addProdCliente(req.body,req.userId,(err,data)=>{
         if(err){
             res.status(500).send({
-                message: "Ocurrió un error al crear la Direccion"
+                message: "Ocurrió un error al anadir el Producto a su carrito"
             })
         }else{
             console.log(data);
-            res.status(200).send({message: "Direccion creada con exito"})
+            res.status(200).send({message: "Producto anadido con exito"})
         }
     })
 }
@@ -45,7 +44,7 @@ exports.removeFromCarrito = (req,res) =>{
             });
             }
         }
-        res.send(result);
+        res.send(data);
 
     })
 }

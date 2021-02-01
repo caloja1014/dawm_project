@@ -9,7 +9,7 @@ import { AdminService } from 'src/services/admin/admin.service';
     styleUrls: ['../sb-admin-2.css', './estadisticas.component.css'],
 })
 export class EstadisticasComponent implements OnInit {
-    myLineChart: any;
+    myLineChart!: Chart;
     myBarChart: any;
     myPieChart: any;
 
@@ -30,6 +30,7 @@ export class EstadisticasComponent implements OnInit {
         'Jarros',
         'Sueters',
         'Otros',
+        'textiles',
     ];
     constructor(private _adminService: AdminService, private _router: Router) {}
 
@@ -50,6 +51,7 @@ export class EstadisticasComponent implements OnInit {
                 for (let d of this.dias) {
                     ventas.push(parseInt(semana[d]));
                 }
+
                 this.myLineChart = new Chart('myAreaChart', {
                     type: 'line',
                     data: {
@@ -261,9 +263,8 @@ export class EstadisticasComponent implements OnInit {
     };
 
     cargarJsonPie = () => {
-        fetch('assets/json/ventaCat.json')
-            .then((response) => response.json())
-            .then((json) => {
+        this._adminService.getVentasCategorias().subscribe(
+            (data) => {
                 let porcentajes = [];
                 let categorias = [
                     'Navidad',
@@ -272,9 +273,10 @@ export class EstadisticasComponent implements OnInit {
                     'Jarros',
                     'Sueters',
                     'Otros',
+                    'textiles',
                 ];
                 for (let cat of categorias) {
-                    let valor = json['categorias'][cat];
+                    let valor = data[cat];
                     porcentajes.push(parseInt(valor));
                 }
                 this.myPieChart = new Chart('myPieChart', {
@@ -291,6 +293,7 @@ export class EstadisticasComponent implements OnInit {
                                     '#FE761E',
                                     '#3A778A',
                                     '#192D36',
+                                    '#9D3515',
                                 ],
                                 hoverBackgroundColor: [
                                     '#890d0d',
@@ -299,6 +302,7 @@ export class EstadisticasComponent implements OnInit {
                                     '#e86819',
                                     '#2b6272',
                                     '#132730',
+                                    '#9D3415',
                                 ],
                                 hoverBorderColor: 'rgba(234, 236, 244, 1)',
                             },
@@ -322,7 +326,11 @@ export class EstadisticasComponent implements OnInit {
                         cutoutPercentage: 0,
                     },
                 });
-            });
+            },
+            (err) => {
+                this._router.navigate(['/login']);
+            }
+        );
     };
 
     getFirstDayOfWeek(curr: Date): string {
@@ -346,6 +354,7 @@ export class EstadisticasComponent implements OnInit {
         let date = new Date(week.value);
         date.setHours(date.getHours() + 5);
         let strDate = this.getFirstDayOfWeek(date);
+        this.myLineChart.destroy();
         this.cargarJSONLine(strDate);
     }
 

@@ -23,7 +23,9 @@
                                 <form class="user">
                                     <div class="form-group">
                                         <input
-                                            [(ngModel)]="loginAdminData.user"
+                                            [(ngModel)]="
+                                                loginAdminData.username
+                                            "
                                             type="email"
                                             class="form-control form-control-user"
                                             placeholder="Usuario"
@@ -33,7 +35,9 @@
                                     </div>
                                     <div class="form-group">
                                         <input
-                                            [(ngModel)]="loginAdminData.pass"
+                                            [(ngModel)]="
+                                                loginAdminData.password
+                                            "
                                             (keypress)="verifyEnter($event)"
                                             type="password"
                                             class="form-control form-control-user"

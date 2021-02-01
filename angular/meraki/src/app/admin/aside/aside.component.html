@@ -18,14 +18,14 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="/controlpanel">
+        <a class="nav-link" [routerLink]="['/controlpanel']">
             <i class="fas fa-fw fa-tools"></i>
             <span>Panel de Control</span></a
         >
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/addproduct">
+        <a class="nav-link" [routerLink]="['/addproduct']">
             <i class="fas fa-fw fa-upload"></i>
             <span>Nuevo Producto</span></a
         >
@@ -39,7 +39,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="/stats">
+        <a class="nav-link" [routerLink]="['/stats']">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Estadísticas</span></a
         >
@@ -82,9 +82,7 @@
                     >Contáctanos</a
                 >
                 <a class="collapse-item" href="/shop" target="blank">Comprar</a>
-                <a class="collapse-item" href="/dev" target="blank"
-                    >DevTeam</a
-                >
+                <a class="collapse-item" href="/dev" target="blank">DevTeam</a>
                 <a class="collapse-item" href="/cart" target="blank">Carrito</a>
 
                 <div class="collapse-divider"></div>
@@ -115,6 +113,7 @@
                     ¿Seguro que deseas salir?
                 </h5>
                 <button
+                    id="closeLogout"
                     class="close"
                     type="button"
                     data-dismiss="modal"
@@ -134,7 +133,7 @@
                 >
                     Cancelar
                 </button>
-                <a class="btn btn-primary" href="login.html">Salir</a>
+                <a class="btn btn-primary" (click)="cerrarSesion()">Salir</a>
             </div>
         </div>
     </div>
