@@ -1,6 +1,6 @@
 const sql = require("../config/databaseCon");
 const categoriaModel=require("./categoria.model")
-exports.insertProducto = (producto,result) =>{
+exports.insertProducto = (producto,idAdmin,result) =>{
     categoriaModel.findCategoria(producto.categoria,(er,re)=>{
         if (re.length==0){
             result(new Error("No existe la categoria que ha ingresado"),null);
@@ -14,7 +14,7 @@ exports.insertProducto = (producto,result) =>{
             producto.imagen,
             producto.estaDisponible,
             id,
-            producto.idAdmin
+            idAdmin
     
         ]
         var q = "insert into Producto(nombre,descripcion,costoBase,imagen,estaDisponible,idCategoria,idAdmin) values (?);"

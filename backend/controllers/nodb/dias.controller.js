@@ -3,7 +3,7 @@ const Dias = require("../../collections/dias.model");
 const mesesController= require("./meses.controller")
 let productoModel=require("../../models/producto.model");
 exports.create = (req, res) => {
-  productoModel.getProdCliente(7,(err,resultado)=>{
+  productoModel.getProdCliente(req.userId,(err,resultado)=>{
     let listaProductos=[]
     let totalVendido=0
     for (let p of resultado){
@@ -19,17 +19,9 @@ exports.create = (req, res) => {
     var dias = new Date();
     mesesController.create({
       fecha:dias.toISOString(),
-      productos:listaProductos
-    }).then(
-      (data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Ocurrio un error al crear un nuevo producto e indexarlo en la coleccion de meses",
-      });
+      productos:listaProductos,
+      total:totalVendido,
     });
-    
     Dias.updateOne(
       {
         fecha: dias,
@@ -37,7 +29,7 @@ exports.create = (req, res) => {
       {
         $push: {
           compras: {
-            id_usu: req.body.id_usu,
+            id_usu: req.userId,
             productos: listaProductos,
             total: totalVendido,
             metodoPago:req.body.metodoPago
@@ -103,7 +95,7 @@ exports.getCompraUsuario = (req, res) => {
   }
 
   Dias.find({
-    "compras.id_usu": req.query.id_usu,
+    "compras.id_usu": req.userId,
   })
     .then((data) => {
       let cont=1;
@@ -116,7 +108,7 @@ exports.getCompraUsuario = (req, res) => {
 
         for (let c of comprasArr){
           let idUsuario=c["id_usu"];
-          if (idUsuario==req.query.id_usu){
+          if (idUsuario==req.userId){
             fecha in compras || (compras[fecha] = []);
             compras[fecha].push({
               id:cont,

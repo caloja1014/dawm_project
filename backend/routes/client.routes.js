@@ -12,9 +12,9 @@ router.post('/register', cliente.createClient);
 router.post('/login',cliente.loginClient);
 router.put('/profile',auth.verifyToken,cliente.updateClient);
 router.get('/profile',auth.verifyToken,cliente.getProfile);
-router.post("/comprar",diasController.create);
+router.post("/comprar",auth.verifyToken,diasController.create);
 //router.get("/pedidos",auth.verifyToken,diasController.getCompraUsuario);
-router.get("/pedidos",diasController.getCompraUsuario);
+router.get("/pedidos",auth.verifyToken,diasController.getCompraUsuario);
 router.get("/categ",categoriaController.getCategorias)
 
 router.get("/news",noticiasController.findAll);

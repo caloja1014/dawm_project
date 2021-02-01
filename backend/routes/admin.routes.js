@@ -9,10 +9,10 @@ const adminController = require("../controllers/db/admin.controller");
 //router.get("/",noticiasController.findAll);
 const categoriaController = require("../controllers/db/categoria.controller");
 const productosController = require("../controllers/db/producto.controller");
-
-router.post("/addProduct", productosController.agregarProducto);
+var auth = require("../middleware/auth")
+router.post("/addProduct", auth.verifyAdmin,productosController.agregarProducto);
 router.post("/ventaSemanal", diasController.getVentaSemanal);
-router.post("/addCateg", categoriaController.crearCategoria);
+router.post("/addCateg",auth.verifyAdmin, categoriaController.crearCategoria);
 router.get("/pie", mesesController.ventaAnualCategorias);
 
 router.get("/ventaCategoriasSem", diasController.getVentaCategoriaSemanal);

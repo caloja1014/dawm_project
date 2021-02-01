@@ -1,8 +1,7 @@
 const producto=require("../../models/producto.model")
 
 exports.agregarProducto=(req,res)=>{
-    console.log(req.body);
-    producto.insertProducto(req.body,(err,result)=>{
+    producto.insertProducto(req.body,req.adminId,(err,result)=>{
         if(err){
             res.status(500).send({
                 message: err.toString()||"Ocurrió un error al ingresar un nuevo producto"
