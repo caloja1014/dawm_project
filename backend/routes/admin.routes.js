@@ -12,6 +12,10 @@ const productosController =require("../controllers/db/producto.controller");
 router.post("/addProduct",productosController.agregarProducto)
 router.post("/ventaSemanal",diasController.getVentaSemanal);
 router.post("/addCateg",categoriaController.crearCategoria);
+router.get("/pie",mesesController.ventaAnualCategorias);
+
+
+
 
 router.get("/ventaCategoriasSem",diasController.getVentaCategoriaSemanal)
 
