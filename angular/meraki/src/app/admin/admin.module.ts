@@ -10,13 +10,14 @@ import { AddnewComponent } from './addnew/addnew.component';
 import { AddcategComponent } from './addcateg/addcateg.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { FormsModule } from '@angular/forms';
-
+import {AngularFileUploaderModule} from "angular-file-uploader";
 
 @NgModule({
   declarations: [AsideComponent, AdminComponent, ControlPanelComponent, LoginComponent, EstadisticasComponent, NavbarAdminComponent, AddnewComponent, AddcategComponent,AddproductComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    AngularFileUploaderModule
   ]
 })
 export class AdminModule { }

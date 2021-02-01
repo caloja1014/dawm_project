@@ -1,5 +1,6 @@
 const Noticias =require("../../collections/noticias.model");
 
+
 exports.findAll=(req,res)=>{
     Noticias.find({},(err,docs)=>{
         res.send(docs);
@@ -13,13 +14,13 @@ exports.findAll=(req,res)=>{
 }
 
 exports.create =(req,res)=>{
-    console.log("liksndnkjndsf")
-    if (!req.body.titulo || !req.body.fecha) {
+    if (!req.body.titulo || !req.body.fecha) {  
         res.status(400).send({
             message: "El contenido no puede estar vacio!"
         });
         return;
     }
+    
     const noticia={
         titulo: req.body.titulo,
         imagen: req.body.imagen,
@@ -34,7 +35,7 @@ exports.create =(req,res)=>{
     ).catch(
         err=>{
             res.status(500).send({
-                message: err.message||"Ocurrio un error al crear la Noticia"
+                message: err.message||"Ocurrio un error al crear la Noticia"                
             });
         }
     )

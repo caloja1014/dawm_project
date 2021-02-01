@@ -5,8 +5,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NewsService {
 
-  private noticias = 'http://localhost:3000/noticias';
+  private noticias = 'http://localhost:3000/news';
 
+  
+  private noticiaspost = 'http://localhost:3000/admin/addNew';
+  private photoPost =    'http://localhost:3000/admin/addPhoto';
   constructor(private http: HttpClient) {}
 
   recibirNoticias() {
@@ -14,7 +17,11 @@ export class NewsService {
   }
 
   crearNoticia(noticia:any){
-    return this.http.post<any>(this.noticias, noticia);
+    return this.http.post<any>(this.noticiaspost, noticia);
+  }
+
+  subirFoto(data:any){
+    return this.http.post<any>(this.photoPost, data);
   }
  
 }
