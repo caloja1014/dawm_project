@@ -10,7 +10,7 @@ const categoriaController = require("../controllers/db/categoria.controller");
 
 router.post('/register', cliente.createClient);
 router.post('/login',cliente.loginClient);
-router.put('/profile',auth.verifyToken,cliente.updateClient);
+router.put('/profile',cliente.updateClient);
 router.get('/profile',auth.verifyToken,cliente.getProfile);
 router.post("/comprar",diasController.create);
 //router.get("/pedidos",auth.verifyToken,diasController.getCompraUsuario);
