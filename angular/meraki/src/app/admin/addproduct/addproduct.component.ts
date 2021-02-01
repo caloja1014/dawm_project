@@ -42,10 +42,10 @@ export class AddproductComponent implements OnInit {
             nombre.value.split('\\')[2]; 
     this.serv.crearProducto(this.productBody).subscribe(
         (res) => {
-            alert('Producto agregado con exito');
+          this.next();          
         },
         (err) => {
-            alert('Hubo un error. No se pudo agregar el producto');
+            alert('Hubo un error. No se pudo agregar el producto.');
             console.log(err);
         }
     );
@@ -57,7 +57,7 @@ export class AddproductComponent implements OnInit {
     let stepper = document.querySelector('#stepper1');
     if (stepper != null) {
       this.stepper = new Stepper(stepper, {
-        linear: false,
+        linear: true,
         animation: true,
       });
     }
