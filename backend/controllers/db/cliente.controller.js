@@ -3,10 +3,11 @@ const auth = require("../../middleware/auth");
 const client = require("../../models/cliente.model");
 
 exports.createClient = (req, res) => {
+    
     client.insertCliente(req.body.email, req.body.password, (err, result) => {
         if (err) {
             res.status(500).send({
-                message: "Ocurrió un error al crear el Cliente",
+                message: err,
             });
         } else {
             let payload = { userId: result.insertId };

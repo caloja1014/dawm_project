@@ -7,9 +7,9 @@ var logger = require('morgan');
 var clientRouter = require('./routes/client.routes');
 var usersRouter = require('./routes/users');
 var direccionRouter = require('./routes/direccion.routes');
-
 var adminRouter=require("./routes/admin.routes");
-var mailRouter=require("./routes/mail.routes")
+var mailRouter=require("./routes/mail.routes");
+var cartRouter = require("./routes/cart.routes")
 const cors = require("cors");
 var app = express();
 var corsOptions = {origin: "http://localhost:4200"};
@@ -41,10 +41,9 @@ app.use((req, res, next) => {
 app.use('/', clientRouter);
 app.use('/users', usersRouter);
 app.use("/address",direccionRouter);
-
 app.use("/admin",adminRouter)
 app.use("/enviarEmail",mailRouter)
-
+app.use("/cart",cartRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

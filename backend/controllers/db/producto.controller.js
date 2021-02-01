@@ -18,11 +18,11 @@ exports.addProdCarrito = (req,res) =>{
     producto.addProdCliente(req.body,req.userId,(err,data)=>{
         if(err){
             res.status(500).send({
-                message: "Ocurrió un error al crear la Direccion"
+                message: "Ocurrió un error al anadir el Producto a su carrito"
             })
         }else{
             console.log(data);
-            res.status(200).send({message: "Direccion creada con exito"})
+            res.status(200).send({message: "Producto anadido con exito"})
         }
     })
 }
@@ -45,7 +45,7 @@ exports.removeFromCarrito = (req,res) =>{
             });
             }
         }
-        res.send(result);
+        res.send(data);
 
     })
 }
