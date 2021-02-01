@@ -148,10 +148,15 @@ export class ProfileComponent implements OnInit {
             lastname: this.dataEdit.apellidos,
             cell: this.dataEdit.celular,
         };
-        this._authService.changeProfile(body).subscribe((res) => {
-            this.cargarProfile();
-            alert('Sus datos se han cambiado exitosamente!');
-        });
+        this._authService.changeProfile(body).subscribe(
+            (res) => {
+                this.cargarProfile();
+                alert('Sus datos se han cambiado exitosamente!');
+            },
+            (err) => {
+                alert('Ya existe un usuario con ese username');
+            }
+        );
     }
 
     validarPassword() {

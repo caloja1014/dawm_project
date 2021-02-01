@@ -72,12 +72,12 @@ exports.update = (id, body, result) => {
         ];
     }
     sql.query(query, params, (err, res) => {
+        console.log(err);
         if (err) {
             result(null, err);
             return;
         }
         if (res.affectedRows == 0) {
-            console.log(res);
             // not found Customer with the id
             result({ kind: "not_found" }, null);
             return;

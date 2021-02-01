@@ -7,7 +7,19 @@ import { AuthService } from 'src/services/auth/auth.service';
     styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+    username: any;
     constructor(public _authService: AuthService) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        if (this._authService.loggedIn()) {
+            this._authService.getProfile().subscribe(
+                (res) => {
+                    this.username = res.username;
+                },
+                (err) => {
+                    this._authService.logoutUser();
+                }
+            );
+        }
+    }
 }
