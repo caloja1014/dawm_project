@@ -113,6 +113,7 @@
                     ¿Seguro que deseas salir?
                 </h5>
                 <button
+                    id="closeLogout"
                     class="close"
                     type="button"
                     data-dismiss="modal"
@@ -132,7 +133,7 @@
                 >
                     Cancelar
                 </button>
-                <a class="btn btn-primary" href="login.html">Salir</a>
+                <a class="btn btn-primary" (click)="cerrarSesion()">Salir</a>
             </div>
         </div>
     </div>
