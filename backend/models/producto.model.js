@@ -30,3 +30,21 @@ exports.insertProducto = (producto,result) =>{
     //
 
 }
+
+exports.getProdCliente = (idCliente,result) =>{
+    var q = `select p.nombre nomProducto, p.costoBase precio, pc.cantidad cantidad, c.nombre categoria 
+    from Producto p join ProdCliente pc join Categoria c 
+    where p.id=pc.producto and p.idCategoria=c.id
+    and pc.cliente = ${idCliente};`
+    sql.query(q,(err,res)=>{
+        if (err){
+            result(err,null);
+        }else if(!res.lenght){
+            result({ kind: "not_found" }, null);
+        }
+        else{
+            result(null,res)
+        }
+    })
+}
+
