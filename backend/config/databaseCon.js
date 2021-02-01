@@ -6,11 +6,11 @@ var con = mysql.createConnection({
     password: "dawm",
     database: "meraki"
 });
-/*
+
 con.connect(function(err){
     if(err) throw err;
     else
         console.log("Connection Successful to meraki RDB");
 });
 
-module.exports = con;*/
+module.exports = con;
