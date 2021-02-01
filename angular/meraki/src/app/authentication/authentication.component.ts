@@ -55,7 +55,7 @@ export class AuthenticationComponent implements OnInit {
             (res) => {
                 localStorage.setItem('token', res.token);
                 document.getElementById('closeRegister')?.click();
-                this._router.navigate(['/shop']);
+                this._router.navigate(['/profile']);
             },
             (err) => {
                 this.informError('registerModal', 'Ha ocurrido un error');
@@ -68,7 +68,7 @@ export class AuthenticationComponent implements OnInit {
             (res) => {
                 localStorage.setItem('token', res.token);
                 document.getElementById('closeLogin')?.click();
-                this._router.navigate(['/shop']);
+                this._router.navigate(['/profile']);
             },
             (err) => {
                 this.informError('loginModal', 'Ha ocurrido un error');
