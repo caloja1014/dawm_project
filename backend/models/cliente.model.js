@@ -3,7 +3,7 @@ const sql = require("../config/databaseCon");
 exports.insertCliente = (email, pass, result) => {
     var user = (email).split("@")[0];
     console.log(user)
-    createUserName(user,(err,res)=>{
+    searchUserName(user,(err,res)=>{
         if(err){
             result(err,null)
             return;
@@ -26,17 +26,20 @@ exports.insertCliente = (email, pass, result) => {
     })
 };
 
-createUserName = (user,result) =>{
+searchUserName = (user,result) =>{
     var q = `select username from Cliente where username like '%${user}%' order by username desc limit 1;`
+   console.log("")
     sql.query(q,(err,res)=>{
         if(err){
-            console.log(err);
+            
             result(err,null)
             return;
-        }if(res.length){
-            result(null,res)
-        }
-        result(null,null)
+        }else if(!res.length){
+            
+            result(null,res);
+            return;
+        }else{
+        result(null,null)}
     })
 }
 
@@ -71,19 +74,29 @@ exports.update = (id, body, result) => {
             id,
         ];
     }
-    sql.query(query, params, (err, res) => {
-        console.log(err);
-        if (err) {
-            result(null, err);
+    searchUserName(body.username,(err,res)=>{
+        if(err){
+            result(err,null)
             return;
+        }else if(res.length>0){
+           result({kind:"username_exists"},null)
+           return;
+        }else{
+            sql.query(query, params, (err, data) => {
+                if (err) {
+                    result(null, err);
+                    return;
+                }
+                else if (data.affectedRows == 0) {
+                    // not found Customer with the id
+                    result({ kind: "not_found" }, null);
+                    return;
+                }else
+                result(null, data);
+            });
         }
-        if (res.affectedRows == 0) {
-            // not found Customer with the id
-            result({ kind: "not_found" }, null);
-            return;
-        }
-        result(null, res);
-    });
+    })
+    
 };
 
 exports.getById = (id, result) => {

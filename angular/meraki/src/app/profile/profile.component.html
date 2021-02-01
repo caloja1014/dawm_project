@@ -257,7 +257,10 @@
                         <div class="prof-header pb-5">
                             <h2>Pedidos:</h2>
                         </div>
-                        <div class="card horizontal-scrollable">
+                        <div
+                            *ngIf="pedidos.length > 0"
+                            class="card horizontal-scrollable"
+                        >
                             <div class="container-scrollable">
                                 <div class="card-header">
                                     <div class="row">
@@ -268,16 +271,37 @@
                                     </div>
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
+                                    <li
+                                        *ngFor="let pedido of pedidos"
+                                        class="list-group-item"
+                                    >
                                         <div class="row align-items-center">
-                                            <div class="col-3">id</div>
-                                            <div class="col-3">fecha</div>
-                                            <div class="col-3">metodo</div>
-                                            <div class="col-3">total</div>
+                                            <div class="col-3">
+                                                {{ pedido.id }}
+                                            </div>
+                                            <div class="col-3">
+                                                {{ pedido.fecha }}
+                                            </div>
+                                            <div class="col-3">
+                                                {{ pedido.metodoPago }}
+                                            </div>
+                                            <div class="col-3">
+                                                ${{ pedido.total }}
+                                            </div>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
+                        </div>
+                        <div *ngIf="pedidos.length == 0">
+                            <p>
+                                No tiene ningún pedido por el momento.
+                                <a
+                                    class="btn btn-primary"
+                                    [routerLink]="['/shop']"
+                                    >Compre ahora!</a
+                                >
+                            </p>
                         </div>
                     </div>
                     <div class="container d-none">

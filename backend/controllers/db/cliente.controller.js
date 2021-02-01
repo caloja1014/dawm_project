@@ -19,6 +19,7 @@ exports.createClient = (req, res) => {
 };
 
 exports.loginClient = (req, res) => {
+    console.log(req.body)
     client.findByEmail(req.body.email, (err, result) => {
         if (err) {
             res.status(401).send("Correo Invalido");
@@ -46,12 +47,18 @@ exports.updateClient = (req, res) => {
         if (err) {
             if (err.kind === "not_found") {
                 res.status(404).send({
-                    message: `El cliente con id ${req.body.userId} no ha sido encontrado.`,
+                    message: `El cliente con id ${req.userId} no ha sido encontrado.`,
                 });
-            } else {
+            }
+            else if (err.kind === "username_exists"){
+                res.status(501).send({
+                    message: "El username elegido ya existe"
+                })
+            }
+             else {
                 res.status(500).send({
                     message:
-                        "Error actualizando al Cliente con id ${req.body.userId}",
+                        "Error actualizando al Cliente con id ${req.userId}",
                 });
             }
         } else res.send(data);

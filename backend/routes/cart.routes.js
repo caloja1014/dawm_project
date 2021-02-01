@@ -6,5 +6,5 @@ var auth = require("../middleware/auth")
 router.post("/add",auth.verifyToken,producto.addProdCarrito);
 
 router.delete("/:idProducto",producto.removeFromCarrito);
-
+router.get("/prods",producto.productosCarrito)
 module.exports=router;

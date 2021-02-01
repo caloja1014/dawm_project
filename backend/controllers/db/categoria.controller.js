@@ -18,6 +18,7 @@ exports.crearCategoria=(req,res)=>{
         admin:req.adminId,
         imagenes:req.body.imagenes,
         nombre:req.body.nombre,
+        descripcion:req.body.descripcion
     }
 categoriaModel.crearCategoria(categoria,(err,result)=>{
     if(err){
