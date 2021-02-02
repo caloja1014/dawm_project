@@ -12,7 +12,8 @@ export class CartComponent implements OnInit {
     private stepper!: Stepper;
 
     productos: any = [];
-
+    body = {metodoPago : ''}
+    
     constructor(private _authService: AuthService, private prodServ: ProductsService) {
         _authService.setIsCompras(true);
         this.cargarCarrito();
@@ -44,11 +45,16 @@ export class CartComponent implements OnInit {
             met.onclick = () => {
                 if (met.classList.contains('elegido')) {
                     met.classList.remove('elegido');
+                    this.body.metodoPago = '';
                 } else {
                     if (met.id == 'metodo1') {
                         let met2 = document.getElementById('metodo2');
                         met2!.classList.remove('elegido');
+                        this.body.metodoPago ="Efectivo";
+                        console.log(this.body.metodoPago);
                     } else {
+                        this.body.metodoPago ="Tranferencia Bancaria"
+                        console.log(this.body.metodoPago);
                         let met1 = document.getElementById('metodo1');
                         met1!.classList.remove('elegido');
                     }
@@ -69,6 +75,24 @@ export class CartComponent implements OnInit {
         this.cargarCarrito();
 
     }
+
+    realizarCompra(): void{
+        if(this.body.metodoPago=='') alert("Por favor selecciona un método de pago");
+        else{
+            console.log("ANTES DEL POST, Metodo de pago: "+this.body.metodoPago);
+            this.prodServ.RealizarCompra(this.body).subscribe(
+                (res) => {
+                    this.next();
+                },
+                (err) => { 
+                    alert("No se pudo realizar la compra")
+                    console.log(err);
+                }
+            );
+
+        }
+        
+    } 
 
     ngOnInit() {
         this.addnav();

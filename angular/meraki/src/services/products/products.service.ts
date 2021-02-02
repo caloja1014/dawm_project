@@ -11,6 +11,7 @@ export class ProductsService {
     private getCarrito = 'http://localhost:3000/cart/prods';
     private getProductos = 'http://localhost:3000/prod/all';
     private deletefromcart = 'http://localhost:3000/cart/';
+    private realizarCompra = 'http://localhost:3000/comprar';
     constructor(private http: HttpClient) {}
 
     addCart(body: any) {
@@ -36,4 +37,8 @@ export class ProductsService {
     borrarDelCarrito(id: string) {
         return this.http.delete<any>(this.deletefromcart + id);
     }
+
+    RealizarCompra(compra: any) {
+      return this.http.post<any>(this.realizarCompra,compra);
+  }
 }

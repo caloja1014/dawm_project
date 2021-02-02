@@ -17,12 +17,13 @@ exports.create = (req, res) => {
         }
     
         var dias = new Date();
+        console.log("metodo de pago:"+req.body.metodoPago);
         mesesController.create({
             fecha: dias.toISOString(),
             productos: listaProductos,
             total: totalVendido,
         });
-        Dias.updateOne(
+        Dias.updateOne(            
             {
                 fecha: dias,
             },
@@ -33,6 +34,7 @@ exports.create = (req, res) => {
                         productos: listaProductos,
                         total: totalVendido,
                         metodoPago: req.body.metodoPago,
+                        
                     },
                 },
             },
