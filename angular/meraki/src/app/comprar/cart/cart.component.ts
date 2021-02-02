@@ -12,28 +12,24 @@ export class CartComponent implements OnInit {
     private stepper!: Stepper;
 
     productos: any = [];
-    body = {metodoPago : ''}
-    
-    constructor(private _authService: AuthService, private prodServ: ProductsService) {
+    body = { metodoPago: '' };
+
+    constructor(
+        private _authService: AuthService,
+        private prodServ: ProductsService
+    ) {
         _authService.setIsCompras(true);
         this.cargarCarrito();
     }
     next() {
-        console.log(this.stepper);
         this.stepper.next();
     }
 
     cargarCarrito() {
-        this.prodServ.obtenerCarrito().subscribe(
-            (res) => {
-                console.log(res);
-                this.productos = res;
-            },
-            (err) => { console.log(err) }
-        );
+        this.prodServ.obtenerCarrito().subscribe((res) => {
+            this.productos = res;
+        });
     }
-
-
 
     onSubmit() {
         return false;
@@ -50,10 +46,10 @@ export class CartComponent implements OnInit {
                     if (met.id == 'metodo1') {
                         let met2 = document.getElementById('metodo2');
                         met2!.classList.remove('elegido');
-                        this.body.metodoPago ="Efectivo";
+                        this.body.metodoPago = 'Efectivo';
                         console.log(this.body.metodoPago);
                     } else {
-                        this.body.metodoPago ="Tranferencia Bancaria"
+                        this.body.metodoPago = 'Tranferencia Bancaria';
                         console.log(this.body.metodoPago);
                         let met1 = document.getElementById('metodo1');
                         met1!.classList.remove('elegido');
@@ -64,38 +60,27 @@ export class CartComponent implements OnInit {
         }
     }
 
-    addnav(): void {
-        let nav = document.getElementById('mainNav');
-        let ul = nav!.getElementsByTagName('ul')[0];
-    }
-
     eliminardelCarrito(id: any) {
         this.prodServ.borrarDelCarrito(id).subscribe();
-        console.log("Id del producto a eliminar:" + id);
         this.cargarCarrito();
-
     }
 
-    realizarCompra(): void{
-        if(this.body.metodoPago=='') alert("Por favor selecciona un método de pago");
-        else{
-            console.log("ANTES DEL POST, Metodo de pago: "+this.body.metodoPago);
+    realizarCompra(): void {
+        if (this.body.metodoPago == '')
+            alert('Por favor selecciona un método de pago');
+        else {
             this.prodServ.RealizarCompra(this.body).subscribe(
                 (res) => {
                     this.next();
                 },
-                (err) => { 
-                    alert("No se pudo realizar la compra")
-                    console.log(err);
+                (err) => {
+                    alert('No se pudo realizar la compra');
                 }
             );
-
         }
-        
-    } 
+    }
 
     ngOnInit() {
-        this.addnav();
         let stepper = document.querySelector('#stepper1');
         if (stepper != null) {
             this.stepper = new Stepper(stepper, {

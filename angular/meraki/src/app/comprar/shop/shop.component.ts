@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/services/auth/auth.service';
 import { ProductsService } from 'src/services/products/products.service';
-import productos from '../../../assets/Productos.json';
 
 @Component({
     selector: 'app-shop',
@@ -9,12 +8,7 @@ import productos from '../../../assets/Productos.json';
     styleUrls: ['./shop.component.css'],
 })
 export class ShopComponent implements OnInit {
-    dataModal = {
-        nomProd: '',
-        priceProd: '',
-        descr: '',
-        srcImg: '',
-    };
+    productos: any;
     constructor(
         private _authService: AuthService,
         private _productsService: ProductsService
@@ -24,6 +18,7 @@ export class ShopComponent implements OnInit {
 
     ngOnInit(): void {
         this._productsService.obtenerProductos().subscribe((productos) => {
+            this.productos = productos;
             this.buscar();
             let carousel = document.getElementById('carousel-products');
             let firstCateg = productos[0];
@@ -100,7 +95,7 @@ export class ShopComponent implements OnInit {
     }
 
     comprar(): void {
-        for (let item of productos) {
+        for (let item of this.productos) {
             let divcateg = document.getElementById('div' + item.categoria);
             const productosC = divcateg!.children;
 
@@ -151,12 +146,12 @@ export class ShopComponent implements OnInit {
             (err) => {
                 document.getElementById('closeModalCart')?.click();
                 localStorage.removeItem('token');
-                document.getElementById('loginModal')?.click();
+                document.getElementById('iniciarSesionBtn')?.click();
             }
         );
     }
     onclicks(): void {
-        for (let item of productos) {
+        for (let item of this.productos) {
             let a = document.getElementById(item.categoria);
 
             a!.onclick = () => {
@@ -178,16 +173,13 @@ export class ShopComponent implements OnInit {
                         '<div class="carousel-item ' +
                         active +
                         '">' +
-                        '<img class="d-block img-fluid" src="./assets/productos/' +
-                        item.categoria +
-                        '/' +
+                        '<img class="d-block img-fluid" src="' +
                         imgCarousel +
                         '" alt="First slide">' +
                         '</div>';
                 }
                 let categString = item.categoria;
-                let products = document.getElementById('productos');
-                for (let item2 of productos) {
+                for (let item2 of this.productos) {
                     let divcateg = document.getElementById(
                         'div' + item2.categoria
                     );
@@ -228,7 +220,7 @@ export class ShopComponent implements OnInit {
                 }
                 divBusqueda!.innerHTML = '';
                 divBusqueda!.style.display = '';
-                for (let elemento of productos) {
+                for (let elemento of this.productos) {
                     for (let producto of elemento.productos) {
                         let nombProducto = producto.nombre
                             .normalize('NFD')
@@ -238,11 +230,9 @@ export class ShopComponent implements OnInit {
                             divBusqueda!.innerHTML +=
                                 '<div class="col-lg-4 col-md-6 mb-4">' +
                                 '<div class="card h-100">' +
-                                '<a href="#"><img class="card-img-top" src=./assets/productos/' +
-                                elemento.categoria +
-                                '/' +
+                                '<a href="#"><img class="card-img-top" src="' +
                                 producto.img +
-                                ' alt=""></a>' +
+                                '" alt=""></a>' +
                                 '<div class="card-body">' +
                                 '<div class="card-top">' +
                                 '<h4 class="card-title">' +
@@ -257,7 +247,7 @@ export class ShopComponent implements OnInit {
                                 producto.descripcion +
                                 '</p>' +
                                 '</div>' +
-                                '<a class="button btn-comprar">Seleccionar</a>';
+                                '<a class="button px-3 btn-comprar">Seleccionar</a>';
                             '</div>' + '</div>' + '</div>';
                         }
                     }

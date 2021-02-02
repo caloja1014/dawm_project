@@ -26,8 +26,11 @@ export class EstadisticasComponent implements OnInit {
 
     categorias: any = [];
 
-    
-    constructor(private _adminService: AdminService, private _router: Router,private catServ :CategService) {
+    constructor(
+        private _adminService: AdminService,
+        private _router: Router,
+        private catServ: CategService
+    ) {
         this.cargarCategorias();
     }
 
@@ -37,18 +40,19 @@ export class EstadisticasComponent implements OnInit {
         inputDate.value = firstDay;
 
         this.cargarJSONLine(firstDay);
-        this.cargarJSONBar(this.categorias[0]);
         this.cargarJsonPie();
     }
     cargarCategorias() {
         this.catServ.obtenerCategorias().subscribe(
-          (res) => {
-            console.log(res);
-            this.categorias = res;
-          },
-          (err) => { console.log(err) }
+            (res) => {
+                this.cargarJSONBar(res[0]);
+                this.categorias = res;
+            },
+            (err) => {
+                console.log(err);
+            }
         );
-      } 
+    }
 
     cargarJSONLine = (dia: string) => {
         this._adminService.getVentasSemanales({ fecha: dia }).subscribe(
@@ -271,16 +275,11 @@ export class EstadisticasComponent implements OnInit {
     cargarJsonPie = () => {
         this._adminService.getVentasCategorias().subscribe(
             (data) => {
+                console.log(data);
                 let porcentajes = [];
-                let categorias = [
-                    'Navidad',
-                    'Camisetas',
-                    'Regalos',
-                    'Jarros',
-                    'Sueters',
-                    'Otros',
-                    'textiles',
-                ];
+                let categorias = Object.keys(data);
+                console.log(categorias);
+
                 for (let cat of categorias) {
                     let valor = data[cat];
                     porcentajes.push(parseInt(valor));
