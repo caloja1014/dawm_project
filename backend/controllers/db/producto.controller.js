@@ -101,11 +101,9 @@ exports.getAllProducts = (req,res)=>{
             for (var reg of resultado){
                 var categExists = false;
                 for (let cat of products){
-                    console.log(products)
 
                     if (cat.categoria == reg.categoria){
                         categExists = true;
-                        console.log(cat)
                         cat.productos.push({
                             "id":reg.id,
                             "nombre":reg.nombre,
@@ -115,7 +113,6 @@ exports.getAllProducts = (req,res)=>{
                         })
                     }
                 }
-                console.log(categExists)
                 if(!categExists){
                     
                     products.push({
