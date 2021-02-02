@@ -1,4 +1,5 @@
 let categoriaModel=require("../../models/categoria.model")
+const multer = require("multer");
 
 exports.getCategorias = (req,res)=>{
     categoriaModel.getAll((err,data)=>{
@@ -31,3 +32,15 @@ categoriaModel.crearCategoria(categoria,(err,result)=>{
     }
 })
 }
+
+const storageCateg = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "public/assets/img/categorias");
+    },
+    filename: function (req, file, cb) {
+        cb(null, `${file.originalname}`);
+    },
+}); 
+
+
+exports.uploadPhotoCateg = multer({ storage: storageCateg });

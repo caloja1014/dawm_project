@@ -28,6 +28,10 @@ router.post("/addPhotop", productosController.uploadPhoto.single("file"), (req, 
     res.status(200).send({ mensaje: "exitoso" });
 });
 
+router.post("/addPhotoCateg", categoriaController.uploadPhotoCateg.single("file"), (req, res) => {
+    res.status(200).send({ mensaje: "exitoso" });
+});
+
 router.post("/addNew", noticiasController.create);
 
 router.post("/login", adminController.loginAdmin);
