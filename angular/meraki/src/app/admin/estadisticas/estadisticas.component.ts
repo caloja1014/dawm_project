@@ -182,11 +182,13 @@ export class EstadisticasComponent implements OnInit {
         this._adminService.getVentasAnuales(categoria).subscribe((datos) => {
             let meses = [];
             let ventas = [];
+        
             let keys = Object.keys(datos);
             for (let d of keys) {
                 meses.push(d);
                 ventas.push(parseInt(datos[d]));
             }
+            let maximo=Math.max(...ventas)+20
             this.myBarChart = new Chart('myBarChart', {
                 type: 'bar',
                 data: {
@@ -231,7 +233,7 @@ export class EstadisticasComponent implements OnInit {
                             {
                                 ticks: {
                                     min: 0,
-                                    max: 1500,
+                                    max: maximo,
                                     maxTicksLimit: 5,
                                     padding: 10,
                                     // Include a dollar sign in the ticks
