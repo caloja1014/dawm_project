@@ -1,45 +1,43 @@
 const sql = require("../config/databaseCon");
-
+const encriptacion = require("../lib/encriptacion");
 exports.insertCliente = (email, pass, result) => {
-    var user = (email).split("@")[0];
-    console.log(user)
-    searchUserName(user,(err,res)=>{
-        if(err){
-            result(err,null)
+    var user = email.split("@")[0];
+    console.log(user);
+    searchUserName(user, (err, res) => {
+        if (err) {
+            result(err, null);
             return;
-        }else if(res.length){
-            console.log(res)
-            var number = parseInt(res[0].username.split(user)[1])+1
-            user = user + number.toString()
+        } else if (res.length) {
+            console.log(res);
+            var number = parseInt(res[0].username.split(user)[1]) + 1;
+            user = user + number.toString();
         }
-            const cliente = [email, pass,user];
-            var q = "insert into Cliente(email,password,username) values (?);";
-            sql.query(q, [cliente], (err, res) => {
-                if (err) {
-                    result(err, null);
-                    return;
-                } else {
-                    result(null, res);
-                }
-            });
-        
-    })
+        const cliente = [email, pass, user];
+        var q = "insert into Cliente(email,password,username) values (?);";
+        sql.query(q, [cliente], (err, res) => {
+            if (err) {
+                result(err, null);
+                return;
+            } else {
+                result(null, res);
+            }
+        });
+    });
 };
 
-searchUserName = (user,result) =>{
-    var q = `select username from Cliente where username like '%${user}%' order by username desc limit 1;`
-   
-    sql.query(q,(err,res)=>{
-        if(err){
-            
-            result(err,null)
+searchUserName = (user, result) => {
+    var q = `select username from Cliente where username like '%${user}%' order by username desc limit 1;`;
+
+    sql.query(q, (err, res) => {
+        if (err) {
+            result(err, null);
             return;
-        }else{
-            result(null,res);
+        } else {
+            result(null, res);
             return;
         }
-    })
-}
+    });
+};
 
 exports.findByEmail = (email, result) => {
     var q = "select * from Cliente where email = '" + email + "';";
@@ -61,40 +59,38 @@ exports.update = (id, body, result) => {
             "UPDATE Cliente SET username = ?, nombres = ?, apellidos = ?, celular = ? WHERE id = ?";
         params = [body.username, body.name, body.lastname, body.cell, id];
     } else {
+        let newPassword = encriptacion.encryptPassword(body.newpass);
         query =
             "UPDATE Cliente SET username = ?, password = ?, nombres = ?, apellidos = ?, celular = ? WHERE id = ?";
         params = [
             body.username,
-            body.newpass,
+            newPassword,
             body.name,
             body.lastname,
             body.cell,
             id,
         ];
     }
-    searchUserName(body.username,(err,res)=>{
-        if(err){
-            result(err,null)
+    searchUserName(body.username, (err, res) => {
+        if (err) {
+            result(err, null);
             return;
-        }else if(res.length){
-           result({kind:"username_exists"},null)
-           return;
-        }else{
+        } else if (res.length) {
+            result({ kind: "username_exists" }, null);
+            return;
+        } else {
             sql.query(query, params, (err, data) => {
                 if (err) {
                     result(null, err);
                     return;
-                }
-                else if (data.affectedRows == 0) {
+                } else if (data.affectedRows == 0) {
                     // not found Customer with the id
                     result({ kind: "not_found" }, null);
                     return;
-                }else
-                result(null, data);
+                } else result(null, data);
             });
         }
-    })
-    
+    });
 };
 
 exports.getById = (id, result) => {

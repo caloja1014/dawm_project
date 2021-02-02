@@ -1,10 +1,11 @@
 const jwt = require("jsonwebtoken");
 const auth = require("../../middleware/auth");
 const client = require("../../models/cliente.model");
+const encriptacion = require("../../lib/encriptacion");
 
-exports.createClient = (req, res) => {
-    
-    client.insertCliente(req.body.email, req.body.password, (err, result) => {
+exports.createClient = async (req, res) => {
+    let password = await encriptacion.encryptPassword(req.body.password);
+    client.insertCliente(req.body.email, password, (err, result) => {
         if (err) {
             res.status(500).send({
                 message: err,
@@ -18,18 +19,21 @@ exports.createClient = (req, res) => {
     });
 };
 
-exports.loginClient = (req, res) => {
-    console.log(req.body)
-    client.findByEmail(req.body.email, (err, result) => {
+exports.loginClient = async (req, res) => {
+    console.log(req.body);
+    client.findByEmail(req.body.email, async (err, result) => {
         if (err) {
             res.status(401).send("Correo Invalido");
-        } else if (!result || result.length==0) {
+        } else if (!result || result.length == 0) {
             res.status(401).send("Correo Invalido");
-        } else if (req.body.password != result[0].password) {
-            //result es un arreglo
-            res.status(401).send("Contrasena Invalida");
         }
-        else {
+        let validPassword = await encriptacion.matchPassword(
+            req.body.password,
+            result[0].password
+        );
+        if (!validPassword) {
+            res.status(401).send("Contrasena Invalida");
+        } else {
             let payload = { userId: result[0].id };
             token = auth.sign(payload);
             res.status(200).send({ token });
@@ -49,16 +53,13 @@ exports.updateClient = (req, res) => {
                 res.status(404).send({
                     message: `El cliente con id ${req.userId} no ha sido encontrado.`,
                 });
-            }
-            else if (err.kind === "username_exists"){
+            } else if (err.kind === "username_exists") {
                 res.status(501).send({
-                    message: "El username elegido ya existe"
-                })
-            }
-             else {
+                    message: "El username elegido ya existe",
+                });
+            } else {
                 res.status(500).send({
-                    message:
-                        `Error actualizando al Cliente con id ${req.userId}`,
+                    message: `Error actualizando al Cliente con id ${req.userId}`,
                 });
             }
         } else res.send(data);
