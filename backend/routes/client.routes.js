@@ -19,4 +19,4 @@ router.get("/pedidos",auth.verifyToken,diasController.getCompraUsuario);
 router.get("/categ",categoriaController.getCategorias)
 router.get("/news",noticiasController.findAll);
 router.get("/prod/all",productoController.getAllProducts);
-module.exports = router;
+module.exports = router; 

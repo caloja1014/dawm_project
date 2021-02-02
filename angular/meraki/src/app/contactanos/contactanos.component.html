@@ -10,18 +10,18 @@
                 <hr class="divider light2 my-4">
                 <div class="wrap-input100 validate-input" data-validate="Por favor ingresa tu nombre">
                     <input [(ngModel)]="bodyEmail.name" class="input100" type="text" name="name"
-                        placeholder="Tu nombre">
+                        placeholder="Tu nombre" id="nombre-Contact">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Por favor ingresa tu correo: e@a.x">
-                    <input [(ngModel)]="bodyEmail.email" class="input100" type="text" name="email" placeholder="Correo">
+                    <input [(ngModel)]="bodyEmail.email" class="input100" type="text" name="email" placeholder="Correo" id="email-Contact">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Por favor ingresa tu telefono">
                     <input [(ngModel)]="bodyEmail.telf" class="input100" type="text" name="phone"
-                        placeholder="Telefono">
+                        placeholder="Telefono" id="phone-Contact">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -40,7 +40,7 @@
 
                 <div class="wrap-input100 validate-input" data-validate="Por favor ingresa un mensaje">
                     <textarea [(ngModel)]="bodyEmail.msg" class="input100" name="message"
-                        placeholder="Tu mensaje"></textarea>
+                        placeholder="Tu mensaje" id="text-Contact"></textarea>
                     <span class="focus-input100"></span>
                 </div>
 
