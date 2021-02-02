@@ -12,7 +12,7 @@ exports.loginAdmin = (req, res) => {
             //result es un arreglo
             res.status(401).send("Contrasena Invalida");
         } else {
-            let payload = { adminId: result.id };
+            let payload = { adminId: result[0].id };
             token = jwt.sign(payload, "adminKey");
             res.status(200).send({ token });
         }
