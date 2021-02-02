@@ -7,4 +7,4 @@ router.post("/add",auth.verifyToken,producto.addProdCarrito);
 
 router.delete("/:idProducto",auth.verifyToken,producto.removeFromCarrito);
 router.get("/prods",auth.verifyToken,producto.productosCarrito)
-module.exports=router; 
+module.exports=router;   

@@ -70,7 +70,6 @@ exports.productosCarrito = (req, res) => {
                 });
             }
         }
-<<<<<<< HEAD
         let listaProductos=[]
         console.log("se obtuvo de la base: "+resultado);
         for (let p of resultado){
@@ -82,17 +81,6 @@ exports.productosCarrito = (req, res) => {
             imagen:p.imagen,
             descripcion:p.descripcion 
         });
-=======
-        let listaProductos = [];
-        for (let p of resultado) {
-            listaProductos.push({
-                cantidad: p.cantidad,
-                noombre: p.nomProducto,
-                precio: p.precio,
-                imagen: p.imagen,
-                descripcion: p.descripcion,
-            });
->>>>>>> 836c33ff639540abfc5865dac0a851cedc0ebb93
         }
         res.send(listaProductos);
     });
