@@ -23,6 +23,7 @@ module.exports.verifyAdmin = (req, res, next) => {
     let payload = jwt.verify(token, "adminKey");
     if (!payload) return res.status(401).send("Request no autorizado");
     req.adminId = payload.adminId;
+    console.log(payload);
     next();
 };
 

@@ -22,13 +22,14 @@ exports.loginClient = (req, res) => {
     console.log(req.body)
     client.findByEmail(req.body.email, (err, result) => {
         if (err) {
-            res.send(err);
-        } else if (!result) {
+            res.status(401).send("Correo Invalido");
+        } else if (!result || result.length==0) {
             res.status(401).send("Correo Invalido");
         } else if (req.body.password != result[0].password) {
             //result es un arreglo
             res.status(401).send("Contrasena Invalida");
-        } else {
+        }
+        else {
             let payload = { userId: result[0].id };
             token = auth.sign(payload);
             res.status(200).send({ token });
@@ -57,7 +58,7 @@ exports.updateClient = (req, res) => {
              else {
                 res.status(500).send({
                     message:
-                        "Error actualizando al Cliente con id ${req.userId}",
+                        `Error actualizando al Cliente con id ${req.userId}`,
                 });
             }
         } else res.send(data);
