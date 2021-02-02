@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AdminService } from 'src/services/admin/admin.service';
 import { NewsService } from 'src/services/news/news.service';
 
 @Component({
@@ -17,6 +19,23 @@ export class AddnewComponent implements OnInit {
     };
 
     file = '';
+
+    nomAdmin = '';
+    constructor(
+        private serv: NewsService,
+        private _adminService: AdminService,
+        private _router: Router
+    ) {
+        _adminService.getUsername().subscribe(
+            (res) => {
+                this.nomAdmin = res.username;
+            },
+            (err) => {
+                _router.navigate(['/login']);
+            }
+        );
+    }
+
     saveEvent(event: any) {
         this.file = event.target.files[0];
     }
@@ -45,9 +64,6 @@ export class AddnewComponent implements OnInit {
         );
         this.upload();
     }
-    constructor(
-        private serv: NewsService        
-    ) {}
 
     ngOnInit(): void {}
 }

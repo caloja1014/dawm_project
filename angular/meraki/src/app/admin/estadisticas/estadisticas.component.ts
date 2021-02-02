@@ -25,13 +25,21 @@ export class EstadisticasComponent implements OnInit {
     ];
 
     categorias: any = [];
-
+    nomAdmin = "";
     constructor(
         private _adminService: AdminService,
         private _router: Router,
         private catServ: CategService
     ) {
         this.cargarCategorias();
+        _adminService.getUsername().subscribe(
+            (res) => {
+                this.nomAdmin = res.username;
+            },
+            (err) => {
+                _router.navigate(['/login']);
+            }
+        );
     }
 
     ngOnInit(): void {

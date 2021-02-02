@@ -18,6 +18,10 @@ export class AdminService {
         this._router.navigate(['/login']);
     }
 
+    getUsername() {
+        return this.http.get<any>(this.host + '/profile');
+    }
+
     addProduct(producto: any) {
         return this.http.post<any>(this.host + '/addProduct', producto);
     }

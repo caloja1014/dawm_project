@@ -11,3 +11,15 @@ exports.findByUser = (username, result) => {
         }
     });
 };
+
+exports.findById = (id, result) => {
+    var q = "select username from Administrador where id ='" + id + "';";
+    sql.query(q, (err, res) => {
+        if (err) {
+            result(err, null);
+            return;
+        } else {
+            result(null, res[0]);
+        }
+    });
+};

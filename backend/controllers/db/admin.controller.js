@@ -18,3 +18,16 @@ exports.loginAdmin = (req, res) => {
         }
     });
 };
+
+exports.getProfile = (req, res) => {
+    console.log("aa");
+    admin.findById(req.adminId, (err, result) => {
+        if (err) {
+            res.send(err);
+        } else if (!result) {
+            res.status(401).send("Token Invalido");
+        } else {
+            res.send(result);
+        }
+    });
+};
