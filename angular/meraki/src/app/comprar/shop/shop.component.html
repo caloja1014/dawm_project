@@ -61,6 +61,89 @@
             </div>
 
             <div id="productos" class="container"></div>
+            <a
+                id="openCartModal"
+                href="#"
+                data-toggle="modal"
+                data-target="#addCartModal"
+                class="my-4 btn btn-primary d-none"
+            >
+                Agregar dirección
+            </a>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="addCartModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-lg m-auto" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar producto al carrito</h5>
+                <button
+                    id="closeModalCart"
+                    class="close"
+                    type="button"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id="idProduct" class="d-none"></div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-4">
+                        <img
+                            id="imgModal"
+                            class="ml-3"
+                            alt="arbolDecorativo1"
+                            width="200px"
+                        />
+                    </div>
+                    <div class="col-8">
+                        <h4 id="nombreProdModal" class="mt-2 text-primary"></h4>
+                        <h5 id="priceModal"></h5>
+
+                        <p id="descModal" class="py-3"></p>
+                        <div class="ml-3 form-group row">
+                            <label class="pt-2 pr-3" for="cantidad"
+                                >Cantidad:
+                            </label>
+                            <input
+                                id="cantidad"
+                                type="number"
+                                value="1"
+                                class="form-control"
+                                min="1"
+                                max="50"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button
+                    class="btn btn-secondary"
+                    type="button"
+                    data-dismiss="modal"
+                >
+                    Cancelar
+                </button>
+                <button
+                    id="addCart"
+                    (click)="addCart()"
+                    class="btn btn-primary"
+                >
+                    Agregar al carrito
+                </button>
+            </div>
         </div>
     </div>
 </div>

@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    ɵCompiler_compileModuleSync__POST_R3__,
+} from '@angular/core';
 import { AuthService } from 'src/services/auth/auth.service';
+import { ProductsService } from 'src/services/products/products.service';
 import productos from '../../../assets/Productos.json';
 
 @Component({
@@ -8,13 +13,20 @@ import productos from '../../../assets/Productos.json';
     styleUrls: ['./shop.component.css'],
 })
 export class ShopComponent implements OnInit {
-    constructor(private _authService: AuthService) {
+    dataModal = {
+        nomProd: '',
+        priceProd: '',
+        descr: '',
+        srcImg: '',
+    };
+    constructor(
+        private _authService: AuthService,
+        private _productsService: ProductsService
+    ) {
         _authService.setIsCompras(true);
     }
 
     ngOnInit(): void {
-        this.addnav();
-
         this.buscar();
         let carousel = document.getElementById('carousel-products');
         let firstCateg = productos[0];
@@ -69,7 +81,7 @@ export class ShopComponent implements OnInit {
                     '<h5 class="card-title text-primary">' +
                     producto.nombre +
                     '</h5>' +
-                    '<h5>$' +
+                    '<h5 class="card-price">$' +
                     producto.precio +
                     '</h5>' +
                     '<p class="card-text">' +
@@ -78,7 +90,7 @@ export class ShopComponent implements OnInit {
                     '</div>' +
                     '<a id="comprar-' +
                     producto.id +
-                    '" class="button btn-comprar">Comprar</a>';
+                    '" class="button px-3 btn-comprar">Seleccionar</a>';
                 '</div>' + '</div>' + '</div>';
             }
         }
@@ -100,19 +112,53 @@ export class ShopComponent implements OnInit {
                 let btnComprar = divProducto.getElementsByClassName(
                     'button'
                 )[0];
-                btnComprar.onclick = () => {
-                    if (btnComprar.classList.contains('btn-comprado')) {
-                        btnComprar.classList.remove('btn-comprado');
-                        btnComprar.innerHTML = 'Comprar';
-                    } else {
-                        btnComprar.classList.add('btn-comprado');
-                        btnComprar.innerHTML = 'Seleccionado';
-                    }
-                };
+                btnComprar.onclick = this.openModal;
             }
         }
     }
 
+    openModal(event: Event) {
+        let aTarget = <HTMLElement>event.target;
+        let id = <string>aTarget.id?.split('-')[1];
+        let divCardBody = aTarget.parentElement;
+        let nomProd = divCardBody?.getElementsByClassName('card-title')[0];
+        console.log(nomProd?.textContent);
+        let precio = divCardBody?.getElementsByClassName('card-price')[0];
+        let descripcion = divCardBody?.getElementsByClassName('card-text')[0];
+        let divCard = divCardBody?.parentElement;
+        let img = divCard?.getElementsByTagName('img')[0];
+        let srcImg: any = img?.getAttribute('src');
+        (<any>document.getElementById('nombreProdModal')).textContent =
+            nomProd?.textContent;
+        (<any>document.getElementById('priceModal')).textContent =
+            precio?.textContent;
+        (<any>document.getElementById('descModal')).textContent =
+            descripcion?.textContent;
+        let imgModal = document.getElementById('imgModal');
+        imgModal?.setAttribute('src', srcImg);
+        let addCartBtn = document.getElementById('addCart');
+        console.log(id);
+        (<any>document.getElementById('idProduct')).textContent = id;
+        document.getElementById('openCartModal')?.click();
+    }
+
+    addCart() {
+        let idProducto = document.getElementById('idProduct')?.textContent;
+        let cantidadInput = <HTMLInputElement>(
+            document.getElementById('cantidad')
+        );
+        let cantidad = cantidadInput.value;
+        this._productsService.addCart({ idProducto, cantidad }).subscribe(
+            (res) => {
+                document.getElementById('closeModalCart')?.click();
+            },
+            (err) => {
+                document.getElementById('closeModalCart')?.click();
+                localStorage.removeItem('token');
+                document.getElementById('loginModal')?.click();
+            }
+        );
+    }
     onclicks(): void {
         for (let item of productos) {
             let a = document.getElementById(item.categoria);
@@ -160,33 +206,6 @@ export class ShopComponent implements OnInit {
                 }
             };
         }
-    }
-
-    addnav(): void {
-        let nav = document.getElementById('mainNav');
-        let ul = nav!.getElementsByTagName('ul')[0];
-        /*ul.innerHTML += `<li class="nav-item"><a class="nav-link js-scroll-trigger" 
-    href="/cart" href="/cart"><img id="carrito" 
-    src="./assets/icons/carrito-de-compras.png" alt=""></a></li>
-    <li class="topbar-divider d-none d-sm-block"></li>
-    <li class="nav-item dropdown text-center">
-      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        <span class="mr-2 d-none d-lg-inline cuenta">Cuenta</span>
-        <img id="user" alt="Profile Image"
-        src="/assets/icons/not-logged.png">
-      </a>
-      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-        aria-labelledby="userDropdown">
-        <a id="iniciarSesionBtn" class="dropdown-item" href="#" data-toggle="modal" data-target="#loginModal">
-          Iniciar Sesión
-        </a>
-        <div class="dropdown-divider"></div>
-        <a id="registrarseBtn" class="dropdown-item" href="#" data-toggle="modal" data-target="#registerModal">
-          Registrarse
-        </a>
-      </div>
-    </li>`;*/
     }
 
     buscar(): void {
@@ -242,7 +261,7 @@ export class ShopComponent implements OnInit {
                                 producto.descripcion +
                                 '</p>' +
                                 '</div>' +
-                                '<a class="button btn-comprar">Comprar</a>';
+                                '<a class="button btn-comprar">Seleccionar</a>';
                             '</div>' + '</div>' + '</div>';
                         }
                     }
