@@ -9,7 +9,6 @@ module.exports.verifyToken = (req, res, next) => {
     if (token === "null") return res.status(401).send("Request no autorizado");
     let payload = jwt.verify(token, accessKey);
     if (!payload) return res.status(401).send("Request no autorizado");
-    console.log(payload);
     req.userId = payload.userId;
     next();
 };
@@ -23,7 +22,6 @@ module.exports.verifyAdmin = (req, res, next) => {
     let payload = jwt.verify(token, "adminKey");
     if (!payload) return res.status(401).send("Request no autorizado");
     req.adminId = payload.adminId;
-    console.log(payload);
     next();
 };
 
