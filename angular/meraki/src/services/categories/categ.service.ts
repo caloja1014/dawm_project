@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class CategService {
   private categPost = 'http://localhost:3000/admin/addCateg';
   private categPhoto = 'http://localhost:3000/admin/addPhotoCateg';
-
+  private getCateg = 'http://localhost:3000/categ';
   constructor(private http: HttpClient) { }
 
   crearCategoria(categoria:any){
@@ -15,5 +15,9 @@ export class CategService {
 
   subirFoto(data:any){
     return this.http.post<any>(this.categPhoto, data);
+  }
+
+  obtenerCategorias(){
+    return this.http.get<any>(this.getCateg);
   }
 }

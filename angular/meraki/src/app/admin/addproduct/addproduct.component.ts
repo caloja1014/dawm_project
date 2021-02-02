@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Stepper from 'bs-stepper';
+import { CategService } from 'src/services/categories/categ.service';
 import { ProductsService } from 'src/services/products/products.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ProductsService } from 'src/services/products/products.service';
   styleUrls: ['../sb-admin-2.css', './addproduct.component.css']
 })
 export class AddproductComponent implements OnInit {
-
+  categorias: any = [];
   private stepper!: Stepper;
   productBody = {
     nombre : '',
@@ -20,6 +21,15 @@ export class AddproductComponent implements OnInit {
   }
 
   file = '';
+  cargarCategorias() {
+    this.catServ.obtenerCategorias().subscribe(
+      (res) => {
+        console.log(res);
+        this.categorias = res;
+      },
+      (err) => { console.log(err) }
+    );
+  } 
     saveEvent(event: any) {
         this.file = event.target.files[0];
     }
@@ -51,7 +61,9 @@ export class AddproductComponent implements OnInit {
     );
     this.upload();
 }
-  constructor(private serv: ProductsService) { }
+  constructor(private serv: ProductsService, private catServ :CategService ) {
+    this.cargarCategorias();
+   }
 
   ngOnInit(): void {
     let stepper = document.querySelector('#stepper1');

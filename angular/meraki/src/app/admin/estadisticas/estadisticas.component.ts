@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart } from 'chart.js';
 import { AdminService } from 'src/services/admin/admin.service';
+import { CategService } from 'src/services/categories/categ.service';
 
 @Component({
     selector: 'app-estadisticas',
@@ -23,16 +24,12 @@ export class EstadisticasComponent implements OnInit {
         'Domingo',
     ];
 
-    categorias = [
-        'Navidad',
-        'Camisetas',
-        'Regalos',
-        'Jarros',
-        'Sueters',
-        'Otros',
-        'textiles',
-    ];
-    constructor(private _adminService: AdminService, private _router: Router) {}
+    categorias: any = [];
+
+    
+    constructor(private _adminService: AdminService, private _router: Router,private catServ :CategService) {
+        this.cargarCategorias();
+    }
 
     ngOnInit(): void {
         let firstDay = this.getFirstDayOfWeek(new Date());
@@ -43,6 +40,15 @@ export class EstadisticasComponent implements OnInit {
         this.cargarJSONBar(this.categorias[0]);
         this.cargarJsonPie();
     }
+    cargarCategorias() {
+        this.catServ.obtenerCategorias().subscribe(
+          (res) => {
+            console.log(res);
+            this.categorias = res;
+          },
+          (err) => { console.log(err) }
+        );
+      } 
 
     cargarJSONLine = (dia: string) => {
         this._adminService.getVentasSemanales({ fecha: dia }).subscribe(
