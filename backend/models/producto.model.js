@@ -37,14 +37,15 @@ exports.getProdCliente = (idCliente,result) =>{
     from Producto p join ProdCliente pc join Categoria c 
     where p.id=pc.producto and p.idCategoria=c.id
     and pc.cliente = ${idCliente};`
+    console.log(idCliente);
     sql.query(q,(err,res)=>{
         if (err){
+            console.log(err);
             result(err,null);
-        }else if(!res.length){
-            result({ kind: "not_found" }, null);
         }
         else{
-            result(null,res)
+            console.log("resultado:"+res);
+            result(null,res) 
         }
     })
 }

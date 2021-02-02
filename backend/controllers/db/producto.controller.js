@@ -63,13 +63,14 @@ exports.productosCarrito=(req,res)=>{
             }
         }
         let listaProductos=[]
+        console.log("se obtuvo de la base: "+resultado);
         for (let p of resultado){
         listaProductos.push({
-            cantidad:p.cantidad,
-            noombre:p.nomProducto,
+            cantidad:p.cantidad, 
+            nombre:p.nomProducto,
             precio:p.precio,
             imagen:p.imagen,
-            descripcion:p.descripcion
+            descripcion:p.descripcion 
         });
         }
         res.send(listaProductos);
