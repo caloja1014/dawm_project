@@ -1,8 +1,4 @@
-import {
-    Component,
-    OnInit,
-    ɵCompiler_compileModuleSync__POST_R3__,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/services/auth/auth.service';
 import { ProductsService } from 'src/services/products/products.service';
 import productos from '../../../assets/Productos.json';
@@ -27,80 +23,80 @@ export class ShopComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.buscar();
-        let carousel = document.getElementById('carousel-products');
-        let firstCateg = productos[0];
-        let contimg = 0;
-        let carouselIndicators = document.getElementsByClassName(
-            'carousel-indicators'
-        )[0];
-        carouselIndicators.innerHTML = '';
-        carousel!.innerHTML = '';
-        for (let imgCarousel of firstCateg.header.imagenes) {
-            let active = contimg++ == 0 ? 'active' : '';
-            carouselIndicators.innerHTML += `<li data-target="#carouselExampleIndicators" data-slide-to="${
-                contimg - 1
-            }" class="${active}"></li>`;
+        this._productsService.obtenerProductos().subscribe((productos) => {
+            this.buscar();
+            let carousel = document.getElementById('carousel-products');
+            let firstCateg = productos[0];
+            let contimg = 0;
+            let carouselIndicators = document.getElementsByClassName(
+                'carousel-indicators'
+            )[0];
+            carouselIndicators.innerHTML = '';
+            carousel!.innerHTML = '';
+            for (let imgCarousel of firstCateg.header.imagenes) {
+                let active = contimg++ == 0 ? 'active' : '';
+                carouselIndicators.innerHTML += `<li data-target="#carouselExampleIndicators" data-slide-to="${
+                    contimg - 1
+                }" class="${active}"></li>`;
 
-            carousel!.innerHTML += `<div class="carousel-item ${active}">
-            <img class="d-block img-fluid" src="assets/productos/${firstCateg.categoria}/${imgCarousel}" alt="First slide">
+                carousel!.innerHTML += `<div class="carousel-item ${active}">
+            <img class="d-block img-fluid" src="${imgCarousel}" alt="First slide">
             </div>`;
-        }
+            }
 
-        let categorias = document.getElementById('categorias');
-        let divproductos = document.getElementById('productos');
-        let cont = 0;
-        for (let elemento of productos) {
-            let seleccionado = cont++ == 0 ? 'categ-seleccionada' : '';
-            categorias!.innerHTML +=
-                '<a id="' +
-                elemento.categoria +
-                '" class="list-group-item ' +
-                seleccionado +
-                '">' +
-                elemento.categoria +
-                '</a>';
-            let divCategoria = document.createElement('div');
-            divCategoria.id = 'div' + elemento.categoria;
-            if (cont > 1) {
-                divCategoria.style.display = 'none';
-            }
-            divCategoria.className = 'row';
-            divproductos!.appendChild(divCategoria);
-            for (let producto of elemento.productos) {
-                divCategoria.innerHTML +=
-                    '<div class="col-lg-4 col-md-6 mb-4">' +
-                    '<div class="card h-100">' +
-                    '<img class="card-img-top" src="./assets/productos/' +
+            let categorias = document.getElementById('categorias');
+            let divproductos = document.getElementById('productos');
+            let cont = 0;
+            for (let elemento of productos) {
+                let seleccionado = cont++ == 0 ? 'categ-seleccionada' : '';
+                categorias!.innerHTML +=
+                    '<a id="' +
                     elemento.categoria +
-                    '/' +
-                    producto.img +
-                    '" alt="">' +
-                    '<div class="card-body">' +
-                    '<div class="card-top">' +
-                    '<h5 class="card-title text-primary">' +
-                    producto.nombre +
-                    '</h5>' +
-                    '<h5 class="card-price">$' +
-                    producto.precio +
-                    '</h5>' +
-                    '<p class="card-text">' +
-                    producto.descripcion +
-                    '</p>' +
-                    '</div>' +
-                    '<a id="comprar-' +
-                    producto.id +
-                    '" class="button px-3 btn-comprar">Seleccionar</a>';
-                '</div>' + '</div>' + '</div>';
+                    '" class="list-group-item ' +
+                    seleccionado +
+                    '">' +
+                    elemento.categoria +
+                    '</a>';
+                let divCategoria = document.createElement('div');
+                divCategoria.id = 'div' + elemento.categoria;
+                if (cont > 1) {
+                    divCategoria.style.display = 'none';
+                }
+                divCategoria.className = 'row';
+                divproductos!.appendChild(divCategoria);
+                for (let producto of elemento.productos) {
+                    divCategoria.innerHTML +=
+                        '<div class="col-lg-4 col-md-6 mb-4">' +
+                        '<div class="card h-100">' +
+                        '<img class="card-img-top" src="' +
+                        producto.img +
+                        '" alt="">' +
+                        '<div class="card-body">' +
+                        '<div class="card-top">' +
+                        '<h5 class="card-title text-primary">' +
+                        producto.nombre +
+                        '</h5>' +
+                        '<h5 class="card-price">$' +
+                        producto.precio +
+                        '</h5>' +
+                        '<p class="card-text">' +
+                        producto.descripcion +
+                        '</p>' +
+                        '</div>' +
+                        '<a id="comprar-' +
+                        producto.id +
+                        '" class="button px-3 btn-comprar">Seleccionar</a>';
+                    '</div>' + '</div>' + '</div>';
+                }
             }
-        }
-        let divCategoria = document.createElement('div');
-        divCategoria.id = 'divBusqueda';
-        divCategoria.className = 'row';
-        divCategoria.style.display = 'none';
-        divproductos!.appendChild(divCategoria);
-        this.comprar();
-        this.onclicks();
+            let divCategoria = document.createElement('div');
+            divCategoria.id = 'divBusqueda';
+            divCategoria.className = 'row';
+            divCategoria.style.display = 'none';
+            divproductos!.appendChild(divCategoria);
+            this.comprar();
+            this.onclicks();
+        });
     }
 
     comprar(): void {
