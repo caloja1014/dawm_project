@@ -8,6 +8,7 @@ import { EmailService } from 'src/services/email/email.service';
   styleUrls: ['./contactanos.component.css']
 })
 export class ContactanosComponent implements OnInit {
+   
   bodyEmail = {
     name: '',
     email: '',
@@ -16,11 +17,26 @@ export class ContactanosComponent implements OnInit {
     msg: ''
   };
 
-  enviarEmail(): void{
-    this.serv.enviarEmail(this.bodyEmail);
+  enviarEmail(): void { 
+    this.serv.enviarEmail(this.bodyEmail).subscribe(
+      (res) => {
+        alert("Su correo ha sido enviado");
+        let nom = <HTMLInputElement> document.getElementById("nombre-Contact");
+        let email = <HTMLInputElement> document.getElementById("email-Contact");
+        let phone = <HTMLInputElement> document.getElementById("phone-Contact");
+        let text = <HTMLInputElement> document.getElementById("text-Contact");
+        nom.value="";
+        email.value="";
+        phone.value="";
+        text.value="";
+
+        
+      },
+      (err) => { console.log(err) }
+    );
     console.log(this.bodyEmail);
   }
-  constructor(private serv: EmailService,private _authService: AuthService) {
+  constructor(private serv: EmailService, private _authService: AuthService) {
     _authService.setIsCompras(false);
   }
 
