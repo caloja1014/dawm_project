@@ -40,13 +40,12 @@ export class EstadisticasComponent implements OnInit {
         inputDate.value = firstDay;
 
         this.cargarJSONLine(firstDay);
-        this.cargarJSONBar(this.categorias[0]);
         this.cargarJsonPie();
     }
     cargarCategorias() {
         this.catServ.obtenerCategorias().subscribe(
             (res) => {
-                console.log(res);
+                this.cargarJSONBar(res[0]);
                 this.categorias = res;
             },
             (err) => {

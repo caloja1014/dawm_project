@@ -74,7 +74,7 @@
                             <div class="form-field col-lg-6">
                                 <input
                                     [(ngModel)]="categBody.nombre"
-                                    name = "nombre"
+                                    name="nombre"
                                     id="pnombre"
                                     class="input-text js-input"
                                     type="text"
@@ -90,7 +90,7 @@
                                 >
                                 <textarea
                                     [(ngModel)]="categBody.descripcion"
-                                    name = "descripcion"
+                                    name="descripcion"
                                     class="form-control"
                                     id="Textarea1"
                                     rows="3"
@@ -102,7 +102,7 @@
                                     >Agregar header para la categoría</label
                                 >
                                 <input
-                                    name= "imagen"
+                                    name="imagen"
                                     (change)="saveEvent($event)"
                                     type="file"
                                     class="form-control-file"
@@ -114,15 +114,13 @@
                                 <input
                                     id="submit"
                                     type="reset"
-                                    class="submit-btn"
+                                    class="btn btn-primary mt-3"
                                     href="#"
                                     data-toggle="modal"
                                     data-target="#confirmar"
-                                    (click) = "crearCategoria()"
+                                    (click)="crearCategoria()"
                                     value="Aceptar"
                                 />
-                                    
-                                
                             </div>
                         </form>
                     </div>

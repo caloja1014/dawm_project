@@ -146,7 +146,7 @@ export class ShopComponent implements OnInit {
             (err) => {
                 document.getElementById('closeModalCart')?.click();
                 localStorage.removeItem('token');
-                document.getElementById('loginModal')?.click();
+                document.getElementById('iniciarSesionBtn')?.click();
             }
         );
     }
