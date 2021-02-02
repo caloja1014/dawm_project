@@ -1,5 +1,7 @@
 const producto=require("../../models/producto.model")
 const multer = require("multer");
+const sql = require("../../config/databaseCon");
+
 exports.agregarProducto=(req,res)=>{
     producto.insertProducto(req.body,req.adminId,(err,result)=>{
         if(err){
@@ -88,3 +90,51 @@ const storageProduct = multer.diskStorage({
 
 exports.uploadPhoto = multer({ storage: storageProduct });
 
+exports.getAllProducts = (req,res)=>{
+    var q = `select c.nombre categoria, c.imagenes, p.id, p.nombre, p.descripcion, p.costoBase precio, p.imagen img
+    from Producto p join Categoria c where p.idCategoria = c.id order by categoria;`
+    var products = []
+    sql.query(q,(err,resultado)=>{
+        if(err){
+            res.status(400).send({message:"No se pudo obtener los productos"});
+        }else{
+            for (var reg of resultado){
+                var categExists = false;
+                for (let cat of products){
+                    console.log(products)
+
+                    if (cat.categoria == reg.categoria){
+                        categExists = true;
+                        console.log(cat)
+                        cat.productos.push({
+                            "id":reg.id,
+                            "nombre":reg.nombre,
+                            "descripcion":reg.descripcion,
+                            "precio": reg.precio,
+                            "img":reg.img
+                        })
+                    }
+                }
+                console.log(categExists)
+                if(!categExists){
+                    
+                    products.push({
+                        "categoria":reg.categoria,
+                        "header":{
+                            "imagenes":reg.imagenes.split(",")
+                        },
+                        "productos": [{
+                            "id":reg.id,
+                            "nombre":reg.nombre,
+                            "descripcion":reg.descripcion,
+                            "precio": reg.precio,
+                            "img":reg.img
+                        }]
+                    })
+                }
+            }
+        }
+        res.send(products)
+
+    })
+  }
