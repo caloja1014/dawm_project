@@ -20,9 +20,9 @@ exports.enviarCorreo = (req, res) => {
 
     var mailOptions = {
         from: "meraki_gifts12@outlook.com",
-        to: bodymail.email,
+        to: "meraki_gifts12@outlook.com",
         subject: "Compra",
-        text: `Nombre: ${bodymail.name}\nTelefono: ${bodymail.telf}\nDirección: ${bodymail.origin}\nMensaje: ${bodymail.msg}`,
+        text: `Correo: ${bodymail.email}\nNombre: ${bodymail.name}\nTelefono: ${bodymail.telf}\nDirección: ${bodymail.origin}\nMensaje: ${bodymail.msg}`,
     };
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
