@@ -35,7 +35,7 @@ exports.insertProducto = (producto, idAdmin, result) => {
     });
 };
 
-exports.getProdCliente = (idCliente,result) =>{
+exports.getProdCliente = (idCliente, result) => {
     var q = `select p.id, p.nombre nomProducto, p.costoBase precio, pc.cantidad cantidad, c.nombre categoria, p.imagen imagen, p.descripcion descripcion
     from Producto p join ProdCliente pc join Categoria c 
     where p.id=pc.producto and p.idCategoria=c.id
@@ -44,11 +44,10 @@ exports.getProdCliente = (idCliente,result) =>{
     sql.query(q, (err, res) => {
         if (err) {
             console.log(err);
-            result(err,null);
-        }
-        else{
-            console.log("resultado:"+res);
-            result(null,res)  
+            result(err, null);
+        } else {
+            console.log("resultado:" + res);
+            result(null, res);
         }
     });
 };
@@ -57,14 +56,41 @@ exports.addProdCliente = (body, idCliente, result) => {
     console.log(body.idProducto);
     const data = [body.idProducto, idCliente, body.cantidad];
     var q = "insert into ProdCliente(producto,cliente,cantidad) values (?);";
-    sql.query(q, [data], (err, res) => {
-        if (err) {
-            result(err, null);
-            return;
-        } else {
-            result(null, res);
+    sql.query(
+        "select * from ProdCliente where producto=? and cliente=?",
+        [body.idProducto, idCliente],
+        (err, res) => {
+            if (err) {
+                return result(err, null);
+            } else {
+                if (res.length == 0) {
+                    sql.query(q, [data], (err, response) => {
+                        if (err) {
+                            result(err, null);
+                            return;
+                        } else {
+                            result(null, response);
+                        }
+                    });
+                } else {
+                    let nuevaCantidad =
+                        parseInt(res[0].cantidad) + parseInt(body.cantidad);
+                    sql.query(
+                        "UPDATE ProdCliente SET cantidad=? where producto=? and cliente=?",
+                        [nuevaCantidad, body.idProducto, idCliente],
+                        (err, response) => {
+                            if (err) {
+                                result(err, null);
+                                return;
+                            } else {
+                                result(null, response);
+                            }
+                        }
+                    );
+                }
+            }
         }
-    });
+    );
 };
 
 exports.deleteProdFromCarrito = (idProd, idCliente, result) => {

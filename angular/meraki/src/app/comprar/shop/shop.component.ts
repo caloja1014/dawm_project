@@ -113,7 +113,6 @@ export class ShopComponent implements OnInit {
         let id = <string>aTarget.id?.split('-')[1];
         let divCardBody = aTarget.parentElement;
         let nomProd = divCardBody?.getElementsByClassName('card-title')[0];
-        console.log(nomProd?.textContent);
         let precio = divCardBody?.getElementsByClassName('card-price')[0];
         let descripcion = divCardBody?.getElementsByClassName('card-text')[0];
         let divCard = divCardBody?.parentElement;
@@ -125,10 +124,10 @@ export class ShopComponent implements OnInit {
             precio?.textContent;
         (<any>document.getElementById('descModal')).textContent =
             descripcion?.textContent;
+        (<any>document.getElementById('cantidad')).value = 1;
         let imgModal = document.getElementById('imgModal');
         imgModal?.setAttribute('src', srcImg);
         let addCartBtn = document.getElementById('addCart');
-        console.log(id);
         (<any>document.getElementById('idProduct')).textContent = id;
         document.getElementById('openCartModal')?.click();
     }

@@ -7,6 +7,7 @@ exports.createClient = async (req, res) => {
     let password = await encriptacion.encryptPassword(req.body.password);
     client.insertCliente(req.body.email, password, (err, result) => {
         if (err) {
+            console.log(err);
             res.status(500).send({
                 message: err,
             });
@@ -49,6 +50,7 @@ exports.updateClient = (req, res) => {
     }
     client.update(req.userId, req.body, (err, data) => {
         if (err) {
+            console.log(err);
             if (err.kind === "not_found") {
                 res.status(404).send({
                     message: `El cliente con id ${req.userId} no ha sido encontrado.`,

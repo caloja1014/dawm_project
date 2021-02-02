@@ -49,11 +49,16 @@ export class ProfileComponent implements OnInit {
     cargarProfile() {
         this._authService.getProfile().subscribe((res) => {
             console.log(res);
-            this.data.nombres = res.nombres ?? '-';
-            this.data.apellidos = res.apellidos ?? '-';
-            this.data.username = res.username ?? '-';
+            console.log(res.celular);
+            this.data.nombres =
+                !res.nombres || res.nombres == '' ? '-' : res.nombres;
+            this.data.apellidos =
+                !res.apellidos || res.apellidos == '' ? '-' : res.apellidos;
+            this.data.username =
+                !res.username || res.username == '' ? '-' : res.username;
             this.data.email = res.email;
-            this.data.celular = res.celular ?? '-';
+            this.data.celular =
+                !res.celular || res.celular == '' ? '-' : res.celular;
             this.dataEdit.nombres = res.nombres ?? '';
             this.dataEdit.apellidos = res.apellidos ?? '';
             this.dataEdit.username = res.username ?? '';
@@ -131,6 +136,7 @@ export class ProfileComponent implements OnInit {
                 this._authService.getDirecciones().subscribe((dir) => {
                     this.direcciones = dir;
                     document.getElementById('btnCloseAdd')?.click();
+                    inputDireccion.value = '';
                 });
             });
     }

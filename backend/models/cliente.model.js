@@ -26,7 +26,7 @@ exports.insertCliente = (email, pass, result) => {
 };
 
 searchUserName = (user, result) => {
-    var q = `select username from Cliente where username like '%${user}%' order by username desc limit 1;`;
+    var q = `select id,username from Cliente where username like '%${user}%' order by username desc limit 1;`;
 
     sql.query(q, (err, res) => {
         if (err) {
@@ -75,7 +75,8 @@ exports.update = (id, body, result) => {
         if (err) {
             result(err, null);
             return;
-        } else if (res.length) {
+        } else if (res.length && res[0].id != id) {
+            console.log(res[0]);
             result({ kind: "username_exists" }, null);
             return;
         } else {
@@ -84,6 +85,7 @@ exports.update = (id, body, result) => {
                     result(null, err);
                     return;
                 } else if (data.affectedRows == 0) {
+                    console.log(data + " id " + id);
                     // not found Customer with the id
                     result({ kind: "not_found" }, null);
                     return;
