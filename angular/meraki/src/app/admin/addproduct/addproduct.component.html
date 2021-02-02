@@ -125,12 +125,7 @@
                                             id="sel1"
                                             required
                                         >
-                                            <option>navidad</option>
-                                            <option>jarros</option>
-                                            <option>sueters</option>
-                                            <option>camisetas</option>
-                                            <option>regalos</option>
-                                            <option>otros</option>
+                                            <option *ngFor="let cat of categorias">{{cat}}</option>                                            
                                         </select>
                                         <label class="label" for="categoria"
                                             >Elija una categoría</label

@@ -73,12 +73,14 @@
                         <form class="contact-form row">
                             <div class="form-field col-lg-6">
                                 <input
+                                    [(ngModel)]="categBody.nombre"
+                                    name = "nombre"
                                     id="pnombre"
                                     class="input-text js-input"
                                     type="text"
                                     required
                                 />
-                                <label class="label" for="pnombre"
+                                <label class="label" for="nombre"
                                     >Nombre de la categoría</label
                                 >
                             </div>
@@ -87,6 +89,8 @@
                                     >Descripción de la categoría</label
                                 >
                                 <textarea
+                                    [(ngModel)]="categBody.descripcion"
+                                    name = "descripcion"
                                     class="form-control"
                                     id="Textarea1"
                                     rows="3"
@@ -98,22 +102,27 @@
                                     >Agregar header para la categoría</label
                                 >
                                 <input
+                                    name= "imagen"
+                                    (change)="saveEvent($event)"
                                     type="file"
                                     class="form-control-file"
-                                    id="ControlFile1"
+                                    id="input-img-categ"
                                 />
                             </div>
 
                             <div class="form-field col-lg-12">
-                                <a
+                                <input
                                     id="submit"
+                                    type="reset"
                                     class="submit-btn"
                                     href="#"
                                     data-toggle="modal"
                                     data-target="#confirmar"
-                                >
-                                    Aceptar
-                                </a>
+                                    (click) = "crearCategoria()"
+                                    value="Aceptar"
+                                />
+                                    
+                                
                             </div>
                         </form>
                     </div>
