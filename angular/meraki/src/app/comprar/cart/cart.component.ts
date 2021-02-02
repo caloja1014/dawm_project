@@ -13,9 +13,9 @@ export class CartComponent implements OnInit {
 
     productos: any = [];
 
-    constructor(private _authService: AuthService,private prodServ: ProductsService) {
+    constructor(private _authService: AuthService, private prodServ: ProductsService) {
         _authService.setIsCompras(true);
-        this.cargarCarrito();        
+        this.cargarCarrito();
     }
     next() {
         console.log(this.stepper);
@@ -24,15 +24,15 @@ export class CartComponent implements OnInit {
 
     cargarCarrito() {
         this.prodServ.obtenerCarrito().subscribe(
-          (res) => { 
-            console.log(res);
-            this.productos = res;
-          },
-          (err) => { console.log(err) }
+            (res) => {
+                console.log(res);
+                this.productos = res;
+            },
+            (err) => { console.log(err) }
         );
-      } 
+    }
 
-     
+
 
     onSubmit() {
         return false;
@@ -61,6 +61,13 @@ export class CartComponent implements OnInit {
     addnav(): void {
         let nav = document.getElementById('mainNav');
         let ul = nav!.getElementsByTagName('ul')[0];
+    }
+
+    eliminardelCarrito(id: any) {
+        this.prodServ.borrarDelCarrito(id).subscribe();
+        console.log("Id del producto a eliminar:" + id);
+        this.cargarCarrito();
+
     }
 
     ngOnInit() {

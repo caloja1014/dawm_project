@@ -31,7 +31,7 @@
                     <div id="divproductos" class="row">
                         <div
                             class="card mb-3 m-3"
-                            style="max-width: 300px"
+                            style="max-width: 240px"
                             *ngFor="let producto of productos"
                         >
                             <div class="row no-gutters">
@@ -51,11 +51,12 @@
                                         {{ producto.descripcion }}
                                     </p>
                                     <p class="card-text">
-                                        cantidad : {{ producto.cantidad }}
+                                        <strong> Cantidad </strong>: {{ producto.cantidad }}
                                     </p>
+                                    <a id="elimnarcart" class="btn btn-danger btn-sm" (click)="eliminardelCarrito(producto.id)" >Eliminar</a>
                                 </div>
-                            </div>
-                        </div>
+                            </div> 
+                        </div> 
                     </div>
                 </div>
                 <button (click)="next()" class="mt-3 btn btn-primary">
