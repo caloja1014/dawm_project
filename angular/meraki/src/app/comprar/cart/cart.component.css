@@ -82,9 +82,9 @@ div > h2 {
     outline: 0;
 }
 
-#elimnarcart{
-   background-color: #eb5b69;
-   border-color: #eb5b69;
+#elimnarcart {
+    background-color: #eb5b69;
+    border-color: #eb5b69;
 }
 
 @media (max-width: 576px) {
@@ -110,4 +110,10 @@ div > h2 {
     #seccionconfirmacion > img {
         width: 100%;
     }
+}
+
+.card-cart {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
 }

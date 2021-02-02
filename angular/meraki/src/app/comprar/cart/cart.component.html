@@ -26,42 +26,67 @@
         <div class="bs-stepper-content">
             <div id="test-l-1" class="content">
                 <div id="seccionproductos">
-                    <h2>Confirma tus productos</h2>
-                    <p>Estos son los productos que deseas comprar:</p>
+                    <div *ngIf="productos.length > 0">
+                        <h2>Confirma tus productos</h2>
+                        <p>Estos son los productos que deseas comprar:</p>
+                    </div>
                     <div id="divproductos" class="row">
                         <div
                             class="card mb-3 m-3"
                             style="max-width: 240px"
                             *ngFor="let producto of productos"
                         >
-                            <div class="row no-gutters">
-                                <div class="div-card-img">
+                            <div class="row no-gutters h-100">
+                                <div class="div-card-img w-100 text-center">
                                     <img
-                                        class="card-img"
+                                        class="mx-auto card-img"
                                         src="{{ producto.imagen }}"
                                         alt=""
                                     />
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#">{{ producto.nombre }}</a>
-                                    </h4>
-                                    <h5>${{ producto.precio }}</h5>
-                                    <p class="card-text">
-                                        {{ producto.descripcion }}
-                                    </p>
-                                    <p class="card-text">
-                                        <strong> Cantidad </strong>: {{ producto.cantidad }}
-                                    </p>
-                                    <a id="elimnarcart" class="btn btn-danger btn-sm" (click)="eliminardelCarrito(producto.id)" >Eliminar</a>
+                                    <div class="card-top">
+                                        <h4 class="card-title">
+                                            <a href="#">{{
+                                                producto.nombre
+                                            }}</a>
+                                        </h4>
+                                        <h5>${{ producto.precio }}</h5>
+                                        <p class="card-text">
+                                            {{ producto.descripcion }}
+                                        </p>
+                                        <p class="card-text">
+                                            <strong> Cantidad </strong>:
+                                            {{ producto.cantidad }}
+                                        </p>
+                                    </div>
+
+                                    <a
+                                        id="elimnarcart"
+                                        class="btn btn-danger btn-sm"
+                                        (click)="
+                                            eliminardelCarrito(producto.id)
+                                        "
+                                        >Eliminar</a
+                                    >
                                 </div>
-                            </div> 
-                        </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="productos.length == 0" class="text-center">
+                        <h2 class="mb-5">
+                            Aún no has agregado ningún producto al carrito.
+                        </h2>
+                        <a [routerLink]="['/shop']" class="btn btn-primary"
+                            >Compra ahora!</a
+                        >
                     </div>
                 </div>
-                <button (click)="next()" class="mt-3 btn btn-primary">
-                    Next
-                </button>
+                <div *ngIf="productos.length > 0">
+                    <button (click)="next()" class="mt-3 btn btn-primary">
+                        Siguiente
+                    </button>
+                </div>
             </div>
             <div id="test-l-2" class="content">
                 <h2 class="pb-4">¿Cómo deseas hacer el pago?</h2>
@@ -98,7 +123,7 @@
                     </div>
                 </div>
                 <button (click)="realizarCompra()" class="btn btn-primary mt-3">
-                    Next
+                    Siguiente
                 </button>
             </div>
             <div id="test-l-3" class="content text-center">
