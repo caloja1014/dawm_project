@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import Stepper from 'bs-stepper';
 import { AuthService } from 'src/services/auth/auth.service';
+import { ProductsService } from 'src/services/products/products.service';
 
 @Component({
     selector: 'app-cart',
@@ -10,40 +11,28 @@ import { AuthService } from 'src/services/auth/auth.service';
 export class CartComponent implements OnInit {
     private stepper!: Stepper;
 
-    productos: any;
+    productos: any = [];
 
-    constructor(private _authService: AuthService) {
+    constructor(private _authService: AuthService,private prodServ: ProductsService) {
         _authService.setIsCompras(true);
-        this.productos = [
-            {
-                categoria: 'otros',
-                nombre: 'Portavelas',
-                descripcion:
-                    'Porta velas de madera más tres velitas led a pilas, incluye cajita de regalo. Lindo detalle',
-                precio: 4,
-                img: 'portavelas.jpg',
-            },
-            {
-                categoria: 'otros',
-                nombre: 'Tapetes navieños',
-                descripcion: 'Tapetes navideños tejidos a mano',
-                precio: 5,
-                img: 'tapetesNavidenos.jpg',
-            },
-            {
-                categoria: 'otros',
-                nombre: 'Colgante de cumpleaños',
-                descripcion:
-                    'Ahora será fácil recordar los cumpleaños de tu familia con este lindo colgante. Incluye caja',
-                precio: 10,
-                img: 'colganteCumpleanos.jpg',
-            },
-        ];
+        this.cargarCarrito();        
     }
     next() {
         console.log(this.stepper);
         this.stepper.next();
     }
+
+    cargarCarrito() {
+        this.prodServ.obtenerCarrito().subscribe(
+          (res) => { 
+            console.log(res);
+            this.productos = res;
+          },
+          (err) => { console.log(err) }
+        );
+      } 
+
+     
 
     onSubmit() {
         return false;

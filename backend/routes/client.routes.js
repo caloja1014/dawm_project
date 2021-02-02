@@ -5,6 +5,7 @@ var auth = require("../middleware/auth")
 const diasController= require("../controllers/nodb/dias.controller");
 const noticiasController= require("../controllers/nodb/noticias.controller");
 const categoriaController = require("../controllers/db/categoria.controller");
+const productoController = require("../controllers/db/producto.controller")
 
 /* GET home page. */
 
@@ -17,4 +18,5 @@ router.post("/comprar",auth.verifyToken,diasController.create);
 router.get("/pedidos",auth.verifyToken,diasController.getCompraUsuario);
 router.get("/categ",categoriaController.getCategorias)
 router.get("/news",noticiasController.findAll);
+router.get("/prod/all",productoController.getAllProducts);
 module.exports = router;

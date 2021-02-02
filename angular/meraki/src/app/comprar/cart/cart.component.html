@@ -31,16 +31,14 @@
                     <div id="divproductos" class="row">
                         <div
                             class="card mb-3 m-3"
-                            style="max-width: 500px"
+                            style="max-width: 300px"
                             *ngFor="let producto of productos"
                         >
                             <div class="row no-gutters">
                                 <div class="div-card-img">
                                     <img
                                         class="card-img"
-                                        src="assets/productos/{{
-                                            producto.categoria
-                                        }}/{{ producto.img }}"
+                                        src="{{ producto.imagen }}"
                                         alt=""
                                     />
                                 </div>
@@ -51,6 +49,9 @@
                                     <h5>${{ producto.precio }}</h5>
                                     <p class="card-text">
                                         {{ producto.descripcion }}
+                                    </p>
+                                    <p class="card-text">
+                                        cantidad : {{ producto.cantidad }}
                                     </p>
                                 </div>
                             </div>

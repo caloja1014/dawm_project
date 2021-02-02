@@ -15,7 +15,7 @@ exports.create = (req, res) => {
             });
             totalVendido += p.cantidad * p.precio;
         }
-
+    
         var dias = new Date();
         mesesController.create({
             fecha: dias.toISOString(),
@@ -41,7 +41,15 @@ exports.create = (req, res) => {
             }
         )
             .then((data) => {
-                res.send(data);
+                
+                productoModel.deleteAllByCliente(req.userId,(err,r)=>{
+                    if (err) {
+                        console.log("error: ", err);
+                        res.status(500).send(err);
+                        return;
+                        }
+                    res.send(data);
+                })
             })
             .catch((err) => {
                 res.status(500).send({
@@ -51,6 +59,7 @@ exports.create = (req, res) => {
                 });
             });
     });
+    
 };
 
 exports.getVentaSemanal = (req, res) => {
