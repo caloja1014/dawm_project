@@ -35,8 +35,8 @@ exports.insertProducto = (producto, idAdmin, result) => {
     });
 };
 
-exports.getProdCliente = (idCliente, result) => {
-    var q = `select p.nombre nomProducto, p.costoBase precio, pc.cantidad cantidad, c.nombre categoria, p.imagen imagen, p.descripcion descripcion
+exports.getProdCliente = (idCliente,result) =>{
+    var q = `select p.id, p.nombre nomProducto, p.costoBase precio, pc.cantidad cantidad, c.nombre categoria, p.imagen imagen, p.descripcion descripcion
     from Producto p join ProdCliente pc join Categoria c 
     where p.id=pc.producto and p.idCategoria=c.id
     and pc.cliente = ${idCliente};`;
@@ -44,10 +44,11 @@ exports.getProdCliente = (idCliente, result) => {
     sql.query(q, (err, res) => {
         if (err) {
             console.log(err);
-            result(err, null);
-        } else {
-            console.log("resultado:" + res);
-            result(null, res);
+            result(err,null);
+        }
+        else{
+            console.log("resultado:"+res);
+            result(null,res)  
         }
     });
 };

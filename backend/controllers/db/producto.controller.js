@@ -70,15 +70,17 @@ exports.productosCarrito = (req, res) => {
                 });
             }
         }
-        let listaProductos = [];
-        for (let p of resultado) {
-            listaProductos.push({
-                cantidad: p.cantidad,
-                noombre: p.nomProducto,
-                precio: p.precio,
-                imagen: p.imagen,
-                descripcion: p.descripcion,
-            });
+        let listaProductos=[]
+        console.log("se obtuvo de la base: "+resultado);
+        for (let p of resultado){
+        listaProductos.push({
+            id: p.id,
+            cantidad:p.cantidad, 
+            nombre:p.nomProducto,
+            precio:p.precio,
+            imagen:p.imagen,
+            descripcion:p.descripcion 
+        });
         }
         res.send(listaProductos);
     });
@@ -88,7 +90,7 @@ const storageProduct = multer.diskStorage({
         cb(null, "public/assets/img/productos");
     },
     filename: function (req, file, cb) {
-        cb(null, `${file.originalname}`);
+        cb(null, `${file.originalname}`); 
     },
 });
 

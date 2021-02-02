@@ -82,6 +82,11 @@ div > h2 {
     outline: 0;
 }
 
+#elimnarcart{
+   background-color: #eb5b69;
+   border-color: #eb5b69;
+}
+
 @media (max-width: 576px) {
     #divproductos {
         justify-content: center;
