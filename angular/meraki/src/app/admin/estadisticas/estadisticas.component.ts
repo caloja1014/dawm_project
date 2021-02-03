@@ -183,13 +183,13 @@ export class EstadisticasComponent implements OnInit {
             console.log(datos);
             let meses = [];
             let ventas = [];
-        
+
             let keys = Object.keys(datos);
             for (let d of keys) {
                 meses.push(d);
                 ventas.push(parseInt(datos[d]));
             }
-            let maximo=Math.max(...ventas)+20
+            let maximo = Math.max(...ventas) + 20;
             this.myBarChart = new Chart('myBarChart', {
                 type: 'bar',
                 data: {
@@ -377,6 +377,7 @@ export class EstadisticasComponent implements OnInit {
     cambiarCategoria(event: any) {
         let categoria: any = document.getElementById('categoria');
         categoria = categoria.value;
+        this.myBarChart.destroy();
         this.cargarJSONBar(categoria);
     }
 }

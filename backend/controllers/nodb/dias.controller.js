@@ -15,15 +15,15 @@ exports.create = (req, res) => {
             });
             totalVendido += p.cantidad * p.precio;
         }
-    
+
         var dias = new Date();
-        console.log("metodo de pago:"+req.body.metodoPago);
+        console.log("metodo de pago:" + req.body.metodoPago);
         mesesController.create({
             fecha: dias.toISOString(),
             productos: listaProductos,
             total: totalVendido,
         });
-        Dias.updateOne(            
+        Dias.updateOne(
             {
                 fecha: dias,
             },
@@ -34,7 +34,6 @@ exports.create = (req, res) => {
                         productos: listaProductos,
                         total: totalVendido,
                         metodoPago: req.body.metodoPago,
-                        
                     },
                 },
             },
@@ -43,15 +42,14 @@ exports.create = (req, res) => {
             }
         )
             .then((data) => {
-                
-                productoModel.deleteAllByCliente(req.userId,(err,r)=>{
+                productoModel.deleteAllByCliente(req.userId, (err, r) => {
                     if (err) {
                         console.log("error: ", err);
                         res.status(500).send(err);
                         return;
-                        }
+                    }
                     res.send(data);
-                })
+                });
             })
             .catch((err) => {
                 res.status(500).send({
@@ -61,7 +59,6 @@ exports.create = (req, res) => {
                 });
             });
     });
-    
 };
 
 exports.getVentaSemanal = (req, res) => {
