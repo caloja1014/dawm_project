@@ -256,10 +256,21 @@ export class ShopComponent implements OnInit {
                                 producto.descripcion +
                                 '</p>' +
                                 '</div>' +
-                                '<a class="button px-3 btn-comprar">Seleccionar</a>';
+                                '<a id="buscar-' +
+                                producto.id +
+                                '" class="button px-3 btn-comprar">Seleccionar</a>';
                             '</div>' + '</div>' + '</div>';
                         }
                     }
+                }
+                let divcateg = document.getElementById('divBusqueda');
+                const productosC = divcateg!.children;
+
+                for (let divProducto of <any>productosC) {
+                    let btnComprar = divProducto.getElementsByClassName(
+                        'button'
+                    )[0];
+                    btnComprar.onclick = this.openModal;
                 }
             }
         };

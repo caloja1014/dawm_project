@@ -2,7 +2,6 @@ const sql = require("../config/databaseCon");
 const encriptacion = require("../lib/encriptacion");
 exports.insertCliente = (email, pass, result) => {
     var user = email.split("@")[0];
-    console.log(user);
     searchUserName(user, (err, res) => {
         if (err) {
             result(err, null);
@@ -51,7 +50,7 @@ exports.findByEmail = (email, result) => {
     });
 };
 
-exports.update = (id, body, result) => {
+exports.update = async (id, body, result) => {
     let query = "";
     let params = [];
     if (body.newpass == "") {
@@ -59,7 +58,7 @@ exports.update = (id, body, result) => {
             "UPDATE Cliente SET username = ?, nombres = ?, apellidos = ?, celular = ? WHERE id = ?";
         params = [body.username, body.name, body.lastname, body.cell, id];
     } else {
-        let newPassword = encriptacion.encryptPassword(body.newpass);
+        let newPassword = await encriptacion.encryptPassword(body.newpass);
         query =
             "UPDATE Cliente SET username = ?, password = ?, nombres = ?, apellidos = ?, celular = ? WHERE id = ?";
         params = [
@@ -76,12 +75,12 @@ exports.update = (id, body, result) => {
             result(err, null);
             return;
         } else if (res.length && res[0].id != id) {
-            console.log(res[0]);
             result({ kind: "username_exists" }, null);
             return;
         } else {
             sql.query(query, params, (err, data) => {
                 if (err) {
+                    console.log(err);
                     result(null, err);
                     return;
                 } else if (data.affectedRows == 0) {
