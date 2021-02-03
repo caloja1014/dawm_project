@@ -1,0 +1,75 @@
+<div id="wrapper">
+    <app-aside></app-aside>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content mb-5">
+            <!-- Topbar -->
+            <app-navbar-admin></app-navbar-admin>
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">Reportes</h1>
+                <p class="mb-4"></p>
+
+                <!-- Content Row -->
+                <div class="row">
+                    <div class="col-11">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    Reporte anual por categoría
+                                </h6>
+                            </div>
+                            <div class="mx-3 card-body">
+                                <div class="form-group row mb-3">
+                                    <div class="col-2 mt-2">
+                                        <label for="categoria"
+                                            >Categoría:
+                                        </label>
+                                    </div>
+                                    <div class="col-3">
+                                        <select
+                                            class="form-control"
+                                            name="categoria"
+                                            id="categoria"
+                                            (change)="cambiarCategoria()"
+                                        >
+                                            <option
+                                                *ngFor="let categ of categorias"
+                                                value="{{ categ }}"
+                                            >
+                                                {{ categ }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <table class="table table-hover">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Mes</th>
+                                            <th scope="col">Ingreso Mensual</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr
+                                            *ngFor="
+                                                let mes of meses;
+                                                let i = index
+                                            "
+                                        >
+                                            <th scope="row">{{ i + 1 }}</th>
+                                            <td>{{ mes }}</td>
+                                            <td>
+                                                {{ ventasMensuales[mes] }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

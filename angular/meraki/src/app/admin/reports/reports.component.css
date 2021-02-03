@@ -1,0 +1,72 @@
+:root {
+    --pie1: #9d1515;
+    --pie2: #d40a18;
+    --pie3: #f1441c;
+    --pie4: #fe761e;
+    --pie5: #3a778a;
+    --pie6: #a3a3a3;
+}
+.pie1 {
+    color: #9d1515 !important;
+}
+.pie2 {
+    color: #d40a18 !important;
+}
+.pie3 {
+    color: #f1441c !important;
+}
+.pie4 {
+    color: #fe761e !important;
+}
+.pie5 {
+    color: #3a778a !important;
+}
+.pie6 {
+    color: #a3a3a3 !important;
+}
+.sidebar-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-content: space-around;
+}
+
+.sidebar-logo:hover {
+    text-decoration: none !important;
+    color: white;
+}
+
+.sidebar.toggled .sidebar-logo .sidebar-brand-text {
+    display: none;
+}
+
+#titAdmin {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    #titAdmin {
+        font-size: 20px;
+    }
+}
+
+li.sidebar-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 10px;
+}
+
+li .text-center.d-none.d-md-inline {
+    position: relative;
+    left: 35%;
+}
+
+.bootstrap-datetimepicker-widget tr:hover {
+    background-color: #808080;
+}

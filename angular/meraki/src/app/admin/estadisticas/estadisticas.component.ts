@@ -25,7 +25,7 @@ export class EstadisticasComponent implements OnInit {
     ];
 
     categorias: any = [];
-    nomAdmin = "";
+    nomAdmin = '';
     constructor(
         private _adminService: AdminService,
         private _router: Router,
@@ -180,6 +180,7 @@ export class EstadisticasComponent implements OnInit {
 
     cargarJSONBar = (categoria: string) => {
         this._adminService.getVentasAnuales(categoria).subscribe((datos) => {
+            console.log(datos);
             let meses = [];
             let ventas = [];
             let keys = Object.keys(datos);

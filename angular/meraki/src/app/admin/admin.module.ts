@@ -12,6 +12,7 @@ import { AddproductComponent } from './addproduct/addproduct.component';
 import { FormsModule } from '@angular/forms';
 import { AngularFileUploaderModule } from 'angular-file-uploader';
 import { RouterModule } from '@angular/router';
+import { ReportsComponent } from './reports/reports.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { RouterModule } from '@angular/router';
         AddnewComponent,
         AddcategComponent,
         AddproductComponent,
+        ReportsComponent,
     ],
     imports: [
         CommonModule,

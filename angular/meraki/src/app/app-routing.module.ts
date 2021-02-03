@@ -17,6 +17,7 @@ import { EstadisticasComponent } from './admin/estadisticas/estadisticas.compone
 import { AddproductComponent } from './admin/addproduct/addproduct.component';
 import { AuthGuard } from './auth.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { ReportsComponent } from './admin/reports/reports.component';
 
 const routes: Routes = [
     { path: 'shop', component: ShopComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
     { path: 'stats', component: EstadisticasComponent },
     { path: 'addproduct', component: AddproductComponent },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+    { path: 'reports', component: ReportsComponent },
 ];
 
 @NgModule({
