@@ -148,3 +148,7 @@ a:hover {
     cursor: wait !important;
     z-index: 999 !important;
 }
+
+body {
+    height: auto;
+}

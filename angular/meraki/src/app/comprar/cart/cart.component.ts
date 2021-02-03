@@ -14,6 +14,14 @@ export class CartComponent implements OnInit {
     productos: any = [];
     body = { metodoPago: '' };
 
+    productEdit = {
+        id: '',
+        nombre: '',
+        precio: 0,
+        descripcion: '',
+        imagen: '',
+        cantidad: 0,
+    };
     constructor(
         private _authService: AuthService,
         private prodServ: ProductsService
@@ -90,5 +98,39 @@ export class CartComponent implements OnInit {
         }
 
         this.metodopago();
+    }
+
+    openEditModal(producto: any) {
+        console.log(producto);
+        this.productEdit.id = producto.id;
+        this.productEdit.cantidad = producto.cantidad;
+        this.productEdit.nombre = producto.nombre;
+        this.productEdit.precio = producto.precio;
+        this.productEdit.imagen = producto.imagen;
+        this.productEdit.descripcion = producto.descripcion;
+
+        let editarBtn = <HTMLElement>document.getElementById('addCart');
+        editarBtn.onclick = (e) => {
+            if(this.productEdit.cantidad<1){
+                return alert("No se admiten cantidades negativas");
+            }
+            this.prodServ
+                .editarCantidadProdCart({
+                    id: this.productEdit.id,
+                    cantidad: this.productEdit.cantidad,
+                })
+                .subscribe(
+                    (res) => {
+                        this.cargarCarrito();
+                        document.getElementById('closeModalCart')?.click();
+                    },
+                    (err) => {
+                        alert(
+                            'Ha ocurrido un error al querer actualizar la cantidad de su producto.'
+                        );
+                    }
+                );
+        };
+        document.getElementById('editBtn')?.click();
     }
 }

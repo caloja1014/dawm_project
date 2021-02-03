@@ -13,6 +13,7 @@ export class ProductsService {
     private getCarrito = 'http://localhost:3000/cart/prods';
     private getProductos = 'http://localhost:3000/prod/all';
     private deletefromcart = 'http://localhost:3000/cart/';
+    private editCant = 'http://localhost:3000/cart/edit';
     private realizarCompra = 'http://localhost:3000/comprar';
     constructor(private http: HttpClient) {}
 
@@ -42,6 +43,10 @@ export class ProductsService {
 
     eliminarProducto(id: any) {
         return this.http.delete<any>(this.productodelete + '/' + id);
+    }
+
+    editarCantidadProdCart(body: any) {
+        return this.http.put<any>(this.editCant, body);
     }
 
     borrarDelCarrito(id: string) {

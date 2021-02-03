@@ -188,3 +188,22 @@ exports.eliminarProducto = (req, res) => {
         }
     );
 };
+
+exports.editProdCarrito = (req, res) => {
+    console.log([req.body.cantidad, req.body.id, req.userId]);
+    sql.query(
+        "UPDATE ProdCliente SET cantidad=? where producto=? and cliente=?",
+        [req.body.cantidad, req.body.id, req.userId],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+                res.status(400).send({
+                    message: "No se pudo actualizar el carrito",
+                });
+            } else {
+                console.log(result);
+                res.send(result);
+            }
+        }
+    );
+};
