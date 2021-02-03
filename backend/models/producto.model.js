@@ -1,6 +1,7 @@
 const sql = require("../config/databaseCon");
 const categoriaModel = require("./categoria.model");
 exports.insertProducto = (producto, idAdmin, result) => {
+    console.log("la categoria: " + producto.categoria);
     categoriaModel.findCategoria(producto.categoria, (er, re) => {
         if (re.length == 0) {
             result(

@@ -22,7 +22,8 @@
     ],
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports":true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "suppressImplicitAnyIndexErrors": true,
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,

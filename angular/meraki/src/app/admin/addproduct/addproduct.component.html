@@ -36,7 +36,7 @@
                         >
                             <span
                                 class="mr-2 d-none d-lg-inline text-gray-600 small"
-                                >{{nomAdmin}}</span
+                                >{{ nomAdmin }}</span
                             >
                             <img
                                 class="img-profile rounded-circle"
@@ -119,13 +119,16 @@
                                         class="form-field input-group col-lg-6"
                                     >
                                         <select
-                                            [(ngModel)]="productBody.categoria"
-                                            name = "categoria"
+                                            name="categoria"
                                             class="form-control form-categorias input-text js-input"
                                             id="sel1"
                                             required
                                         >
-                                            <option *ngFor="let cat of categorias">{{cat}}</option>                                            
+                                            <option
+                                                *ngFor="let cat of categorias"
+                                            >
+                                                {{ cat }}
+                                            </option>
                                         </select>
                                         <label class="label" for="categoria"
                                             >Elija una categoría</label
@@ -145,19 +148,23 @@
                                         >
                                     </div>
                                     <div class="form-field col-lg-12">
-                                        <label class="labelDesc" for="descripcion"
+                                        <label
+                                            class="labelDesc"
+                                            for="descripcion"
                                             >Descripción del producto</label
                                         >
                                         <textarea
-                                            [(ngModel)]="productBody.descripcion"
-                                            name = "descripcion"
+                                            [(ngModel)]="
+                                                productBody.descripcion
+                                            "
+                                            name="descripcion"
                                             class="form-control"
                                             id="Textarea1"
                                             rows="3"
                                         ></textarea>
                                     </div>
                                     <button
-                                    (click)="next()"
+                                        (click)="next()"
                                         class="btn btn-primary mt-3"
                                     >
                                         Aceptar
@@ -180,13 +187,11 @@
                                             (change)="saveEvent($event)"
                                             id="inputFileProduct"
                                             class="form-control-file py-4"
-                                            
                                         />
                                     </div>
                                 </form>
                             </div>
                             <button
-                                
                                 (click)="crearProducto()"
                                 class="btn btn-primary mt-3"
                             >

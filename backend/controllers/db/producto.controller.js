@@ -5,6 +5,7 @@ const sql = require("../../config/databaseCon");
 exports.agregarProducto = (req, res) => {
     producto.insertProducto(req.body, req.adminId, (err, result) => {
         if (err) {
+            console.log(err);
             res.status(500).send({
                 message:
                     err.toString() ||
@@ -70,17 +71,17 @@ exports.productosCarrito = (req, res) => {
                 });
             }
         }
-        let listaProductos=[]
-        console.log("se obtuvo de la base: "+resultado);
-        for (let p of resultado){
-        listaProductos.push({
-            id: p.id,
-            cantidad:p.cantidad, 
-            nombre:p.nomProducto,
-            precio:p.precio,
-            imagen:p.imagen,
-            descripcion:p.descripcion 
-        });
+        let listaProductos = [];
+        console.log("se obtuvo de la base: " + resultado);
+        for (let p of resultado) {
+            listaProductos.push({
+                id: p.id,
+                cantidad: p.cantidad,
+                nombre: p.nomProducto,
+                precio: p.precio,
+                imagen: p.imagen,
+                descripcion: p.descripcion,
+            });
         }
         res.send(listaProductos);
     });
@@ -90,7 +91,7 @@ const storageProduct = multer.diskStorage({
         cb(null, "public/assets/img/productos");
     },
     filename: function (req, file, cb) {
-        cb(null, `${file.originalname}`); 
+        cb(null, `${file.originalname}`);
     },
 });
 
@@ -108,8 +109,7 @@ exports.getAllProducts = (req, res) => {
         } else {
             for (var reg of resultado) {
                 var categExists = false;
-                for (let cat of products){
-
+                for (let cat of products) {
                     if (cat.categoria == reg.categoria) {
                         categExists = true;
                         cat.productos.push({
@@ -121,8 +121,7 @@ exports.getAllProducts = (req, res) => {
                         });
                     }
                 }
-                if(!categExists){
-                    
+                if (!categExists) {
                     products.push({
                         categoria: reg.categoria,
                         header: {
@@ -143,4 +142,49 @@ exports.getAllProducts = (req, res) => {
         }
         res.send(products);
     });
+};
+
+exports.editarProducto = (req, res) => {
+    sql.query(
+        "UPDATE Producto SET nombre=?, descripcion=?, costoBase=? where id=?",
+        [req.body.nombre, req.body.descripcion, req.body.precio, req.body.id],
+        (err, result) => {
+            if (err) {
+                res.status(400).send({
+                    message: "No se pudo obtener los productos",
+                });
+            } else {
+                res.send(result);
+            }
+        }
+    );
+};
+
+exports.eliminarProducto = (req, res) => {
+    sql.query(
+        "DELETE FROM ProdCliente WHERE producto=?",
+        [req.params.id],
+        (err1, res1) => {
+            if (err1) {
+                console.log(err1);
+                res.status(400).send({
+                    message: "No se pudo obtener los productos",
+                });
+            } else {
+                sql.query(
+                    "DELETE FROM Producto WHERE id=?",
+                    [req.params.id],
+                    (err2, res2) => {
+                        if (err2) {
+                            res.status(400).send({
+                                message: "No se pudo obtener los productos",
+                            });
+                        } else {
+                            res.send(res2);
+                        }
+                    }
+                );
+            }
+        }
+    );
 };

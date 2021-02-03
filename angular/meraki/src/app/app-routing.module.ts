@@ -18,6 +18,7 @@ import { AddproductComponent } from './admin/addproduct/addproduct.component';
 import { AuthGuard } from './auth.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { ReportsComponent } from './admin/reports/reports.component';
+import { CrudProductComponent } from './admin/cruds/crud-product/crud-product.component';
 
 const routes: Routes = [
     { path: 'shop', component: ShopComponent },
@@ -35,6 +36,7 @@ const routes: Routes = [
     { path: 'addproduct', component: AddproductComponent },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'reports', component: ReportsComponent },
+    { path: 'products', component: CrudProductComponent },
 ];
 
 @NgModule({

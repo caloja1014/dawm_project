@@ -73,6 +73,10 @@ export class AddproductComponent implements OnInit {
         this.productBody.imagen =
             'http://localhost:3000/assets/img/productos/' +
             nombre.value.split('\\')[2];
+        this.productBody.categoria = (<any>(
+            document.getElementById('sel1')
+        )).value;
+        console.log(this.productBody);
         this.serv.crearProducto(this.productBody).subscribe(
             (res) => {
                 this.next();

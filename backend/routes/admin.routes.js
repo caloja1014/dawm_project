@@ -14,6 +14,19 @@ router.post(
     auth.verifyAdmin,
     productosController.agregarProducto
 );
+
+router.put(
+    "/editProduct",
+    auth.verifyAdmin,
+    productosController.editarProducto
+);
+
+router.delete(
+    "/deleteProduct/:id",
+    auth.verifyAdmin,
+    productosController.eliminarProducto
+);
+
 router.post("/ventaSemanal", auth.verifyAdmin, diasController.getVentaSemanal);
 router.post("/addCateg", auth.verifyAdmin, categoriaController.crearCategoria);
 router.get("/pie", auth.verifyAdmin, mesesController.ventaAnualCategorias);
@@ -53,7 +66,6 @@ router.post(
         res.status(200).send({ mensaje: "exitoso" });
     }
 );
-
 router.post("/addNew", auth.verifyAdmin, noticiasController.create);
 
 router.get("/profile", auth.verifyAdmin, adminController.getProfile);

@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductsService {
     private productopost = 'http://localhost:3000/admin/addProduct';
+    private productoput = 'http://localhost:3000/admin/editProduct';
+    private productodelete = 'http://localhost:3000/admin/deleteProduct';
     private photoPost = 'http://localhost:3000/admin/addPhotop';
     private addCartPost = 'http://localhost:3000/cart/add';
     private getCarrito = 'http://localhost:3000/cart/prods';
@@ -34,11 +36,19 @@ export class ProductsService {
         return this.http.get<any>(this.getProductos);
     }
 
+    editarProducto(body: any) {
+        return this.http.put<any>(this.productoput, body);
+    }
+
+    eliminarProducto(id: any) {
+        return this.http.delete<any>(this.productodelete + '/' + id);
+    }
+
     borrarDelCarrito(id: string) {
         return this.http.delete<any>(this.deletefromcart + id);
     }
 
     RealizarCompra(compra: any) {
-      return this.http.post<any>(this.realizarCompra,compra);
-  }
+        return this.http.post<any>(this.realizarCompra, compra);
+    }
 }
