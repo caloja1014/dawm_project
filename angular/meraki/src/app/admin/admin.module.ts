@@ -14,6 +14,7 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
 import { RouterModule } from '@angular/router';
 import { ReportsComponent } from './reports/reports.component';
 import { CrudProductComponent } from './cruds/crud-product/crud-product.component';
+import { CrudCategoriaComponent } from './cruds/crud-categoria/crud-categoria.component';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { CrudProductComponent } from './cruds/crud-product/crud-product.componen
         AddproductComponent,
         ReportsComponent,
         CrudProductComponent,
+        CrudCategoriaComponent,
     ],
     imports: [
         CommonModule,

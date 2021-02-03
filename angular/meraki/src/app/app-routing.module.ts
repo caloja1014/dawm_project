@@ -19,6 +19,7 @@ import { AuthGuard } from './auth.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { ReportsComponent } from './admin/reports/reports.component';
 import { CrudProductComponent } from './admin/cruds/crud-product/crud-product.component';
+import { CrudCategoriaComponent } from './admin/cruds/crud-categoria/crud-categoria.component';
 
 const routes: Routes = [
     { path: 'shop', component: ShopComponent },
@@ -37,6 +38,7 @@ const routes: Routes = [
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'reports', component: ReportsComponent },
     { path: 'products', component: CrudProductComponent },
+    { path: 'categs', component: CrudCategoriaComponent },
 ];
 
 @NgModule({

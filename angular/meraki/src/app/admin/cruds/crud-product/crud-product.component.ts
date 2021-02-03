@@ -38,6 +38,7 @@ export class CrudProductComponent implements OnInit {
                     precio: this.poductoEdit.precio,
                 })
                 .subscribe((res) => {
+                    document.getElementById('btnCloseEdit')?.click();
                     this.cargarProductos();
                 });
         };

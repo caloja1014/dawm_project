@@ -29,6 +29,14 @@ router.delete(
 
 router.post("/ventaSemanal", auth.verifyAdmin, diasController.getVentaSemanal);
 router.post("/addCateg", auth.verifyAdmin, categoriaController.crearCategoria);
+router.get("/allCateg", categoriaController.getAllCateg);
+router.put("/editCateg", auth.verifyAdmin, categoriaController.editarCategoria);
+router.delete(
+    "/deleteCateg/:id",
+    auth.verifyAdmin,
+    categoriaController.eliminarCategoria
+);
+
 router.get("/pie", auth.verifyAdmin, mesesController.ventaAnualCategorias);
 
 router.get(
