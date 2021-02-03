@@ -2,183 +2,187 @@
     font-family: Ubuntu-Bold;
     src: url('../fonts/ubuntu/Ubuntu-Bold.ttf'); 
   }**/
-  
-  /*//////////////////////////////////////////////////////////////////
+
+/*//////////////////////////////////////////////////////////////////
   [ RESTYLE TAG ]*/
-  
-  * {
-      margin: 0px; 
-      padding: 0px; 
-      box-sizing: border-box;
-  }
-  
- #titulo{
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#titulo {
     color: #ec823a;
     padding-top: 50px;
     padding-left: 50px;
     font-weight: bold;
- }
+}
 
-  /*---------------------------------------------*/
-  input {
-      outline: none;
-      border: none;
-  }
-  
-  input[type="number"] {
-      -moz-appearance: textfield;
-      appearance: none;
-      -webkit-appearance: none;
-  }
-  
-  input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-  }
-  
-  textarea {
+/*---------------------------------------------*/
+input {
     outline: none;
     border: none;
-  }
-  
-  textarea:focus, input:focus {
-    
-    box-shadow: 0 0 10px #7c3c21;
+}
 
-  }
-  
-  input::-webkit-input-placeholder { color: #bdbdd3;}
-  input:-moz-placeholder { color: #bdbdd3;}
-  input::-moz-placeholder { color: #bdbdd3;}
-  input:-ms-input-placeholder { color: #bdbdd3;}
-  
-  textarea::-webkit-input-placeholder { color: #bdbdd3;}
-  textarea:-moz-placeholder { color: #bdbdd3;}
-  textarea::-moz-placeholder { color: #bdbdd3;}
-  textarea:-ms-input-placeholder { color: #bdbdd3;}
-  
-  /*---------------------------------------------*/
-  button {
-      outline: none !important;
-      border: none;
-      background: transparent;
-  }
-  
-  button:hover {
-      cursor: pointer;
-      
-  }
-  
-  iframe {
-      border: none !important;
-  }
-  
-  
-  /*---------------------------------------------*/
-  .container {
-      max-width: 1200px;
-  }
-  
-  
-  
-  
-  /*//////////////////////////////////////////////////////////////////
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+textarea {
+    outline: none;
+    border: none;
+}
+
+textarea:focus,
+input:focus {
+    box-shadow: 0 0 10px #7c3c21;
+}
+
+input::-webkit-input-placeholder {
+    color: #bdbdd3;
+}
+input:-moz-placeholder {
+    color: #bdbdd3;
+}
+input::-moz-placeholder {
+    color: #bdbdd3;
+}
+input:-ms-input-placeholder {
+    color: #bdbdd3;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #bdbdd3;
+}
+textarea:-moz-placeholder {
+    color: #bdbdd3;
+}
+textarea::-moz-placeholder {
+    color: #bdbdd3;
+}
+textarea:-ms-input-placeholder {
+    color: #bdbdd3;
+}
+
+/*---------------------------------------------*/
+button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+iframe {
+    border: none !important;
+}
+
+/*---------------------------------------------*/
+.container {
+    max-width: 1200px;
+}
+
+/*//////////////////////////////////////////////////////////////////
   [ Contact ]*/
-  
+
 .container-contact100 {
-    
-    width: 100%;  
+    width: 100%;
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    
+
     position: relative;
-    
-  }
-  
-  .wrap-contact100 {
+}
+
+.wrap-contact100 {
     width: 70%;
     padding-top: 50px;
     padding-left: 50px;
-    
-  }
+}
 
-  .contenedor1{
+.contenedor1 {
     background-color: #ec823a;
     width: 100%;
     height: 100%;
     padding-bottom: 40px;
+}
 
-  }
-  
-  /*==================================================================
+/*==================================================================
   [ Form ]*/
-  
-  .contact100-form {
+
+.contact100-form {
     width: 100%;
-  }
-  
-  .contact100-form-title {
+}
+
+.contact100-form-title {
     display: block;
-    font-family: 'Ubuntu';
+    font-family: "Ubuntu";
     font-size: 30px;
     color: white;
     line-height: 1.2;
     text-transform: uppercase;
     text-align: left;
     padding-bottom: 1px;
-  }
-  
-  footer{
-    width:100%;
-  }
-  /*------------------------------------------------------------------
+}
+
+footer {
+    width: 100%;
+}
+/*------------------------------------------------------------------
   [ Input ]*/
-  
-  .wrap-input100 {
+
+.wrap-input100 {
     width: 100%;
     background-color: #fff;
-    
+
     margin-bottom: 16px;
     position: relative;
     z-index: 1;
-    
-  }
-  
-  .input100, select {
+}
+
+.input100,
+select {
     position: relative;
     display: block;
     width: 100%;
     background: #fff;
-   
-    font-family: 'Ubuntu', sans-serif;
-   
+
+    font-family: "Ubuntu", sans-serif;
+
     font-size: 18px;
     color: #8f8fa1;
     line-height: 1.2;
-  }
-  
-  
-  /*---------------------------------------------*/
-  input.input100, select {
+}
+
+/*---------------------------------------------*/
+input.input100,
+select {
     height: 40px;
     padding: 0 40px 0 10px;
-    
-  }
-  
-  
-  textarea.input100 {
+}
+
+textarea.input100 {
     min-height: 169px;
     padding: 19px 35px 0 10px;
-  }
-  
-  /*------------------------------------------------------------------
+}
+
+/*------------------------------------------------------------------
   [ Focus Input ]*/
-  
-  .focus-input100 {
+
+.focus-input100 {
     display: block;
     position: absolute;
     z-index: -1;
@@ -194,18 +198,17 @@
     border-radius: 31px;
     background-color: #fff;
     pointer-events: none;
-    
+
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
     background-color: #fff;
-  }
-  
-  
-  /*------------------------------------------------------------------
+}
+
+/*------------------------------------------------------------------
   [ Button ]*/
-  .container-contact100-form-btn {
+.container-contact100-form-btn {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -214,9 +217,9 @@
     flex-wrap: wrap;
     justify-content: center;
     padding-top: 10px;
-  }
-  
-  .contact100-form-btn {
+}
+
+.contact100-form-btn {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -229,23 +232,22 @@
     height: 62px;
     background-color: transparent;
     border-radius: 31px;
-  
-    font-family: 'Ubuntu', sans-serif;
+
+    font-family: "Ubuntu", sans-serif;
     font-size: 16px;
     color: #fff;
     line-height: 1.2;
     text-transform: uppercase;
-  
+
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
     position: relative;
     z-index: 1;
-  }
+}
 
-  
-  .contact100-form-btn::before {
+.contact100-form-btn::before {
     content: "";
     display: block;
     position: absolute;
@@ -261,36 +263,34 @@
     transform: translateX(-50%);
     border-radius: 31px;
     background-color: #7c3c21;
-    
+
     pointer-events: none;
-    
+
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
-  }
-  
-hr.light2 {
-    border-color: #7c3c21;
-    margin-bottom: 1rem ;
-    margin-top: 0.5rem !important;
-}
-  
-  
-.contact100-form-btn:hover:before {
-  background-color: #3b2014;
-  width: calc(100% + 20px);
 }
 
-  
-  /*------------------------------------------------------------------
+hr.light2 {
+    border-color: #7c3c21;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem !important;
+}
+
+.contact100-form-btn:hover:before {
+    background-color: #3b2014;
+    width: calc(100% + 20px);
+}
+
+/*------------------------------------------------------------------
   [ Alert validate ]*/
-  
-  .validate-input {
+
+.validate-input {
     position: relative;
-  }
-  
-  .alert-validate::before {
+}
+
+.alert-validate::before {
     content: attr(data-validate);
     position: absolute;
     z-index: 1000;
@@ -307,23 +307,23 @@ hr.light2 {
     transform: translateY(-50%);
     right: 10px;
     pointer-events: none;
-  
-    font-family: 'Ubuntu', sans-serif;
+
+    font-family: "Ubuntu", sans-serif;
     color: #c80000;
     font-size: 13px;
     line-height: 1.4;
     text-align: left;
-  
+
     visibility: hidden;
     opacity: 0;
-  
+
     -webkit-transition: opacity 0.4s;
     -o-transition: opacity 0.4s;
     -moz-transition: opacity 0.4s;
     transition: opacity 0.4s;
-  }
-  
-  .alert-validate::after {
+}
+
+.alert-validate::after {
     font-family: "Font Awesome 5 Free";
     content: "\f06a";
     font-weight: 900;
@@ -339,139 +339,130 @@ hr.light2 {
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
     right: 16px;
-  }
-  
-  .alert-validate:hover:before {
+}
+
+.alert-validate:hover:before {
     visibility: visible;
     opacity: 1;
-  }
+}
 
-  .mapa iframe{
-      position: absolute;
-      
-      top:60px;
-      right: 100px;
-      box-shadow: 1px 1px 10px rgba(0,0,0,0.4);
-  }
-  .mapa{
+.mapa iframe {
+    position: absolute;
+
+    top: 60px;
+    right: 100px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+}
+.mapa {
     background-color: white;
-    width:100%;
-    height:100%
-  }
-  
-  .mapa > h2, h2>hr {
+    width: 100%;
+    height: 100%;
+}
+
+.mapa > h2,
+h2 > hr {
     display: none;
-  }
-
-option:first-child{
-  color: #8f8fa1;
 }
 
-@media (max-width: 1100px) { 
-
-  .alert-validate::before {
-    visibility: visible;
-    opacity: 1;
-  }
-  .contact100-form-title {
-    text-align: center;    
-  }
-
-  hr.light2 {
-    position: relative;
-    left: 45%;
-  }
-
-  .wrap-contact100, select {
-    
-    width: 70%;
-    padding-top: 50px;
-    padding-left: 0px;
- 
-  }
-  
-  .container-contact100 {
-    display: grid;
-    grid-template-columns: 1fr;  
-    
-   }
-
-   .mapa iframe{
-    position: static;  
-    width: 600px ;      
-    height: 400px;
-    
+option:first-child {
+    color: #8f8fa1;
 }
 
-.mapa{
-  padding-left: 0px ;
-  padding-bottom: 20px;
-}
-
-.contenedor1{
-  display: flex;
-  justify-content: center;
-  
-}
-
-.input100, select {
-  
-  width: 100%;
-  font-size: 15px;
-  color: #8f8fa1;
-  line-height: 1.2;
-}
-
-.mapa > h2, h2>hr {
-  display:block;
-}
-
-.divmapa{
-  display: flex;
-  justify-content: center;
-}
-
-.mapa > h2{
-  display:block;
-  display: block;
-    font-family: 'Ubuntu';
-    font-size: 30px;
-    line-height: 1.2;
-    text-transform: uppercase;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-
-
-  }
-
-
-  @media (max-width: 576px) { 
-    input.input100, select{
-      height: 35px;
-      padding: 0 40px 0 18px;
+@media (max-width: 1100px) {
+    .alert-validate::before {
+        visibility: visible;
+        opacity: 1;
     }
     .contact100-form-title {
-      text-align: center;
-      font-size: 20px;
+        text-align: center;
     }
 
-    .mapa > h2{
-        font-size: 20px;
-        
+    hr.light2 {
+        position: relative;
+        left: 45%;
     }
-    textarea.input100 {
-      min-height: 150px;
-      padding: 5px 40px 0 15px;
-  }
 
-  .mapa iframe{
-    position: static;  
-    width: 300px ;      
-    height: 400px;
-    
+    .wrap-contact100,
+    select {
+        width: 70%;
+        padding-top: 50px;
+        padding-left: 0px;
+    }
+
+    .container-contact100 {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .mapa iframe {
+        position: static;
+        width: 600px;
+        height: 400px;
+    }
+
+    .mapa {
+        padding-left: 0px;
+        padding-bottom: 20px;
+    }
+
+    .contenedor1 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .input100,
+    select {
+        width: 100%;
+        font-size: 15px;
+        color: #8f8fa1;
+        line-height: 1.2;
+    }
+
+    .mapa > h2,
+    h2 > hr {
+        display: block;
+    }
+
+    .divmapa {
+        display: flex;
+        justify-content: center;
+    }
+
+    .mapa > h2 {
+        display: block;
+        display: block;
+        font-family: "Ubuntu";
+        font-size: 30px;
+        line-height: 1.2;
+        text-transform: uppercase;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 }
 
-  } 
+@media (max-width: 576px) {
+    input.input100,
+    select {
+        height: 35px;
+        padding: 0 40px 0 18px;
+    }
+    .contact100-form-title {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .mapa > h2 {
+        font-size: 20px;
+    }
+    textarea.input100 {
+        min-height: 150px;
+        padding: 5px 40px 0 15px;
+    }
+
+    .mapa iframe {
+        position: static;
+        width: 300px;
+        height: 400px;
+    }
+}

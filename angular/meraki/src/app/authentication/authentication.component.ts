@@ -100,4 +100,14 @@ export class AuthenticationComponent implements OnInit {
             document.getElementById(id)?.click();
         }
     }
+
+    cambiarARegister() {
+        document.getElementById('closeLogin')?.click();
+        document.getElementById('registrarseBtn')?.click();
+    }
+
+    cambiarALogin() {
+        document.getElementById('closeRegister')?.click();
+        document.getElementById('iniciarSesionBtn')?.click();
+    }
 }

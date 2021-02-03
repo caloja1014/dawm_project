@@ -1,29 +1,3 @@
-:root {
-    --pie1: #9d1515;
-    --pie2: #d40a18;
-    --pie3: #f1441c;
-    --pie4: #fe761e;
-    --pie5: #3a778a;
-    --pie6: #a3a3a3;
-}
-.pie1 {
-    color: #9d1515 !important;
-}
-.pie2 {
-    color: #d40a18 !important;
-}
-.pie3 {
-    color: #f1441c !important;
-}
-.pie4 {
-    color: #fe761e !important;
-}
-.pie5 {
-    color: #3a778a !important;
-}
-.pie6 {
-    color: #a3a3a3 !important;
-}
 .sidebar-logo {
     display: flex;
     flex-direction: column;
