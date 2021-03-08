@@ -25,9 +25,12 @@ exports.loginClient = async (req, res) => {
     client.findByEmail(req.body.email, async (err, result) => {
         if (err) {
             res.status(401).send("Correo Invalido");
+            return;
         } else if (!result || result.length == 0) {
             res.status(401).send("Correo Invalido");
+            return;
         }
+   
         let validPassword = await encriptacion.matchPassword(
             req.body.password,
             result[0].password
