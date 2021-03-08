@@ -3,12 +3,13 @@ import { AuthService } from 'src/services/auth/auth.service';
 
 const CARRUSEL = [
     {
-        path: '../../assets/img/productos/chompas.png',
-        title: '¡Mira nuestros abrigos más bonitos!',
-        subtitle: 'En esta época de frío',
+        path: '../../assets/img/productos/banner_2.PNG',
+        title: '¡Mira nuestros regalos personalizados!',
+        subtitle: 'Para quien mas quieras',
         active: 'active',
         pos: 'First',
     },
+    
     {
         path: '../../assets/img/productos/banner.png',
         title: '¡Llegó la navidad!',
@@ -23,34 +24,14 @@ const CARRUSEL = [
         active: '',
         pos: 'Third',
     },
-];
-const CATEGORIAS = [
     {
-        path: '../../assets/img/categorias/navidad.jpg',
-        cat: 'Navidad',
-    },
-    {
-        path: '../../assets/img/categorias/camisetas.jpg',
-        cat: 'Camisetas',
-    },
-    {
-        path: '../../assets/img/categorias/textiles.jpg',
-        cat: 'Suéteres',
-    },
-    {
-        path: '../../assets/img/categorias/Regalos.jpg',
-        cat: 'Regalos',
-    },
-    {
-        path: '../../assets/img/categorias/jarros.jpg',
-        cat: 'Jarros',
-    },
-    {
-        path: '../../assets/img/categorias/otros.jpg',
-        cat: 'Otros',
+        path: '../../assets/img/productos/chompas.png',
+        title: '¡Mira nuestros abrigos más bonitos!',
+        subtitle: 'En esta época de frío',
+        active: '',
+        pos: 'Fourth',
     },
 ];
-
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
@@ -58,7 +39,6 @@ const CATEGORIAS = [
 })
 export class HomeComponent implements OnInit {
     carrusel = CARRUSEL;
-    cateogrias = CATEGORIAS;
 
     constructor(private _authService: AuthService) {
         _authService.setIsCompras(false);
